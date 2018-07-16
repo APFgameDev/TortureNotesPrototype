@@ -11,6 +11,10 @@ struct InputAxis
     public const string RightGripTrigger = "RightGripTrigger";
 }
 
+struct InputButton
+{
+    public const string Button3 = "Button3";
+}
 
 public class VRSetterUpper : MonoBehaviour {
     [SerializeField]

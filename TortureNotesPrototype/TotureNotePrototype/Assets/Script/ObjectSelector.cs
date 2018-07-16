@@ -30,12 +30,13 @@ public class ObjectSelector : MonoBehaviour
     {
         if ( HeldObject != null)
         {
+     
             //TODO: once key bindings are in place check to see if the release button is pressed
             //and if it is call releasedObject()
-            //if(Controller.GetRelease())
-            //{
+            if(Input.GetAxis(InputAxis.LeftGripTrigger) > 0.5f)
+            {
                   ReleaseObject();
-            //}
+            }
         }
     }
 

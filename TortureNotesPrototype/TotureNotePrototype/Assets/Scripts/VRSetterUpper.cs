@@ -22,9 +22,9 @@ public class VRSetterUpper : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        leftHand.localPosition = InputTracking.GetLocalPosition(XRNode.LeftHand) + posOffSet;
+        leftHand.localPosition = InputTracking.GetLocalPosition(XRNode.LeftHand);
         leftHand.localRotation = InputTracking.GetLocalRotation(XRNode.LeftHand);
-        rightHand.localPosition =  InputTracking.GetLocalPosition(XRNode.RightHand) + posOffSet;
+        rightHand.localPosition =  InputTracking.GetLocalPosition(XRNode.RightHand);
         rightHand.localRotation = InputTracking.GetLocalRotation(XRNode.RightHand);
     }
 

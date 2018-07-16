@@ -36,6 +36,7 @@ public class UIManager : MonoBehaviour
     public void AddAnotation()
     {
         Keyboard.SetActive(true);
+        AnnotationWindow.SetActive(false);
     }
 
     public void DoneAnotation()

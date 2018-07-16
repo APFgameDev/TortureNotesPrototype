@@ -46,7 +46,10 @@ namespace Normal.UI {
             string text = _text.text;
 
             if (keyPress == "Return")
+            {
                 UIManager.instance.DoneAnotation();
+                return;
+            }
 
 
             if (keyPress == "\b") {

@@ -7,6 +7,11 @@ public class OnEnableSpawnInRelativePositionToPlayerWithOffset : MonoBehaviour
     [SerializeField]
     Vector3 offset;
 
+    private void Start()
+    {
+        transform.position = Camera.main.transform.position + Camera.main.transform.rotation * offset;
+    }
+
     private void OnEnable()
     {
         transform.position = Camera.main.transform.position + Camera.main.transform.rotation * offset;

@@ -41,8 +41,10 @@ public class UIManager : MonoBehaviour
 
     public void DoneAnotation()
     {
+        Keyboard.SetActive(false);
         GameObject newAnnotation = Instantiate(annotationPrefab, m_ObjectBeingAnnotated.transform.position, m_ObjectBeingAnnotated.transform.rotation);
         newAnnotation.GetComponent<Annotation>().textComp.text = keyboardText.text;
+        keyboardText.text = string.Empty;
         hand.GrabObject(newAnnotation);
     }
 }

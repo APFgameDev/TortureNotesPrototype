@@ -45,6 +45,10 @@ namespace Normal.UI {
         void KeyPressed(Keyboard keyboard, string keyPress) {
             string text = _text.text;
 
+            if (keyPress == "Return")
+                UIManager.instance.DoneAnotation();
+
+
             if (keyPress == "\b") {
                 // Backspace
                 if (text.Length > 0)

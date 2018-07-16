@@ -34,7 +34,7 @@ public class ObjectSelector : MonoBehaviour
             //and if it is call releasedObject()
             //if(Controller.GetRelease())
             //{
-            //      ReleaseObject();
+                  ReleaseObject();
             //}
         }
     }

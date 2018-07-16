@@ -9,6 +9,10 @@ public class ObjectSelector : MonoBehaviour
     public event OnCollisionEvent collisionCallback;
     public delegate void OnCollisionEvent(GameObject value);
 
+    [SerializeField]
+    private GameObject imdepressed;
+    private bool selected;
+
     void Start()
     {
         collisionCallback += UIManager.instance.OnObjectSelected;
@@ -18,10 +22,11 @@ public class ObjectSelector : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {        
-        if(other.tag.ToLower() == "selectable")
+        if(other.tag.ToLower() == "selectable" && !selected)
         {
-            GameObject annotatingObject = other.gameObject;
-            collisionCallback(annotatingObject);
+            selected = true;
+            imdepressed = other.gameObject;            
+            collisionCallback(imdepressed);
             other.GetComponent<Renderer>().material.color = Color.red;
         }
     }
@@ -30,10 +35,7 @@ public class ObjectSelector : MonoBehaviour
     {
         if ( HeldObject != null)
         {
-     
-            //TODO: once key bindings are in place check to see if the release button is pressed
-            //and if it is call releasedObject()
-            if(Input.GetAxis(InputAxis.LeftGripTrigger) > 0.5f)
+            if(Input.GetAxis(InputAxis.RightGripTrigger) > 0.5f)
             {
                   ReleaseObject();
             }
@@ -49,10 +51,13 @@ public class ObjectSelector : MonoBehaviour
 
     public void ReleaseObject()
     {
-        HeldObject.transform.parent = null;
         Annotation annotation = HeldObject.GetComponent<Annotation>();
         annotation.linrenderer.SetPosition(0, annotation.transform.position);
-        annotation.linrenderer.SetPosition(1, transform.position);
+        annotation.linrenderer.SetPosition(1, imdepressed.transform.position);
+
+        selected = false;
+        HeldObject.transform.parent = null;
         HeldObject = null;
+        imdepressed = null;
     }
 }

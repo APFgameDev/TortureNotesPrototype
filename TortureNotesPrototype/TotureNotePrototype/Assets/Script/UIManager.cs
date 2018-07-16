@@ -45,6 +45,9 @@ public class UIManager : MonoBehaviour
         GameObject newAnnotation = Instantiate(annotationPrefab, m_ObjectBeingAnnotated.transform.position, m_ObjectBeingAnnotated.transform.rotation);
         newAnnotation.GetComponent<Annotation>().textComp.text = keyboardText.text;
         keyboardText.text = string.Empty;
+
+        newAnnotation.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+
         hand.GrabObject(newAnnotation);
     }
 }

@@ -6,7 +6,7 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
     public GameObject annotationPrefab;
-    public Canvas AnnotationWindow;
+    public GameObject AnnotationWindow;
     public ObjectSelector hand;
     public GameObject Keyboard;
     public Text keyboardText;
@@ -29,8 +29,7 @@ public class UIManager : MonoBehaviour
     {
         m_ObjectBeingAnnotated = objBeingAnnotated;
 
-        //AnnotationWindow.gameObject.SetActive(true);
-        //AnnotationWindow.enabled = true;
+        AnnotationWindow.SetActive(true);
     }
 
 

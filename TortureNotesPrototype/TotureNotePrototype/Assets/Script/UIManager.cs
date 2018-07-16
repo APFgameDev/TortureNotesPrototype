@@ -8,6 +8,8 @@ public class UIManager : MonoBehaviour
     public GameObject annotationPrefab;
     public Canvas AnnotationWindow;
     public ObjectSelector hand;
+    public GameObject Keyboard;
+    public Text keyboardText;
 
     private GameObject m_ObjectBeingAnnotated;
 
@@ -34,14 +36,13 @@ public class UIManager : MonoBehaviour
 
     public void AddAnotation()
     {
-        //TODO: Activate the keyboard here and begin to allow the user to interact with the keyboard
+        Keyboard.SetActive(true);
     }
 
     public void DoneAnotation()
     {
         GameObject newAnnotation = Instantiate(annotationPrefab, m_ObjectBeingAnnotated.transform.position, m_ObjectBeingAnnotated.transform.rotation);
-        
-
+        newAnnotation.GetComponent<Annotation>().textComp.text = keyboardText.text;
         hand.GrabObject(newAnnotation);
     }
 }

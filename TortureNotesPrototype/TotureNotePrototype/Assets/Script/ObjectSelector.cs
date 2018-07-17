@@ -64,6 +64,8 @@ public class ObjectSelector : MonoBehaviour
 
          //annotation.linrenderer.SetPosition(1,edgePos);
         annotation.linrenderer.SetPosition(1, imdepressed.transform.position);
+        imdepressed.GetComponent<Renderer>().material.color = Color.white;
+
 
         selected = false;
         HeldObject.transform.parent = null;

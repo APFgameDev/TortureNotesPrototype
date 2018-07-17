@@ -26,8 +26,8 @@ namespace Normal.UI {
         private Vector3    _scaleOffset;
 
         // Animation
-        private Vector3    _targetPosition;
-        private Quaternion _targetRotation;
+        public Vector3    _targetPosition;
+        public Quaternion _targetRotation;
         private Vector3    _targetScale;
 
         void OnEnable() {

@@ -18,14 +18,19 @@ public class VRButton : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Hit!");
-        UIMan.AddAnotation();
-        MRenderer.material = SelectedMat;
+        if(other.gameObject.tag == "Right Hand")
+        {
+            UIMan.AddAnotation();
+            MRenderer.material = SelectedMat;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        MRenderer.material = OriginalMat;
+        if (other.gameObject.tag == "Right Hand")
+        {
+            MRenderer.material = OriginalMat;
+        }
     }
 
 }

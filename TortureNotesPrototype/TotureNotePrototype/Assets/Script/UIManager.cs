@@ -11,6 +11,9 @@ public class UIManager : MonoBehaviour
     public GameObject Keyboard;
     public Text keyboardText;
 
+    public Laser LeftHand;
+    public Laser RightHand;
+
     private GameObject m_ObjectBeingAnnotated;
 
     void Awake()
@@ -30,6 +33,8 @@ public class UIManager : MonoBehaviour
         m_ObjectBeingAnnotated = objBeingAnnotated;
 
         AnnotationWindow.SetActive(true);
+        LeftHand.IsOn = false;
+        RightHand.IsOn = false;
     }
 
 
@@ -37,6 +42,7 @@ public class UIManager : MonoBehaviour
     {
         Keyboard.SetActive(true);
         AnnotationWindow.SetActive(false);
+        
     }
 
     public void DoneAnotation()
@@ -49,5 +55,8 @@ public class UIManager : MonoBehaviour
         newAnnotation.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
 
         hand.GrabObject(newAnnotation);
+
+        LeftHand.IsOn = true;
+        RightHand.IsOn = true;
     }
 }

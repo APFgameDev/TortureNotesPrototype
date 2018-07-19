@@ -2,33 +2,47 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public struct Comment
+namespace NS_Annotation.NS_Data
 {
-    public string author;
-    public string date;
-    public string content;
-    public List<Comment> m_replies;
-}
-
-public class AnnotationNode
-{
-    Comment mainComment;
-    int numReplies = 0;
-    Vector3 localPos;
-
-    void IncrementReplies()
+    public class Tag
     {
-        numReplies++;
+        string title;
+        string description;
+        Vector3 localPos;
+        Vector3 localOrigin;
+
+        List<AnnotationNode> annotationNodes = new List<AnnotationNode>();
+
+        public int AnnotationCount { get { return annotationNodes.Count; } }
     }
 
-    void DecrementReplies()
+    public struct Comment
     {
-        numReplies--;
+        public string author;
+        public string date;
+        public string content;
     }
 
-    void SetLocalPos(Vector3 aLocalPos)
+    public class AnnotationNode
     {
-        localPos = aLocalPos;
+        Comment mainComment;
+        List<Comment> comments = new List<Comment>();
+        int numReplies = 0;
+        Vector3 localPos;
+
+        void IncrementReplies()
+        {
+            numReplies++;
+        }
+
+        void DecrementReplies()
+        {
+            numReplies--;
+        }
+
+        void SetLocalPos(Vector3 aLocalPos)
+        {
+            localPos = aLocalPos;
+        }
     }
 }

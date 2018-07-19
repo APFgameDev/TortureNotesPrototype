@@ -20,14 +20,6 @@ public class VRSliderHandler : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Vector2 screenPosLeft = Camera.main.WorldToScreenPoint(transform.position - transform.right * rectTransform.rect.min.x);
-        Vector2 localRectPoint;
-
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, eventData.position, Camera.main, out localRectPoint);
-
-        //TODO check slider direction and adjust calculation accordingly
-        float sliderPercent = Mathf.InverseLerp(0, rectTransform.rect.width, localRectPoint.x + rectTransform.offsetMax.x);
-
-        slider.value = Mathf.Lerp(slider.minValue, slider.maxValue, sliderPercent);
+        slider.value = MathUtility.CalculateDragValue(rectTransform, transform, eventData.position, (UnityEngine.UI.Scrollbar.Direction)slider.direction, slider.minValue, slider.maxValue);
     }
 }

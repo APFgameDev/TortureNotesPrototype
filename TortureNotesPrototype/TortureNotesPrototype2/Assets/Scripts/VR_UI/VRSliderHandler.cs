@@ -5,21 +5,21 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Slider))]
-[RequireComponent(typeof(VRSelectableHandler))]
-public class VRSliderHandler : MonoBehaviour, IPointerClickHandler
+public class VRSliderHandler : VRSelectableHandler
 {
     Slider slider;
     RectTransform rectTransform;
 
-
 	// Use this for initialization
-	void Awake () {
+	void Awake ()
+    {
         slider = GetComponent<Slider>();
         rectTransform = GetComponent<RectTransform>();
+        InitSelectableHandler();
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public override void OnClickHeld(VRInteractionData vrInteraction)
     {
-        slider.value = MathUtility.CalculateDragValue(rectTransform, transform, eventData.position, (UnityEngine.UI.Scrollbar.Direction)slider.direction, slider.minValue, slider.maxValue);
+        slider.value = MathUtility.CalculateDragValue(rectTransform, transform, Camera.main.WorldToScreenPoint(vrInteraction.pos), (Scrollbar.Direction)slider.direction, slider.minValue, slider.maxValue);
     }
 }

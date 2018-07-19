@@ -3,20 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class VRGrabbable : IPointerDownHandler, IPointerUpHandler
+public class VRGrabbable : VRInteractable
 {
-    public void OnPointerClick(PointerEventData eventData)
+    override public void OnClick(VRInteractionData vrInteractionData)
     {
-        throw new System.NotImplementedException();
+        if (transform.parent == null || transform.parent != vrInteractionData.handTrans)
+            transform.parent = vrInteractionData.handTrans;
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    override public void OnClickRelease(VRInteractionData vrInteractionData)
     {
-        eventData.selectedObject;
-    }
-
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        throw new System.NotImplementedException();
+        if (transform.parent == vrInteractionData.handTrans)
+            transform.parent = null;
     }
 }

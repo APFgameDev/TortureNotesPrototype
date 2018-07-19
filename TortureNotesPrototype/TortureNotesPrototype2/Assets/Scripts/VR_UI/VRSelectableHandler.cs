@@ -6,14 +6,17 @@ using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Selectable))]
 [RequireComponent(typeof(RectTransform))]
-public class VRSelectableHandler : MonoBehaviour
+public class VRSelectableHandler : VRInteractable
 {
     int numSelecting = 0;
     Selectable selectable;
     IPointerClickHandler clickHandler;
 
-
     private void Awake()
+    {
+        InitSelectableHandler();
+    }
+    public void InitSelectableHandler()
     {
         selectable = GetComponent<Selectable>();
         clickHandler = GetComponent<IPointerClickHandler>();
@@ -23,7 +26,7 @@ public class VRSelectableHandler : MonoBehaviour
         boxCollider.size = new Vector3(rect.width, rect.height, 0.1f);
     }
 
-    public void IncrementSelection()
+    override public void OnHoverEnter(VRInteractionData vrInteraction)
     {
         if (numSelecting == 0)
         {
@@ -33,7 +36,7 @@ public class VRSelectableHandler : MonoBehaviour
         numSelecting++;
     }
 
-    public void DecrementSelection()
+    override public void OnHoverExit(VRInteractionData vrInteraction)
     {
         numSelecting--;
 
@@ -43,12 +46,43 @@ public class VRSelectableHandler : MonoBehaviour
         }
     }
 
-    public void Select(Vector3 hitPoint)
+    override public void OnClick(VRInteractionData vrInteraction)
     {
         PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
-        pointerEventData.position = Camera.main.WorldToScreenPoint(hitPoint);
+        pointerEventData.position = Camera.main.WorldToScreenPoint(vrInteraction.pos);
 
         if (clickHandler != null)
             clickHandler.OnPointerClick(pointerEventData);
     }
+}
+
+
+public class VRInteractable : MonoBehaviour
+{
+    public virtual void OnHoverEnter(VRInteractionData vrInteraction)
+    {
+
+    }
+    public virtual void OnHoverExit(VRInteractionData vrInteraction)
+    {
+
+    }
+    public virtual void OnClick(VRInteractionData vrInteraction)
+    {
+
+    }
+    public virtual void OnClickHeld(VRInteractionData vrInteraction)
+    {
+
+    }
+    public virtual void OnClickRelease(VRInteractionData vrInteraction)
+    {
+
+    }
+}
+
+public struct VRInteractionData
+{
+    public Vector3 pos;
+    public Transform handTrans;
 }

@@ -16,10 +16,14 @@ public class Laser : MonoBehaviour
     float valueTest;
 
     LineRenderer lineRenderer;
-    VRSelectableHandler m_selectableHandler;
+    VRInteractable m_vrInteractable;
+    VRInteractionData vrInteraction;
 
-    private void Start()
+    bool isClicked = false;
+
+    private void Awake()
     {
+        vrInteraction.handTrans = transform;
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.positionCount = 2;
     }
@@ -32,44 +36,60 @@ public class Laser : MonoBehaviour
             lineRenderer.SetPosition(0, StartPos);
             lineRenderer.SetPosition(1, ForwardPos);
 
+            bool isClickHeld = Input.GetAxis(InputAxis.InputAxisArray[(int)inputAxisIndex]) > 0.5f;
+
+
+            vrInteraction.pos = CalculateClosestPointOnLaserFromInteractable();
+
+            if (m_vrInteractable)
+            { 
+                if (isClickHeld)
+                    m_vrInteractable.OnClickHeld(vrInteraction);
+                else
+                    m_vrInteractable.OnClickRelease(vrInteraction);
+            }
+
             RaycastHit hit;
             if (Physics.Raycast(StartPos, ForwardPos - StartPos, out hit))
             {
-                if (m_selectableHandler && Input.GetAxis(InputAxis.InputAxisArray[(int)inputAxisIndex]) > 0.5f)
-                    m_selectableHandler.Select(hit.point);
+                if (isClickHeld == true && isClicked == false)
+                {
+                    isClicked = true;
+
+                    if (m_vrInteractable)
+                        m_vrInteractable.OnClick(vrInteraction);
+                }
+                else if(isClickHeld == false && isClicked == true)
+                    isClicked = false;
 
                 GameObject other = hit.collider.gameObject;
-                VRSelectableHandler selectableHandler = other.GetComponent<VRSelectableHandler>();
-                if (selectableHandler != m_selectableHandler)
+
+                VRInteractable selectableHandler = other.GetComponent<VRInteractable>();
+                if (selectableHandler != m_vrInteractable && isClickHeld == false)
                 {
-                    if (m_selectableHandler)
-                        m_selectableHandler.DecrementSelection();
+                    if (m_vrInteractable)
+                        m_vrInteractable.OnHoverExit(vrInteraction);
 
-                    m_selectableHandler = selectableHandler;
+                    m_vrInteractable = selectableHandler;
 
-                    if (m_selectableHandler)
-                        m_selectableHandler.IncrementSelection();
+                    if (m_vrInteractable)
+                        m_vrInteractable.OnHoverEnter(vrInteraction);
                 }                
-
-                ////Just testing this for now
-                //if (other != null)
-                //{
-                //    if (other.tag.ToLower() == "selectable")
-                //    {
-                //        if (Input.GetAxis(InputAxis.RightGripTrigger) > 0.5f)
-                //        {
-                //            other.gameObject.SetActive(false);
-                //        }
-                //    }
-                //}
             }
-            else if (m_selectableHandler)
+            else if (m_vrInteractable && isClickHeld == false)
             {
-                m_selectableHandler.DecrementSelection();
-                m_selectableHandler = null;
+                m_vrInteractable.OnHoverExit(vrInteraction);
+                m_vrInteractable = null;
             }
-
-
         }
+    }
+
+
+    Vector3 CalculateClosestPointOnLaserFromInteractable()
+    {
+        if (m_vrInteractable)
+            return Vector3.Project((m_vrInteractable.transform.position - transform.position), transform.forward);
+        else
+            return Vector3.zero;
     }
 }

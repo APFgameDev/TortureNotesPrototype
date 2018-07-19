@@ -1,0 +1,67 @@
+﻿// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel CSMain
+
+//Declare compute buffers
+StructuredBuffer<float> InputBuffer;
+RWStructuredBuffer<float> OutputBuffer;
+
+RWTexture2D<float4> RenderHeightMap;
+
+//Declare other parameters
+int GridWidth;
+int GridHeight;
+
+float CenterWeight;
+float SideWeight;
+
+//Helper functions
+int Calc1DIndex(int x, int y)
+{
+    return x * GridHeight + y;
+}
+
+float GetHeightSafe(int x, int y)
+{
+    if (x < 0 || x >= GridWidth || y < 0 || y >= GridHeight)
+    {
+         return 0.0f;
+    }
+
+    return InputBuffer[Calc1DIndex(x, y)];
+}
+
+//The execution function.  This is the entry point into your compute shader
+[numthreads(5, 5, 1)]
+void CSMain (uint2 id : SV_DispatchThreadID)
+{
+    int centerIndex = Calc1DIndex(id.x, id.y);
+    
+    float avgHeight = InputBuffer[centerIndex] * CenterWeight;
+    avgHeight += GetHeightSafe(id.x - 1, id.y) * SideWeight;
+    avgHeight += GetHeightSafe(id.x + 1, id.y) * SideWeight;
+    avgHeight += GetHeightSafe(id.x, id.y - 1) * SideWeight;
+    avgHeight += GetHeightSafe(id.x, id.y + 1) * SideWeight;
+    
+    OutputBuffer[centerIndex] = avgHeight;
+    
+    RenderHeightMap[id] = float4(avgHeight, avgHeight, avgHeight, 1.0);
+
+	//Uncomment this to help visualize the dispatch ids
+	//{
+	//	float w, h;
+	//	RenderHeightMap.GetDimensions(w, h);
+
+	//	float2 uv = float2((float)id.x / w, (float)id.y / h);
+
+	//	RenderHeightMap[id] = float4(uv, 0.0, 1.0);
+	//}
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,13 @@
+﻿//Week 6 - Exercise 1
+
+#pragma kernel CSMain1
+
+StructuredBuffer<float> inputBuffer1;
+StructuredBuffer<float> inputBuffer2;
+RWStructuredBuffer<float> outputBuffer;
+
+[numthreads(4,1,1)]
+void CSMain1(int dispatchID : SV_DispatchThreadID)
+{
+    outputBuffer[dispatchID] = inputBuffer1[dispatchID] + inputBuffer2[dispatchID];
+}

@@ -1,0 +1,239 @@
+﻿// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel UpdateCells 
+#pragma kernel UpdateCellsPaused 
+#pragma kernel UpdateVertDerivatives 
+
+//Perlin Values
+float Noise3DOffset;
+float NoiseScale;
+float ScrollX;
+float ScrollY;
+
+int Octaves;
+float Amp;
+float Pers;
+
+//Permutation array
+StructuredBuffer<int> p;
+
+//Define SimCell
+struct SimCell
+{
+    float height;
+	float perlinHeight;
+    float prevHeight;
+    float verticalDerivative;
+};
+
+//Declare compute buffers
+StructuredBuffer<float> SimKernel;
+RWStructuredBuffer<SimCell> SimCells;
+
+RWTexture2D<float> RenderHeightMap;
+RWTexture2D<float> RenderDerivativesMap;
+
+//Declare other parameters
+int GridDimensionX;
+int GridDimensionY;
+
+float WorldX;
+float WorldY;
+
+float DeltaTime;
+float Gravity;
+float Damping;
+
+float KernelFullSize;
+float KernelHalfSize;
+
+
+//Helper functions
+int Calc1DIndex(int x, int y)
+{
+    return x * GridDimensionY + y;
+}
+
+float GetKernelWeight(int x, int y)
+{
+    int index = x * KernelFullSize + y;
+    
+    return SimKernel[index];
+}
+
+int ReflectCoordIfNeeded(int coord, int MaxCoord)
+{
+    if (coord < 0)
+    {
+        return -coord;
+    }
+    else if (coord >= MaxCoord)
+    {
+        return 2 * MaxCoord - coord - 1;
+    }
+    else
+    {
+        return coord;
+    }
+}
+
+
+
+float fade(float t)
+{
+	return t * t * t * (t * (t * 6 - 15) + 10);
+}
+
+float lerp(float t, float a, float b)
+{
+	return a + t * (b - a);
+}
+
+float grad(int hash, float x, float y, float z)
+{
+	int h = hash & 15;
+	float u = h < 8 ? x : y,
+		v = h < 4 ? y : h == 12 || h == 14 ? x : z;
+	return ((h & 1) == 0 ? u : -u) + ((h & 2) == 0 ? v : -v);
+}
+
+float PerlinNoise(float x, float y, float z)
+{
+	int X, Y, Z;
+	X = (int)floor(x) & 255;
+	Y = (int)floor(y) & 255;
+	Z = (int)floor(z) & 255;
+
+	x -= floor(x);
+	y -= floor(y);
+	z -= floor(z);
+
+	float u, v, w;
+	u = fade(x);
+	v = fade(y);
+	w = fade(z);
+
+	int A = p[X] + Y;
+	int B = p[X + 1] + Y;
+
+	int AA = p[A] + Z;
+	int AB = p[A + 1] + Z;
+
+	int BA = p[B] + Z;
+	int BB = p[B + 1] + Z;
+
+	return lerp(w, lerp(v, lerp(u, grad(p[AA], x, y, z),  // AND ADD
+		grad(p[BA], x - 1, y, z)), // BLENDED
+		lerp(u, grad(p[AB], x, y - 1, z),  // RESULTS
+			grad(p[BB], x - 1, y - 1, z))),// FROM  8
+		lerp(v, lerp(u, grad(p[AA + 1], x, y, z - 1),  // CORNERS
+			grad(p[BA + 1], x - 1, y, z - 1)), // OF CUBE
+			lerp(u, grad(p[AB + 1], x, y - 1, z - 1),
+				grad(p[BB + 1], x - 1, y - 1, z - 1))));
+
+}
+
+float GetNoiseOctaves(float x, float y, float z)
+{
+	float total = 0.0f;
+	float cAmp = Amp;
+	float xFreq = WorldX;
+	float yFreq = WorldY;
+	float zFreq = 1.0;
+	for (int i = 0; i < Octaves; i++)
+	{
+		float xNoise = x / (float)GridDimensionX * xFreq;
+		float yNoise = y / (float)GridDimensionY * yFreq;
+		float zNoise = z * zFreq;
+		total += cAmp * PerlinNoise(xNoise, yNoise, zNoise);
+		cAmp *= Pers;
+		xFreq *= 2;
+		yFreq *= 2;
+		zFreq *= 2;
+	}
+	return total;
+}
+
+//UpdateVertDerivatives Kernel
+[numthreads(5, 5, 1)]
+void UpdateVertDerivatives (uint2 id : SV_DispatchThreadID)
+{
+    float verticalDerivative = 0.0f;
+
+    for (int kernelX = 0; kernelX < KernelFullSize; ++kernelX)
+    {
+        for (int kernelY = 0; kernelY < KernelFullSize; ++kernelY)
+        {
+            int sampleCoordX = id.x + kernelX - KernelHalfSize;
+            int sampleCoordY = id.y + kernelY - KernelHalfSize;
+
+            sampleCoordX = ReflectCoordIfNeeded(sampleCoordX, GridDimensionX);
+            sampleCoordY = ReflectCoordIfNeeded(sampleCoordY, GridDimensionY);            
+
+            int gridIndex = Calc1DIndex(sampleCoordX, sampleCoordY);
+
+            float kernelWeight = GetKernelWeight(kernelX, kernelY);
+
+            verticalDerivative += kernelWeight * SimCells[gridIndex].height;
+        }
+    }
+
+    int centerIndex = Calc1DIndex(id.x, id.y);
+
+    SimCells[centerIndex].verticalDerivative = verticalDerivative;
+    
+    //Output render derivatives.  Currently this is only used for debug visualization, but these values
+    //could be used to make effects based on the vertical velocity of the water surface.  (Like foam, etc.)
+    RenderDerivativesMap[id] = verticalDerivative;
+}
+
+//UpdateCells Kernel
+[numthreads(5, 5, 1)]
+void UpdateCells (uint2 id : SV_DispatchThreadID)
+{
+    //Setting up the values that will be used in the water simulation formula
+    float g = Gravity * DeltaTime * DeltaTime;
+    float alpha = Damping;
+
+    int numElements = GridDimensionX * GridDimensionY;
+
+    //Precomputing a few parts of the formula that are repeated in multiple places
+    float adt = alpha * DeltaTime;
+    float adt2 = 1.0f / (1.0f + adt);
+
+    int centerIndex = Calc1DIndex(id.x, id.y);
+
+    float tempHeight = SimCells[centerIndex].height;      
+    
+    SimCells[centerIndex].height = SimCells[centerIndex].height * (2.0f - adt) - 
+        SimCells[centerIndex].prevHeight - g * SimCells[centerIndex].verticalDerivative;
+    
+    SimCells[centerIndex].height *= adt2;
+    
+    SimCells[centerIndex].prevHeight = tempHeight;  
+
+	SimCells[centerIndex].perlinHeight = GetNoiseOctaves((id.x * NoiseScale) + ScrollX, (id.y * NoiseScale) + ScrollY, Noise3DOffset);
+
+    //Output render height
+	RenderHeightMap[id] = SimCells[centerIndex].height + SimCells[centerIndex].perlinHeight;
+}
+
+//UpdateCellsPaused Kernel
+[numthreads(5, 5, 1)]
+void UpdateCellsPaused (uint2 id : SV_DispatchThreadID)
+{
+    int centerIndex = Calc1DIndex(id.x, id.y);
+
+    float height = SimCells[centerIndex].height;      
+    SimCells[centerIndex].prevHeight = height;  
+
+    //Output render height
+    RenderHeightMap[id] = height + SimCells[centerIndex].perlinHeight;
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,24 @@
+﻿#pragma kernel CSMain
+
+RWTexture2D<float4> Texture;
+
+
+[numthreads(16, 16, 1)]
+void CSMain (
+    int2 dispatchId : SV_DispatchThreadID, 
+    int2 threadID : SV_GroupThreadID, 
+    int2 groupID : SV_GroupID
+    )
+{
+    const int NumThreads = 16;
+    const int NumGroups = 4;
+
+    float w, h;
+    Texture.GetDimensions(w, h);
+
+    float2 uv = float2((float)dispatchId.x / w, (float)dispatchId.y / h);
+    //float2 uv = float2((float)threadID.x / NumThreads, (float)threadID.y / NumThreads);
+    //float2 uv = float2((float)groupID.x / NumGroups, (float)groupID.y / NumGroups);
+
+    Texture[dispatchId] = float4(uv, 0.0, 1.0);
+}

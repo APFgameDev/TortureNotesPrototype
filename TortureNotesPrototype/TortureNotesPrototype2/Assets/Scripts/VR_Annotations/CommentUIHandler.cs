@@ -1,18 +1,24 @@
 ﻿using NS_Annotation.NS_Data;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public abstract class CommentUIHandler : MonoBehaviour
 {
     #region Public Members
-    public List<CommentPanel> m_CommentPanels = new List<CommentPanel>();
+    public GameObject CommentPanelPrefab;
+    //TODO: add a reference to the keyboard in here. This will be enabled and disabled when ever the user goes to edit or create a comment
     #endregion
 
-    #region Private Members
-    private AnnotationNode m_AnnotationNode;
+    #region protected Members
+    protected List<CommentPanel> m_CommentPanels = new List<CommentPanel>();
+
+    protected AnnotationNode m_AnnotationNode;
 
     //Object pool of all comment panels that are going to be used in the CommentUI
-    private ObjectPool<CommentPanel> objectPool = new ObjectPool<CommentPanel>(5, 5);
+    protected ObjectPool<CommentPanel> objectPool = new ObjectPool<CommentPanel>(5, 5);
+
+    protected CommentPanel m_CommentBeingEdited;
     #endregion
 
     #region Abstract Methods
@@ -20,25 +26,33 @@ public abstract class CommentUIHandler : MonoBehaviour
     public abstract void Close();
     #endregion  
 
-    public void InitAnnotationPanel(AnnotationNode annotationNode)
+    public virtual void InitAnnotationPanel(AnnotationNode annotationNode)
     {
         m_CommentPanels.Capacity = annotationNode.ThreadCount;
 
         foreach (Comment comment in annotationNode.Replies)
         {
             CommentPanel commentPanel = GetCommentPanelFromPool();
-            commentPanel.InitCommentPanel(comment);
+            commentPanel.InitCommentPanel(comment, this);
             m_CommentPanels.Add(commentPanel);
         }
-
     }
 
-    public void ChangeComment(CommentPanel panelToEdit)
+    public virtual void ChangeContent(CommentPanel panelToEdit)
     {
-
+        //TODO: enable the comment logic here
+        m_CommentBeingEdited = panelToEdit;
     }
 
-    public CommentPanel GetCommentPanelFromPool()
+    protected virtual void PublishComment()
+    {
+        m_CommentBeingEdited.authorText.text = "Jim Bob, Joe";
+
+        DateTime date = new DateTime();
+        m_CommentBeingEdited.dateText.text = date.Day.ToString() + " / " + date.Month.ToString() + " / " + date.Year.ToString();
+    }
+
+    public virtual CommentPanel GetCommentPanelFromPool()
     {
         return objectPool.GetObjectFromPool();       
     }
@@ -46,8 +60,7 @@ public abstract class CommentUIHandler : MonoBehaviour
     /// <summary>
     /// Deletes a specific comment out of the thread.
     /// </summary>
-    /// <param name="comment"></param>
-    public void DeleteComment(Comment comment)
+    public virtual void DeleteComment(Comment comment)
     {
         if (comment == m_AnnotationNode.MainThread)
         {
@@ -60,7 +73,7 @@ public abstract class CommentUIHandler : MonoBehaviour
     }
 
     /// Deletes the entire comment thread. This will delete the annotation from memory
-    private void DeleteThread()
+    protected virtual void DeleteThread()
     {
         m_AnnotationNode.DeleteAnnotation();
         foreach(CommentPanel commentPanel in m_CommentPanels)
@@ -68,4 +81,6 @@ public abstract class CommentUIHandler : MonoBehaviour
             commentPanel.gameObject.SetActive(false);
         }
     }
+
+    
 }

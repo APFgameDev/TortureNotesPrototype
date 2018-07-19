@@ -5,7 +5,7 @@ using NS_Annotation.NS_Data;
 
 public class Annotater : MonoBehaviour
 {
-    List<AnnotationNode> annotationNodes = new List<AnnotationNode>();
+    Tag tag;
     [SerializeField]
     IIOStyle iOStyle;
     [SerializeField]
@@ -14,11 +14,11 @@ public class Annotater : MonoBehaviour
 	// Use this for initialization
 	void Awake ()
     {
-        annotationNodes = iOStyle.LoadData();
+        tag = iOStyle.LoadData();
 	}
 	
     public void SaveData()
     {
-        iOStyle.SaveData(annotationNodes);
+        iOStyle.SaveData(tag);
     }
 }

@@ -6,6 +6,6 @@ using NS_Annotation.NS_Data;
 
 public interface IIOStyle
 {
-    void SaveData(List<AnnotationNode> annotationNode);
-    List<AnnotationNode> LoadData();
+    void SaveData(Tag annotationNode);
+    Tag LoadData();
 }

@@ -1,6 +1,7 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 public class ObjectPool<T> where T : MonoBehaviour
 {
@@ -11,8 +12,10 @@ public class ObjectPool<T> where T : MonoBehaviour
 
     uint expansionAmount;
 
-    public ObjectPool(uint startingSize, uint aExpansionAmount)
+    public ObjectPool(uint startingSize, uint aExpansionAmount, GameObject prefab)
     {
+        m_prefab = prefab;
+
         if (m_prefab == null || m_prefab.GetComponent<T>() == null)
             Debug.LogError("ObjectPool of " + typeof(T).ToString() + "Is not valid");
 

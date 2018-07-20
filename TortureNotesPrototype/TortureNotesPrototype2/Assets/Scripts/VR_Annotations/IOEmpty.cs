@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using NS_Annotation.NS_Data;
 using UnityEngine;
 
-public class IOEmpty : IIOStyle {
-    public List<AnnotationNode> LoadData()
+public class IOEmpty : IIOStyle
+{
+    public Tag LoadData()
     {
-        return new List<AnnotationNode>();
+        return new Tag();
     }
 
-    public void SaveData(List<AnnotationNode> annotationNode)
+    public void SaveData(Tag annotationNode)
     {
     }
 }

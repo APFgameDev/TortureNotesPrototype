@@ -22,6 +22,13 @@ namespace NS_Annotation.NS_Data
         public string date;
         public string content;
 
+        public Comment(string a_author, string a_date, string a_content)
+        {
+            author = a_author;
+            date = a_date;
+            content = a_content;
+        }
+
         public static bool operator ==(Comment a, Comment b)
         {
             return  (a.author.ToLower()     == b.author.ToLower())  &&
@@ -34,6 +41,16 @@ namespace NS_Annotation.NS_Data
             return  (a.author.ToLower()     != b.author.ToLower())  &&
                     (a.date.ToLower()       != b.date.ToLower())    &&
                     (a.content.ToLower()    != b.content.ToLower())     ? true : false;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
         }
     }
 

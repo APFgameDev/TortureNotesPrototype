@@ -6,6 +6,7 @@ using UnityEngine;
 public abstract class CommentUIHandler : MonoBehaviour
 {
     #region Public Members
+    public CommentHandlerSO CHScriptObject;
     public GameObject CommentPanelPrefab;
     //TODO: add a reference to the keyboard in here. This will be enabled and disabled when ever the user goes to edit or create a comment
     #endregion
@@ -16,7 +17,7 @@ public abstract class CommentUIHandler : MonoBehaviour
     protected AnnotationNode m_AnnotationNode;
 
     //Object pool of all comment panels that are going to be used in the CommentUI
-    protected ObjectPool<CommentPanel> objectPool = new ObjectPool<CommentPanel>(5, 5);
+    protected ObjectPool<CommentPanel> objectPool;
 
     protected CommentPanel m_CommentBeingEdited;
     #endregion
@@ -24,18 +25,41 @@ public abstract class CommentUIHandler : MonoBehaviour
     #region Abstract Methods
     public abstract void Open();
     public abstract void Close();
+    public abstract void AddCommentToUI();
     #endregion  
+
+    public virtual void Awake()
+    {
+        objectPool = new ObjectPool<CommentPanel>(5, 5, CommentPanelPrefab);
+    }
+
+    public virtual void OnEnable()
+    {
+        CHScriptObject.commentHandler = this;
+    }
 
     public virtual void InitAnnotationPanel(AnnotationNode annotationNode)
     {
-        m_CommentPanels.Capacity = annotationNode.ThreadCount;
-
+        m_CommentPanels.Capacity = annotationNode.ThreadCount;        
         foreach (Comment comment in annotationNode.Replies)
         {
-            CommentPanel commentPanel = GetCommentPanelFromPool();
-            commentPanel.InitCommentPanel(comment, this);
-            m_CommentPanels.Add(commentPanel);
+            CreateAnnotationPanel(comment);
         }
+    }
+
+    /// <summary>
+    /// Adds a comment to the base annotation node
+    /// </summary>
+    protected virtual void AddCommentToAnnotationNode(Comment comment)
+    {
+        m_AnnotationNode.AddComment(comment);
+    }
+
+    protected virtual void CreateAnnotationPanel(Comment commentData)
+    {
+        CommentPanel commentPanel = GetCommentPanelFromPool();
+        commentPanel.InitCommentPanel(commentData, this);
+        m_CommentPanels.Add(commentPanel);
     }
 
     public virtual void ChangeContent(CommentPanel panelToEdit)
@@ -80,7 +104,5 @@ public abstract class CommentUIHandler : MonoBehaviour
         {
             commentPanel.gameObject.SetActive(false);
         }
-    }
-
-    
+    }    
 }

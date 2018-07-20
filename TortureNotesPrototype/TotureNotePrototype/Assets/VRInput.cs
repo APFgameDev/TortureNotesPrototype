@@ -1,89 +1,44 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class VRInput : MonoBehaviour
 {
-    Dictionary<int, List<string>> m_LetterCollection = new Dictionary<int, List<string>>()
-    {
-        { 0, new List<string> { string.Empty, string.Empty, "5", "4", "3", "2", "1", string.Empty } },
-        { 1, new List<string> { string.Empty, string.Empty, "0", "9", "8", "7", "6", string.Empty } },
+    public Text TestText;
 
-        { 2, new List<string> { string.Empty, string.Empty, "A", "B", "C", "D", "E", string.Empty } },
-        { 3, new List<string> { string.Empty, string.Empty, "F", "G", "H", "I", "J", string.Empty } },
-        { 4, new List<string> { string.Empty, string.Empty, "K", "L", "M", "N", "O", string.Empty } },
-        { 5, new List<string> { string.Empty, string.Empty, "P", "Q", "R", "S", "T", string.Empty } },
-        { 6, new List<string> { string.Empty, string.Empty, "U", "V", "W", "X", "Y", string.Empty } },
-
-        { 7, new List<string> { string.Empty, string.Empty, "Z", "/", ".", "-", "\'", string.Empty } },
-    };
-
-    [SerializeField]
     [Range(0f, 1f)]
-    float m_EventRadius = 0.7f;
+    public float m_EventRadius = 0.8f;
 
-    [SerializeField]
-    Vector2 m_RightThumbPos = Vector2.zero;
-    [SerializeField]
+    public float SectionAngle;
+    public int SectionIndex;
+    public float CurrentLeftAngle;
+
+    public Vector2 ThumbPos = Vector2.zero;
+
+    public int StickDirection = -1;
+    protected int PreviousStickPosition;
+
+    public bool IsFreeType = false;
+
+    public GameObject CircleColorParent;
+    public GameObject CircleTextParent;
+    protected Vector3 ChildScale;
     Vector2 m_LeftThumbPos = Vector2.zero;
 
-    [SerializeField]
-    int m_LeftStickDir = -1;
-    [SerializeField]
-    int m_RightStickDir = -1;
-
-    int m_PrevLeftStickDir = -1;
-    int m_PrevRightStickDir = -1;
-
-    [SerializeField]
-    string m_SelectedChar = string.Empty;
-
-    /// <summary>When a left stick event occurs. Argument is 'true' if past event range</summary>
-    public event System.Action<bool> LeftStickEvent = delegate { };
-    /// <summary>When a right stick event occurs. Argument is 'true' if past event range</summary>
-    public event System.Action<bool> RightStickEvent = delegate { };
-
-    /// <summary>When a left stick directional change occurs</summary>
-    public event System.Action<int> LeftStickDirChange = delegate { };
-    /// <summary>When a right stick directional change occurs</summary>
-    public event System.Action<int> RightStickDirChange = delegate { };
-
-    private void Start()
+    /// <summary>
+    /// Called when a selection is made
+    /// </summary>
+    public virtual void Select()
     {
-        LeftStickDirChange += OnLeftStickDirChanged;
-        RightStickDirChange += OnRightStickDirChanged;
+
     }
 
-    void Update()
-    {
-        // Get inputs
-        m_LeftThumbPos.x = Input.GetAxis("LeftStickHorizontal");
-        m_LeftThumbPos.y = Input.GetAxis("LeftStickVertical");
-
-        m_RightThumbPos.x = Input.GetAxis("RightStickHorizontal");
-        m_RightThumbPos.y = Input.GetAxis("RightStickVertical");
-
-        // Calculate stick directions
-        m_LeftStickDir = CalculateStickDir(m_LeftThumbPos);
-        m_RightStickDir = CalculateStickDir(m_RightThumbPos);
-
-        // Check changes
-        if (m_LeftStickDir != m_PrevLeftStickDir) // Something left stick changed
-        {
-            LeftStickDirChange(m_LeftStickDir);
-        }
-
-        if (m_RightStickDir != m_PrevRightStickDir) // Something right stick changed
-        {
-            RightStickDirChange(m_RightStickDir);
-        }
-
-        // Reset previous
-        m_PrevLeftStickDir = m_LeftStickDir;
-        m_PrevRightStickDir = m_RightStickDir;
-    }
-
-    int CalculateStickDir(Vector2 a_DirToCalc)
+    /// <summary>
+    /// Used to get the stick direction
+    /// </summary>
+    /// <param name="a_DirToCalc"></param>
+    /// <returns></returns>
+    protected virtual int CalculateStickDir(Vector2 a_DirToCalc)
     {
         // Below event radius -> no direction assigned
         if (a_DirToCalc.magnitude < m_EventRadius)
@@ -92,60 +47,105 @@ public class VRInput : MonoBehaviour
         }
         else
         {
-            if (a_DirToCalc.x <= 0) // 1 - 4
-            {
-                if (a_DirToCalc.y >= 0) // 3 - 4
-                {
-                    if (Mathf.Abs(a_DirToCalc.y) >= Mathf.Abs(a_DirToCalc.x)) return 4;
-                    else return 3;
-                }
-                else // 1 - 2
-                {
-                    if (Mathf.Abs(a_DirToCalc.y) >= Mathf.Abs(a_DirToCalc.x)) return 1;
-                    else return 2;
-                }
-            }
-            else // 5 - 0
-            {
-                if (a_DirToCalc.y >= 0) // 5 - 6
-                {
-                    if (Mathf.Abs(a_DirToCalc.y) >= Mathf.Abs(a_DirToCalc.x)) return 5;
-                    else return 6;
-                }
-                else // 7 - 0
-                {
-                    if (Mathf.Abs(a_DirToCalc.y) >= Mathf.Abs(a_DirToCalc.x)) return 0;
-                    else return 7;
-                }
-            }
+            return GetSectionFromAngle(FindAngle(a_DirToCalc.x, a_DirToCalc.y));
         }
     }
 
-    void OnLeftStickDirChanged(int a_NewDir)
+    /// <summary>
+    /// Is called when an input is detected from the stick
+    /// </summary>
+    protected virtual void StickInput()
     {
-        //Debug.Log(string.Format("Left stick direction changed to {0}", a_NewDir));
-
-        if (m_LeftStickDir > -1 && m_RightStickDir > -1)
+        if (StickDirection > -1)
         {
-            m_SelectedChar = m_LetterCollection[m_LeftStickDir][m_RightStickDir];
+            ScaleChildren(StickDirection, CircleColorParent, ChildScale, true);
         }
         else
         {
-            m_SelectedChar = string.Empty;
+            ScaleChildren(-1, CircleColorParent, ChildScale);
         }
     }
 
-    void OnRightStickDirChanged(int a_NewDir)
+    /// <summary>
+    /// Is called when the stick direction has been changed
+    /// </summary>
+    /// <param name="newDir"></param>
+    protected virtual void StickDirectionChanged(int newDir)
     {
-        //Debug.Log(string.Format("Right stick direction changed to {0}", a_NewDir));
 
-        if (m_LeftStickDir > -1 && m_RightStickDir > -1)
+    }
+
+
+    /// <summary>
+    /// Will return in degrees the angle as 0 - 360
+    /// </summary>
+    /// <param name="x"></param>
+    /// <param name="y"></param>
+    /// <returns></returns>
+    protected float FindAngle(float x, float y)
+    {
+        float returnedValue = Mathf.Atan2(y, x) * Mathf.Rad2Deg;
+
+        if (returnedValue < 0)
         {
-            m_SelectedChar = m_LetterCollection[m_LeftStickDir][m_RightStickDir];
+            returnedValue += 360f;
         }
-        else
+
+        return returnedValue;
+    }
+
+    /// <summary>
+    /// Will return the quadrant that the angle is in
+    /// </summary>
+    /// <param name="angle"></param>
+    /// <returns></returns>
+    protected int GetSectionFromAngle(float angle)
+    {
+        //To get the offset of the section so that the section angle matches the input background
+        float angleOffset = SectionAngle / (360.0f / SectionAngle);
+        float newAngle = angle + angleOffset;
+
+        if (newAngle > 360.0f)
         {
-            m_SelectedChar = string.Empty;
+            newAngle -= 360.0f;
+        }
+
+        int returnedValue = (int)((int)newAngle / SectionAngle);
+
+        return returnedValue;
+    }
+
+    /// <summary>
+    /// Will scale the children based on the index pass in and the parent object.
+    /// Only used for the visual.
+    /// </summary>
+    /// <param name="index"></param>
+    /// <param name="parent"></param>
+    /// <param name="changeAlpha"></param>
+    private void ScaleChildren(int index, GameObject parent, Vector3 scale, bool changeAlpha = false)
+    {
+        for (int i = 0; i < parent.transform.childCount; i++)
+        {
+            if (i == index)
+            {
+                parent.transform.GetChild(i).localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                if (changeAlpha == true)
+                {
+                    Color selectedAlpha = parent.transform.GetChild(i).GetComponent<Image>().color;
+                    selectedAlpha.a = 1.0f;
+                    parent.transform.GetChild(i).GetComponent<Image>().color = selectedAlpha;
+                }
+            }
+            else
+            {
+                parent.transform.GetChild(i).transform.localScale = scale;
+                if (changeAlpha == true)
+                {
+                    Color selectedAlpha = parent.transform.GetChild(i).GetComponent<Image>().color;
+                    selectedAlpha.a = 0.60f;
+                    parent.transform.GetChild(i).GetComponent<Image>().color = selectedAlpha;
+                }
+            }
         }
     }
 }

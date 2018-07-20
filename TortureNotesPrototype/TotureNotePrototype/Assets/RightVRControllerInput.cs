@@ -54,8 +54,15 @@ public class RightVRControllerInput : VRInput
         { 3, new List<string> { "[Space]" } }
     };
 
+    private bool isSelected = false;
+
     private void Start()
     {
+        if (VRControllerManager == null)
+        {
+            VRControllerManager = FindObjectOfType<VRControllerInputManager>();
+        }
+
         OnStateChangeEvent += OnControllerStateChange;
         State = RightControllerState.Menu;
         ChildScale = CircleColorParent.transform.GetChild(0).transform.localScale;
@@ -67,23 +74,31 @@ public class RightVRControllerInput : VRInput
         ThumbPos.x = Input.GetAxis("RightStickHorizontal");
         ThumbPos.y = Input.GetAxis("RightStickVertical");
 
-        StickDirection = CalculateStickDir(ThumbPos);
-        QuadrantSelection = (QuadrantDirections)StickDirection;
-
-        //Something changed
-        if (StickDirection != PreviousStickPosition)
+        if (Input.GetAxis("RightIndexTrigger") > 0.5f && isSelected == false)
         {
-            StickDirectionChanged(StickDirection);
-            StickInput();
-        }
-
-        if (PreviousStickPosition != -1 && StickDirection == -1)
-        {
+            isSelected = true;
+            Debug.Log("Trigger Down!");
             Select();
         }
 
+        if (Input.GetAxis("RightIndexTrigger") < 0.5f && isSelected == true)
+        {
+            isSelected = false;
+            Debug.Log("Trigger Up!");
+        }
+
+        StickQuadrantDirection = CalculateStickDir(ThumbPos);
+        QuadrantSelection = (QuadrantDirections)StickQuadrantDirection;
+
+        //Something changed
+        if (StickQuadrantDirection != PreviousStickPosition)
+        {
+            StickDirectionChanged(StickQuadrantDirection);
+            StickInput();
+        }
+
         // Reset previous
-        PreviousStickPosition = StickDirection;
+        PreviousStickPosition = StickQuadrantDirection;
 
         if (ThumbPos.x != 0.0f || ThumbPos.y != 0.0f)
         {
@@ -97,39 +112,44 @@ public class RightVRControllerInput : VRInput
         switch (ControllerState)
         {
             case RightControllerState.Menu:
-                if (PreviousStickPosition != -1)
+                if (StickQuadrantDirection != -1)
                 {
-                    string test = GetCharactersFromList(MenuOptions[PreviousStickPosition]);
-                    if (test == "[Del]")
+                    if (MenuOptions.ContainsKey(StickQuadrantDirection))
                     {
-                        string text = TestText.text;
-                        if (text != string.Empty)
-                            text = text.Remove(text.Length - 1);
-                        TestText.text = text;
-                    }
-                    else if (test == "[Space]")
-                    {
-                        TestText.text += " ";
-                    }
-                    else if (test == "[Tab]")
-                    {
+                        string test = GetCharactersFromList(MenuOptions[StickQuadrantDirection]);
+                        if (test == "[Del]")
+                        {
+                            string text = TestText.text;
+                            if (text != string.Empty)
+                                text = text.Remove(text.Length - 1);
+                            TestText.text = text;
+                        }
+                        else if (test == "[Space]")
+                        {
+                            TestText.text += " ";
+                        }
+                        else if (test == "[Tab]")
+                        {
 
-                    }
-                    else if (test == "[Enter]")
-                    {
-                        ControllerText.Text = TestText.text;
-                        DoneTypingEvent.Raise();
+                        }
+                        else if (test == "[Enter]")
+                        {
+                            ControllerText.Text = TestText.text;
+                            DoneTypingEvent.Raise();
+                        }
                     }
                 }
                 break;
             case RightControllerState.Typing:
-                if (LeftControllerInput.StickDirection != -1)
+                if (LeftControllerInput.StickQuadrantDirection != -1 && StickQuadrantDirection != -1)
                 {
-                    List<string> charactersFromLeftStickSelection = LeftControllerInput.GetListFromStickDirection();
+                    List<string> charactersFromLeftStickSelection = new List<string>(LeftControllerInput.GetListFromStickDirection());
+
+                    charactersFromLeftStickSelection.Reverse();
 
                     if (PreviousStickPosition < charactersFromLeftStickSelection.Count)
                     {
-                        TestText.text += charactersFromLeftStickSelection[PreviousStickPosition];
+                        TestText.text += charactersFromLeftStickSelection[StickQuadrantDirection];
                     }
                 }
                 break;
@@ -164,7 +184,7 @@ public class RightVRControllerInput : VRInput
     /// <param name="newDir"></param>
     protected override void StickDirectionChanged(int newDir)
     {
-        if (StickDirection > -1)
+        if (StickQuadrantDirection > -1)
         {
             //TestText.text = GetCharactersFromList(GetListFromFromIndex(0));
         }
@@ -178,11 +198,12 @@ public class RightVRControllerInput : VRInput
     {
         ClearCharactersOnCircle();
 
-        if (LeftControllerInput.StickDirection != -1)
+        if (LeftControllerInput.StickQuadrantDirection != -1)
         {
-            List<string> charactersFromLeftStickSelection = LeftControllerInput.GetListFromStickDirection();
+            List<string> charactersFromLeftStickSelection = new List<string>(LeftControllerInput.GetListFromStickDirection());
 
-            //Supper hard coded for now, need to change this to be more generic
+            charactersFromLeftStickSelection.Reverse();
+
             for (int i = 0; i < charactersFromLeftStickSelection.Count; i++)
             {
                 Text child = CircleTextParent.transform.GetChild(i).GetComponent<Text>();

@@ -15,8 +15,9 @@ public class VRInput : MonoBehaviour
 
     public Vector2 ThumbPos = Vector2.zero;
 
-    public int StickDirection = -1;
+    public int StickQuadrantDirection = -1;
     protected int PreviousStickPosition;
+    public VRControllerInputManager VRControllerManager;
 
     public bool IsFreeType = false;
 
@@ -56,9 +57,9 @@ public class VRInput : MonoBehaviour
     /// </summary>
     protected virtual void StickInput()
     {
-        if (StickDirection > -1)
+        if (StickQuadrantDirection > -1)
         {
-            ScaleChildren(StickDirection, CircleColorParent, ChildScale, true);
+            ScaleChildren(StickQuadrantDirection, CircleColorParent, ChildScale, true);
         }
         else
         {

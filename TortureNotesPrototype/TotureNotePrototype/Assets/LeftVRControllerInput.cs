@@ -4,34 +4,22 @@ using UnityEngine.UI;
 
 public class LeftVRControllerInput : VRInput
 {
-    //public Dictionary<int, List<string>> LetterCollection = new Dictionary<int, List<string>>()
-    //{
-    //    { 0, new List<string> { "a", "b", "c" } },
-    //    { 1, new List<string> { "d", "e", "f" } },
-    //    { 2, new List<string> { "g", "h", "i" } },  
-    //    { 3, new List<string> { "j", "k", "l" } },
-    //    { 4, new List<string> { "m", "n", "o" } },
-    //    { 5, new List<string> { "p", "q", "r", "s" } },
-    //    { 6, new List<string> { "t", "u", "v" } },
-    //    { 7, new List<string> { "w", "x", "y", "z" } },
-    //};
-
     public Dictionary<int, List<string>> LetterCollection = new Dictionary<int, List<string>>()
     {
-        { 0, new List<string> { "g", "h", "i" } },      //Right Quadrant
-        { 1, new List<string> { "d", "e", "f" } },      //Top Right Quadrant
-        { 2, new List<string> { "a", "b", "c" } },      //Top Quadrant
-        { 3, new List<string> { "w", "x", "y", "z" } }, //Top Left Quadrant
-        { 4, new List<string> { "t", "u", "v" } },      //Left Quadrant
-        { 5, new List<string> { "p", "q", "r", "s" } }, //Bottom Quadrant
-        { 6, new List<string> { "m", "n", "o" } },      //Bottom Left Quadrant
-        { 7, new List<string> { "j", "k", "l" } },      //Bottom Quadrant
-    };  
-
-    public RightVRControllerInput RightControllerInput;
+        { 0, new List<string> { "a", "b", "c" } },
+        { 1, new List<string> { "d", "e", "f" } },
+        { 2, new List<string> { "g", "h", "i" } },  
+        { 3, new List<string> { "j", "k", "l" } },
+        { 4, new List<string> { "m", "n", "o" } },
+        { 5, new List<string> { "p", "q", "r", "s" } },
+        { 6, new List<string> { "t", "u", "v" } },
+        { 7, new List<string> { "w", "x", "y", "z" } },
+    };
 
     public delegate void OnCapsChangeDelegate();
     public event OnCapsChangeDelegate OnCapsChangeEvent;
+
+    public RightVRControllerInput RightControllerInput;
 
     private bool IsCaps;
     public bool Caps
@@ -50,8 +38,14 @@ public class LeftVRControllerInput : VRInput
 
     private void Start()
     {
-        OnCapsChangeEvent += OnCapsChange;
+        if(VRControllerManager == null)
+        {
+            VRControllerManager = FindObjectOfType<VRControllerInputManager>();
+        }
 
+        OnCapsChangeEvent += OnCapsChange;
+        ChildScale = CircleColorParent.transform.GetChild(0).transform.localScale;
+        
         //Populate the left stick visual
         for (int i = 0; i < CircleTextParent.transform.childCount; i++)
         {
@@ -59,8 +53,6 @@ public class LeftVRControllerInput : VRInput
 
             child.text = GetCharactersFromList(LetterCollection[i]);
         }
-
-        ChildScale = CircleColorParent.transform.GetChild(0).transform.localScale;
     }
 
     void Update()
@@ -78,17 +70,17 @@ public class LeftVRControllerInput : VRInput
             Caps = false;
         }
 
-        StickDirection = CalculateStickDir(ThumbPos);
+        StickQuadrantDirection = CalculateStickDir(ThumbPos);
 
         //Something changed
-        if (StickDirection != PreviousStickPosition)
+        if (StickQuadrantDirection != PreviousStickPosition)
         {
-            StickDirectionChanged(StickDirection);
+            StickDirectionChanged(StickQuadrantDirection);
             StickInput();
         }
 
         // Reset previous
-        PreviousStickPosition = StickDirection;
+        PreviousStickPosition = StickQuadrantDirection;
 
         if (ThumbPos.x != 0.0f || ThumbPos.y != 0.0f)
         {
@@ -103,7 +95,7 @@ public class LeftVRControllerInput : VRInput
     /// <param name="newDir"></param>
     protected override void StickDirectionChanged(int newDir)
     {
-        if (StickDirection > -1)
+        if (StickQuadrantDirection > -1)
         {
             TestText.text = GetCharactersFromStickDirection();
             RightControllerInput.State = RightVRControllerInput.RightControllerState.Typing;
@@ -117,7 +109,7 @@ public class LeftVRControllerInput : VRInput
 
     private void OnCapsChange()
     {
-        if(StickDirection != -1)
+        if(StickQuadrantDirection != -1)
         {
             for (int i = 0; i < CircleTextParent.transform.childCount; i++)
             {
@@ -185,21 +177,19 @@ public class LeftVRControllerInput : VRInput
 
     public List<string> GetListFromStickDirection()
     {
-        return FormatList(LetterCollection[StickDirection]);
-    }
-
-    public List<string> GetListFromIndex(int index)
-    {
-        return LetterCollection[index];
+        //return FormatList(LetterCollection[StickQuadrantDirection]);
+        return FormatList(LetterCollection[VRControllerManager.GetSectionFromQuadrant(StickQuadrantDirection)]);
     }
 
     public string GetCharactersFromStickDirection()
     {
-        return GetCharactersFromList(LetterCollection[StickDirection]);
+        //return GetCharactersFromList(LetterCollection[StickQuadrantDirection]);
+        return GetCharactersFromList(LetterCollection[VRControllerManager.GetSectionFromQuadrant(StickQuadrantDirection)]);
     }
 
     public string GetCharactersFromIndex(int index)
     {
+        //return GetCharactersFromList(LetterCollection[index]);
         return GetCharactersFromList(LetterCollection[index]);
     }
 

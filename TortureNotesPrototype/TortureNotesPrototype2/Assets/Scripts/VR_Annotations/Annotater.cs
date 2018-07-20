@@ -5,17 +5,22 @@ using NS_Annotation.NS_Data;
 
 public class Annotater : MonoBehaviour
 {
-    Tag tag;
     [SerializeField]
     IIOStyle iOStyle;
     [SerializeField]
-    GameObject prefabNode;
+    GameObject tagPreFab;
 
-	// Use this for initialization
-	void Awake ()
-    {
-        tag = iOStyle.LoadData();
-	}
+    Tag tag;
+    TagHandler tagHandler;
+
+    // Use this for initialization
+    //void Awake ()
+    //{       
+    //    tag = iOStyle.LoadData();
+    //    tagPreFab = Instantiate(tagPreFab);
+    //    tagHandler = tagPreFab.GetComponent<TagHandler>();
+    //    tagHandler.PlaceTag(transform.position + tag.localPos, transform);
+    //}
 	
     public void SaveData()
     {

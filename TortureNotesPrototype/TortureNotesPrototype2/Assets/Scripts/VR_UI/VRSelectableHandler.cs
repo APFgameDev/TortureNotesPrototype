@@ -20,10 +20,8 @@ public class VRSelectableHandler : VRInteractable
     {
         selectable = GetComponent<Selectable>();
         clickHandler = GetComponent<IPointerClickHandler>();
-        Rect rect = GetComponent<RectTransform>().rect;
-        BoxCollider boxCollider = gameObject.AddComponent<BoxCollider>();
-        boxCollider.isTrigger = true;
-        boxCollider.size = new Vector3(rect.width, rect.height, 0.1f);
+
+        MathUtility.AddTriggerBoxToRectTransform(GetComponent<RectTransform>());     
     }
 
     override public void OnHoverEnter(VRInteractionData vrInteraction)
@@ -54,35 +52,4 @@ public class VRSelectableHandler : VRInteractable
         if (clickHandler != null)
             clickHandler.OnPointerClick(pointerEventData);
     }
-}
-
-
-public class VRInteractable : MonoBehaviour
-{
-    public virtual void OnHoverEnter(VRInteractionData vrInteraction)
-    {
-
-    }
-    public virtual void OnHoverExit(VRInteractionData vrInteraction)
-    {
-
-    }
-    public virtual void OnClick(VRInteractionData vrInteraction)
-    {
-
-    }
-    public virtual void OnClickHeld(VRInteractionData vrInteraction)
-    {
-
-    }
-    public virtual void OnClickRelease(VRInteractionData vrInteraction)
-    {
-
-    }
-}
-
-public struct VRInteractionData
-{
-    public Vector3 pos;
-    public Transform handTrans;
 }

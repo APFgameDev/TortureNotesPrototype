@@ -6,10 +6,9 @@ namespace NS_Annotation.NS_Data
 {
     public class Tag
     {
-        string title;
-        string description;
-        Vector3 localPos;
-        Vector3 localOrigin;
+        public string title;
+        public string description;
+        public Vector3 localPos;
 
         List<AnnotationNode> annotationNodes = new List<AnnotationNode>();
 

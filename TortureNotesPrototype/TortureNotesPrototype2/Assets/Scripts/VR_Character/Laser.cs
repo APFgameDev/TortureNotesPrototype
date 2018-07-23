@@ -46,7 +46,7 @@ public class Laser : MonoBehaviour
         if (IsOn)
         {
             Vector3 StartPos = transform.position;
-            Vector3 ForwardPos = transform.forward * 20;
+            Vector3 ForwardPos = transform.position + transform.forward * 20;
             lineRenderer.SetPosition(0, StartPos);
             lineRenderer.SetPosition(1, ForwardPos);
 

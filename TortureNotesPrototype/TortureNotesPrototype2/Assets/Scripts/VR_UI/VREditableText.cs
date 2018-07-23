@@ -35,7 +35,12 @@ public class VREditableText : VRInteractable
         //enable keyboard set context
         if(enabled)
         {
-
+            VRControllerInputManager.SetActive();
+            VRControllerInputManager.SetText(text);
+        }
+        else
+        {
+            VRControllerInputManager.SetActive();
         }
     }
 }

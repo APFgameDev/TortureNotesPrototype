@@ -26,6 +26,7 @@ public class DebugUIMenu : MonoBehaviour
         System.DateTime date = System.DateTime.Today;
         string value = date.Year.ToString() + " / " + date.Month.ToString() + " / " + date.Day.ToString();
 
-     //   Comment comment = ReplyUserName.text;
+        Comment comment = new Comment(ReplyUserName.text, value, ReplyContent.text);
+        CommentHandlerSO.commentHandler.ReplyToComment(comment);
     }
 }

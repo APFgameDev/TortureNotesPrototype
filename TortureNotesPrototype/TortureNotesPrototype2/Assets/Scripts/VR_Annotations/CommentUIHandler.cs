@@ -79,21 +79,22 @@ public abstract class CommentUIHandler : MonoBehaviour
     /// <summary>
     /// Deletes a specific comment out of the thread.
     /// </summary>
-    public virtual void DeleteComment(Comment comment)
+    public virtual void DeleteComment(CommentPanel comment)
     {
-        if (comment == m_AnnotationNode.MainThread)
+        if (comment.Comment == m_AnnotationNode.MainThread)
         {
             DeleteThread();
         }
         else
         {
-            m_AnnotationNode.RemoveComment(comment);
+            DeleteReply(comment);
         }
     }
 
-    public void ReplyToComment()
+    public void ReplyToComment(Comment comment)
     {
-        
+        AddCommentToUI(comment);
+        m_AnnotationNode.AddComment(comment);
     }    
     #endregion
 
@@ -105,11 +106,6 @@ public abstract class CommentUIHandler : MonoBehaviour
     {
         m_AnnotationNode.AddComment(comment);
     }
-
-    protected virtual void PublishComment()
-    {
-        
-    }
     
     /// Deletes the entire comment thread. This will delete the annotation from memory
     protected virtual void DeleteThread()
@@ -119,6 +115,13 @@ public abstract class CommentUIHandler : MonoBehaviour
         {
             commentPanel.gameObject.SetActive(false);
         }
+    }
+
+    protected  virtual void DeleteReply(CommentPanel comment)
+    {
+        m_AnnotationNode.RemoveComment(comment.Comment);
+        comment.gameObject.SetActive(false);
+        m_CommentPanels.Remove(comment);
     }
 
     protected virtual void ClearCommentUI()

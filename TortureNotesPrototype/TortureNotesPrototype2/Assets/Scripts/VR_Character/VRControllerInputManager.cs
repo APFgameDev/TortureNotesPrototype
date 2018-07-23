@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine.UI;
 using UnityEngine;
 
 public class VRControllerInputManager : MonoBehaviour
@@ -32,8 +31,8 @@ public class VRControllerInputManager : MonoBehaviour
     public QuadrantDirections LeftControllerSection;
     public QuadrantDirections RightControllerSection;
 
-    public LeftVRControllerInput LeftControllerInput;
-    public RightVRControllerInput RightControllerInput;
+    public static LeftVRControllerInput LeftControllerInput;
+    public static RightVRControllerInput RightControllerInput;
 
     void Start()
     {
@@ -46,6 +45,8 @@ public class VRControllerInputManager : MonoBehaviour
         {
             RightControllerInput = FindObjectOfType<RightVRControllerInput>();
         }
+
+        SetActive();
     }
 
     private void Update()
@@ -156,5 +157,16 @@ public class VRControllerInputManager : MonoBehaviour
             Debug.Log("Invalid quadrant passed in!");
             return null;
         }
+    }
+
+    public static void SetActive()
+    {
+        LeftControllerInput.gameObject.SetActive(!LeftControllerInput.gameObject.activeInHierarchy);
+        RightControllerInput.gameObject.SetActive(!RightControllerInput.gameObject.activeInHierarchy);
+    }
+
+    public static void SetText(Text text)
+    {
+        RightControllerInput.TestText = text;
     }
 }

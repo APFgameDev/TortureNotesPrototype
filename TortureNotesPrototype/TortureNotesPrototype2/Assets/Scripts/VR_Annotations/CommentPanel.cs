@@ -31,6 +31,8 @@ public class CommentPanel : MonoBehaviour
 
     public void DeleteComment()
     {
-        CommentHandlerSO.commentHandler.DeleteComment(m_MyComment);
+        CommentHandlerSO.commentHandler.DeleteComment(this);
     }
+
+    public Comment Comment { get { return m_MyComment; } }
 }

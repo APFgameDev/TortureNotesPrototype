@@ -39,12 +39,13 @@ public static class MathUtility
         return Mathf.Lerp(minValueRange, maxValueRange, sliderPercent);
     }
 
-    static public void AddTriggerBoxToRectTransform(RectTransform rectTransform)
+    static public void AddTriggerBoxToRectTransform(RectTransform rectTransform, Vector3 offset)
     {
         Rect rect = rectTransform.rect;
         BoxCollider boxCollider = rectTransform.gameObject.AddComponent<BoxCollider>();
         boxCollider.isTrigger = true;
         boxCollider.size = new Vector3(rect.width, rect.height, 0.1f);
+        boxCollider.center = offset;
     }
 
 }

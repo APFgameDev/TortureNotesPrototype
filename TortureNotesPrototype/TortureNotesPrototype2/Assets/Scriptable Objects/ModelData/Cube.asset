@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9660a75839f14474e8cb8402b94383a3, type: 3}
+  m_Name: Cube
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  material: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  tag:
+    title: Cube
+    description: This Is more Info
+    localPos: {x: 0, y: 5, z: -1}
+    annotationNodes:
+    - m_MainComment:
+        author: Alex
+        date: Friday
+        content: Hello People
+      m_Replies:
+      - author: Liam
+        date: Friday
+        content: You're Dumb
+      AnnotationEndPos: {x: 2, y: 2, z: 0}
+      AnnotationStartPos: {x: 1, y: 0, z: 0}
+      AnnotationScale: 1
+    - m_MainComment:
+        author: Liam
+        date: Thursday
+        content: Stupid Cube!
+      m_Replies: []
+      AnnotationEndPos: {x: -2, y: 1, z: 0}
+      AnnotationStartPos: {x: 0, y: 0, z: 1}
+      AnnotationScale: 1

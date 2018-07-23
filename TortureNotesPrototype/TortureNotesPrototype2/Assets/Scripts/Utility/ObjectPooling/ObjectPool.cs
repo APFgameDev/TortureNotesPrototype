@@ -44,9 +44,20 @@ public class ObjectPool<T> where T : MonoBehaviour
 
     public void ReturnAllActiveToPool()
     {
-        for (int i = 0; i < activeObjects.Count; i++)
+        for (int i = activeObjects.Count - 1; i >= 0; i--)
         {
             activeObjects[i].gameObject.SetActive(false);
+        }
+    }
+
+    public void ReturnAllActiveToPool(T ignoredObject)
+    {
+        for (int i = activeObjects.Count - 1; i >= 0; i--)
+        {
+            if (activeObjects[i] != ignoredObject)
+            {
+                activeObjects[i].gameObject.SetActive(false);
+            }
         }
     }
 

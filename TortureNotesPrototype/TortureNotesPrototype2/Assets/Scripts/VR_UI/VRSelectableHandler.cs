@@ -21,7 +21,7 @@ public class VRSelectableHandler : VRInteractable
         selectable = GetComponent<Selectable>();
         clickHandler = GetComponent<IPointerClickHandler>();
 
-        MathUtility.AddTriggerBoxToRectTransform(GetComponent<RectTransform>());     
+        MathUtility.AddTriggerBoxToRectTransform(GetComponent<RectTransform>(),Vector3.zero);     
     }
 
     override public void OnHoverEnter(VRInteractionData vrInteraction)

@@ -38,11 +38,11 @@ public class TagHandler : VRGrabbable
     [SerializeField]
     GameObject AnnotationNodePrefab;
 
-    bool onAnnotationView = false;
+    bool annotationsVisible = false;
+    bool viewingAnnotationComments = false;
 
     private void Awake()
     {
-        PlaceTag(target, new Tag());
         annotationNodePool = new ObjectPool<NodeComponent>(5, 5, AnnotationNodePrefab);
         lineRenderer = GetComponent<LineRenderer>();
     }
@@ -78,20 +78,50 @@ public class TagHandler : VRGrabbable
 
     public void ToggleAnnotationView()
     {
-        onAnnotationView = !onAnnotationView;
-
-        if (onAnnotationView)
+        if (viewingAnnotationComments == false)
         {
-            for (int i = 0; i < tagData.annotationNodes.Count; i++)
+            annotationsVisible = !annotationsVisible;
+
+            if (annotationsVisible)
             {
-                NodeComponent nodeComponent = annotationNodePool.GetObjectFromPool();
-                nodeComponent.InitNodeComponent(tagData.annotationNodes[i], target, commentHandlerSO.commentHandler);
+                for (int i = 0; i < tagData.annotationNodes.Count; i++)
+                {
+                    NodeComponent nodeComponent = annotationNodePool.GetObjectFromPool();
+                    nodeComponent.InitNodeComponent(tagData.annotationNodes[i], target, this);
+                    nodeComponent.gameObject.SetActive(true);
+                }
             }
+            else
+            {
+                annotationNodePool.ReturnAllActiveToPool();
+            }
+        }
+    }
+
+    public void ViewAnnotation(NodeComponent aNodeComponent,Transform target)
+    {
+        viewingAnnotationComments = !viewingAnnotationComments;
+        if (viewingAnnotationComments)
+        {
+            annotationsVisible = false;
+
+            annotationNodePool.ReturnAllActiveToPool(aNodeComponent);
+
+            commentHandlerSO.commentHandler.transform.parent = transform;
+            commentHandlerSO.commentHandler.transform.localPosition = Vector3.zero + Vector3.down * 2f;
+            commentHandlerSO.commentHandler.transform.localRotation = Quaternion.identity;
+
+            commentHandlerSO.commentHandler.GetComponent<ScaleRect>().ScaleRectToMax();
+            commentHandlerSO.commentHandler.InitAnnotationPanel(aNodeComponent.annotationNode, null);
+            commentHandlerSO.commentHandler.Open();
         }
         else
         {
-            annotationNodePool.ReturnAllActiveToPool();
-        }
+            commentHandlerSO.commentHandler.GetComponent<ScaleRect>().ScaleRectToMin();
+            commentHandlerSO.commentHandler.Close();
+            aNodeComponent.gameObject.SetActive(false);
 
+            ToggleAnnotationView();
+        }
     }
 }

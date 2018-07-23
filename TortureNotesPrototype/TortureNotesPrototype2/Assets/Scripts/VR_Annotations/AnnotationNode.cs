@@ -4,17 +4,16 @@ using UnityEngine;
 
 namespace NS_Annotation.NS_Data
 {
+    [System.Serializable]
     public class Tag
     {
         public string title;
         public string description;
         public Vector3 localPos;
-
         public List<AnnotationNode> annotationNodes = new List<AnnotationNode>();
-
         public int AnnotationCount { get { return annotationNodes.Count; } }
     }
-
+    [System.Serializable]
     public struct Comment
     {
         public string author;
@@ -52,11 +51,17 @@ namespace NS_Annotation.NS_Data
             return base.Equals(obj);
         }
     }
-
+    [System.Serializable]
     public class AnnotationNode
     {
+        [SerializeField]
         private Comment m_MainComment = new Comment();
+        [SerializeField]
         private List<Comment> m_Replies = new List<Comment>();
+
+        public Vector3 AnnotationEndPos;
+        public Vector3 AnnotationStartPos;
+        public float AnnotationScale;
 
         public AnnotationNode(string a_author, string a_date, string a_content)
         {
@@ -97,9 +102,6 @@ namespace NS_Annotation.NS_Data
         public Comment MainThread { get { return m_MainComment; } }
         public List<Comment> Replies { get { return m_Replies; } }
         public int ThreadCount { get { return m_Replies.Count + 1; } }
-        public Vector3 AnnotationEndPos { get; set; }
-        public Vector3 AnnotationStartPos { get; set; }
-        public float AnnotationScale { get; set; }
         #endregion
     }
 }

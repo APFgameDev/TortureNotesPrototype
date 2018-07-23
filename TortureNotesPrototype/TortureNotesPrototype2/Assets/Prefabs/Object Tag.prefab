@@ -216,8 +216,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: ToggleExpandDescription
+      - m_Target: {fileID: 114255156662978680}
+        m_MethodName: ToggleAnnotationView
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -242,6 +242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotSpeed: -1
   reelInSpeed: 0.1
+  scaleSpeed: 0
   startOfLine: {fileID: 224890035146467550}
   titleText: {fileID: 114726312806153050}
   numberOfAnnotationsText: {fileID: 114516163459156492}
@@ -249,7 +250,8 @@ MonoBehaviour:
   commentHandlerSO: {fileID: 11400000, guid: 135c2800b1a542042b8dd3f185a73c07, type: 2}
   target: {fileID: 0}
   descriptionScaleRect: {fileID: 114718282486800668}
-  AnnotationNodePrefab: {fileID: 0}
+  AnnotationNodePrefab: {fileID: 1662419002453310, guid: bcabd01e8db67824e9bcf452bcd8b541,
+    type: 2}
 --- !u!114 &114425913037938850
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -691,8 +693,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1661118358756062}
   m_LocalRotation: {x: -0, y: -0.21106203, z: -0, w: 0.97747266}
-  m_LocalPosition: {x: 0, y: 0, z: 9.4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -5.792448}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 224967659038344298}
   - {fileID: 224561675605222196}
@@ -703,7 +705,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -24.369001, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 5}
+  m_AnchoredPosition: {x: -2.2909591, y: 2.988136}
   m_SizeDelta: {x: 10, y: 1.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224409481742885280
@@ -770,7 +772,7 @@ RectTransform:
   m_GameObject: {fileID: 1595104846895774}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 224409481742885280}
   m_RootOrder: 0
@@ -778,7 +780,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 45, y: 10}
+  m_SizeDelta: {x: 18, y: 3.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224871906465362766
 RectTransform:

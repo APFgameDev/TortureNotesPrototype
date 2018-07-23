@@ -31,7 +31,10 @@ public class ScaleRect : MonoBehaviour
     public void ScaleRectToMin()
     {
         StopAllCoroutines();
-        StartCoroutine(ScaleRectCoroutine(maxScale, minScale));
+        if (gameObject.activeInHierarchy)
+        {
+            StartCoroutine(ScaleRectCoroutine(maxScale, minScale));
+        }
     }
 
     IEnumerator ScaleRectCoroutine(Vector3 start, Vector3 end)
@@ -47,5 +50,7 @@ public class ScaleRect : MonoBehaviour
 
             time += Time.deltaTime * scaleSpeed;
         }
+
+        rectTransform.localScale = Vector3.Lerp(start, end, scaleCurve.Evaluate(1));
     }
 }

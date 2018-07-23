@@ -12,6 +12,13 @@ public class VRGrabbable : VRInteractable
     [SerializeField]
     float scaleSpeed = 0;
 
+    Transform originalParent;
+
+    private void OnEnable()
+    {
+        originalParent = transform.parent;
+    }
+
     override public void OnClick(VRInteractionData vrInteractionData)
     {
         if (transform.parent == null || transform.parent != vrInteractionData.handTrans)
@@ -21,7 +28,7 @@ public class VRGrabbable : VRInteractable
     override public void OnClickRelease(VRInteractionData vrInteractionData)
     {
         if (transform.parent == vrInteractionData.handTrans)
-            transform.parent = null;
+            transform.parent = originalParent;
     }
 
     public override void OnClickHeld(VRInteractionData vrInteraction)
@@ -36,6 +43,12 @@ public class VRGrabbable : VRInteractable
             transform.position = transform.position - vrInteraction.handTrans.forward * reelInSpeed * -vrInteraction.movementDirection.y;
             transform.localScale = transform.localScale + Vector3.one * scaleSpeed * -vrInteraction.movementDirection.x;
         }
+    }
 
+    public void SetSpeeds(float aRotSpeed, float aReelInSpeed, float aScaleSpeed)
+    {
+        rotSpeed = aRotSpeed;
+        reelInSpeed = aReelInSpeed;
+        scaleSpeed = aScaleSpeed;
     }
 }

@@ -9,7 +9,7 @@ public class DefaultUIHandler : CommentUIHandler
 
     public override void Close()
     {
-        m_CloseCallback();
+       // m_CloseCallback();
     }
 
     public override void Open()
@@ -23,6 +23,8 @@ public class DefaultUIHandler : CommentUIHandler
         obj.InitCommentPanel(comment);
         obj.gameObject.SetActive(true);
         obj.transform.SetParent(ScrollViewContent.transform);
-        obj.transform.localScale = new Vector3(1, 1, 1);        
+        obj.transform.localScale = new Vector3(1, 1, 1);
+        obj.transform.localPosition = Vector3.zero;
+        obj.transform.localRotation = Quaternion.identity;
     }
 }

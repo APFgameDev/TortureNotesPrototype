@@ -7,24 +7,45 @@ public class ScaleRect : MonoBehaviour
 {
     RectTransform rectTransform;
     [SerializeField]
+    AnimationCurve scaleCurve;
+    [SerializeField]
+    [Range(0.1f,5)]
+    float scaleSpeed;
 
+    [SerializeField]
+    Vector3 maxScale;
+    [SerializeField]
+    Vector3 minScale;
 
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
     }
 
-    void StartScaleRect(Vector3 newScale)
+    public void ScaleRectToMax()
     {
         StopAllCoroutines();
-       // StartCoroutine(ScaleRect(newScale));
+        StartCoroutine(ScaleRectCoroutine(minScale, maxScale));
     }
 
+    public void ScaleRectToMin()
+    {
+        StopAllCoroutines();
+        StartCoroutine(ScaleRectCoroutine(maxScale, minScale));
+    }
 
+    IEnumerator ScaleRectCoroutine(Vector3 start, Vector3 end)
+    {
+        float time = start.InverseLerp(end, rectTransform.localScale);
+        Vector3 startScale = rectTransform.localScale;
 
-    //IEnumerator ScaleRect(Vector3 newScale)
-    //{
-        
+        while (time < 1)
+        {
+            rectTransform.localScale = Vector3.Lerp(start, end, scaleCurve.Evaluate(time));
 
-    //}
+            yield return new WaitForEndOfFrame();
+
+            time += Time.deltaTime * scaleSpeed;
+        }
+    }
 }

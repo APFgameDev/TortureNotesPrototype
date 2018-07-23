@@ -21,6 +21,6 @@ public class VRScollbarHandler : VRSelectableHandler
 
     public override void OnClickHeld(VRInteractionData vrInteraction)
     {
-        scrollBar.value = MathUtility.CalculateDragValue(rectTransform, transform, Camera.main.WorldToScreenPoint(vrInteraction.pos), scrollBar.direction, 0, 1);
+        scrollBar.value = MathUtility.CalculateDragValue(rectTransform, transform, Camera.main.WorldToScreenPoint(vrInteraction.GetClosestLaserPoint(transform.position)), scrollBar.direction, 0, 1);
     }
 }

@@ -10,6 +10,8 @@ public class ObjectPool<T> where T : MonoBehaviour
 
     List<T> objectsInPool = new List<T>();
 
+    List<T> activeObjects = new List<T>();
+
     uint expansionAmount;
 
     public ObjectPool(uint startingSize, uint aExpansionAmount, GameObject prefab)
@@ -35,10 +37,19 @@ public class ObjectPool<T> where T : MonoBehaviour
         {
             T objectToReturn = objectsInPool[objectsInPool.Count - 1];
             objectsInPool.RemoveAt(objectsInPool.Count - 1);
+            activeObjects.Add(objectToReturn);
             return objectToReturn;
         }
-
     }
+
+    public void ReturnAllActiveToPool()
+    {
+        for (int i = 0; i < activeObjects.Count; i++)
+        {
+            activeObjects[i].gameObject.SetActive(false);
+        }
+    }
+
 
     void ExpandPool()
     {
@@ -59,6 +70,7 @@ public class ObjectPool<T> where T : MonoBehaviour
 
     void ReturnObjectToPool(ReturnToPoolOnDisabled returnToPoolOnDisabled)
     {
+        activeObjects.Remove(returnToPoolOnDisabled.GetComponent<T>());
         objectsInPool.Add(returnToPoolOnDisabled.GetComponent<T>());
     }
 }

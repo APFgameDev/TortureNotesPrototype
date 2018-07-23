@@ -10,7 +10,7 @@ namespace NS_Annotation.NS_Data
         public string description;
         public Vector3 localPos;
 
-        List<AnnotationNode> annotationNodes = new List<AnnotationNode>();
+        public List<AnnotationNode> annotationNodes = new List<AnnotationNode>();
 
         public int AnnotationCount { get { return annotationNodes.Count; } }
     }
@@ -97,7 +97,9 @@ namespace NS_Annotation.NS_Data
         public Comment MainThread { get { return m_MainComment; } }
         public List<Comment> Replies { get { return m_Replies; } }
         public int ThreadCount { get { return m_Replies.Count + 1; } }
-        public Vector3 AnnotationPos { get; set; }
+        public Vector3 AnnotationEndPos { get; set; }
+        public Vector3 AnnotationStartPos { get; set; }
+        public float AnnotationScale { get; set; }
         #endregion
     }
 }

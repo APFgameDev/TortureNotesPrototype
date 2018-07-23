@@ -28,7 +28,7 @@ public class VRInteractable : MonoBehaviour
 
 public struct VRInteractionData
 {
-    public Vector3 pos;
+    public System.Func<Vector3,Vector3> GetClosestLaserPoint;
     public Transform handTrans;
     public Vector2 movementDirection;
     public bool secondaryClickPressed;

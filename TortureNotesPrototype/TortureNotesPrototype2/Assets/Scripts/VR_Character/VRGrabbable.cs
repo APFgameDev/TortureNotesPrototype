@@ -9,6 +9,8 @@ public class VRGrabbable : VRInteractable
     float rotSpeed = 0;
     [SerializeField]
     float reelInSpeed = 0;
+    [SerializeField]
+    float scaleSpeed = 0;
 
     override public void OnClick(VRInteractionData vrInteractionData)
     {
@@ -32,6 +34,7 @@ public class VRGrabbable : VRInteractable
         else if (vrInteraction.secondaryClickPressed)
         {
             transform.position = transform.position - vrInteraction.handTrans.forward * reelInSpeed * -vrInteraction.movementDirection.y;
+            transform.localScale = transform.localScale + Vector3.one * scaleSpeed * -vrInteraction.movementDirection.x;
         }
 
     }

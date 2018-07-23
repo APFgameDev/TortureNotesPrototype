@@ -47,7 +47,7 @@ public class VRSelectableHandler : VRInteractable
     override public void OnClick(VRInteractionData vrInteraction)
     {
         PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
-        pointerEventData.position = Camera.main.WorldToScreenPoint(vrInteraction.pos);
+        pointerEventData.position = Camera.main.WorldToScreenPoint(vrInteraction.GetClosestLaserPoint(transform.position));
 
         if (clickHandler != null)
             clickHandler.OnPointerClick(pointerEventData);

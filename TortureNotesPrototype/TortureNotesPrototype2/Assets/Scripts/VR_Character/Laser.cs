@@ -22,8 +22,11 @@ public class Laser : MonoBehaviour
     Vector2 moveDirTest;
 
     LineRenderer lineRenderer;
-    VRInteractable m_vrInteractable;
+    List<VRInteractable> m_vrInteractables = new List<VRInteractable>();
+    VRInteractable m_heldInteractable;
     VRInteractionData vrInteraction;
+
+    List<VRInteractable> interactablesCollidedWithThisFrame = new List<VRInteractable>();
 
     public static readonly Color DEFAULTLASERCOLOR = new Color(1, 0, 0);
 
@@ -33,6 +36,7 @@ public class Laser : MonoBehaviour
     {
         vrInteraction.handTrans = transform;
         vrInteraction.changeColor = ChangeLaseColor;
+        vrInteraction.GetClosestLaserPoint = CalculateClosestPointOnLaserFromInteractable;
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.positionCount = 2;
         ChangeLaseColor(DEFAULTLASERCOLOR);
@@ -54,59 +58,82 @@ public class Laser : MonoBehaviour
                 Input.GetAxis(InputAxis.InputAxisArray[(int)verticalAxis])
                 ).normalized;
 
-            vrInteraction.pos = CalculateClosestPointOnLaserFromInteractable();
+
             moveDirTest = vrInteraction.movementDirection = movementDirection;
 
-            if (m_vrInteractable)
-            { 
-                if (isClickHeld)
-                    m_vrInteractable.OnClickHeld(vrInteraction);
-                else
-                    m_vrInteractable.OnClickRelease(vrInteraction);
-            }
+            interactablesCollidedWithThisFrame.Clear();
+            RaycastHit[] hit;
+            hit = Physics.RaycastAll(StartPos, ForwardPos - StartPos);
 
-            RaycastHit hit;
-            if (Physics.Raycast(StartPos, ForwardPos - StartPos, out hit))
+            VRInteractable closestInteractable = null;
+            float closestInteractableDist = float.MaxValue;
+
+
+            for (int i = 0; i < hit.Length; i++)
             {
-                if (isClickHeld == true && isClicked == false)
-                {
-                    isClicked = true;
+                GameObject other = hit[i].collider.gameObject;
+                VRInteractable vrInteractable = other.GetComponent<VRInteractable>();
 
-                    if (m_vrInteractable)
-                        m_vrInteractable.OnClick(vrInteraction);
+                if (vrInteractable != null && vrInteractable.enabled)
+                {
+                    if (hit[i].distance < closestInteractableDist)
+                    {
+                        closestInteractable = vrInteractable;
+                        closestInteractableDist = hit[i].distance;
+                    }
+                    interactablesCollidedWithThisFrame.Add(vrInteractable);
+
+                    if (m_vrInteractables.Contains(vrInteractable) == false)
+                        vrInteractable.OnHoverEnter(vrInteraction);
                 }
-                else if(isClickHeld == false && isClicked == true)
-                    isClicked = false;
-
-                GameObject other = hit.collider.gameObject;
-
-                VRInteractable selectableHandler = other.GetComponent<VRInteractable>();
-
-                if (selectableHandler != m_vrInteractable && isClickHeld == false)
-                {
-                    if (m_vrInteractable)
-                        m_vrInteractable.OnHoverExit(vrInteraction);
-
-                    m_vrInteractable = selectableHandler;
-
-                    if (m_vrInteractable)
-                        m_vrInteractable.OnHoverEnter(vrInteraction);
-                }                
             }
-            else if (m_vrInteractable && isClickHeld == false)
+
+            if (isClickHeld && m_heldInteractable == null && closestInteractable != null)
             {
-                m_vrInteractable.OnHoverExit(vrInteraction);
-                m_vrInteractable = null;
+                m_heldInteractable = closestInteractable;
+              
             }
+            else if (isClickHeld == false && m_heldInteractable != null)
+            {
+                m_heldInteractable.OnClickRelease(vrInteraction);
+                m_heldInteractable = null;
+            }
+
+            if (m_heldInteractable != null && isClickHeld)
+            {
+                m_heldInteractable.OnClickHeld(vrInteraction);
+            }
+
+
+            if (isClickHeld == true && isClicked == false)
+            {
+                isClicked = true;
+                if (closestInteractable != null)
+                {
+                    closestInteractable.OnClick(vrInteraction);
+                }
+            }
+            else if (isClickHeld == false && isClicked == true)
+            {
+                isClicked = false;
+            }
+
+
+            for (int i = 0; i < m_vrInteractables.Count; i++)
+            {
+                if (interactablesCollidedWithThisFrame.Contains(m_vrInteractables[i]) == false)
+                    m_vrInteractables[i].OnHoverExit(vrInteraction);
+            }
+            m_vrInteractables.Clear();
+            m_vrInteractables.AddRange(interactablesCollidedWithThisFrame);
         }
     }
 
-    Vector3 CalculateClosestPointOnLaserFromInteractable()
+    Vector3 CalculateClosestPointOnLaserFromInteractable(Vector3 pos)
     {
-        if (m_vrInteractable)
-            return Vector3.Project((m_vrInteractable.transform.position - transform.position), transform.forward);
-        else
-            return Vector3.zero;
+
+        return Vector3.Project(pos - transform.position, transform.forward);
+
     }
 
     void ChangeLaseColor(Color color)

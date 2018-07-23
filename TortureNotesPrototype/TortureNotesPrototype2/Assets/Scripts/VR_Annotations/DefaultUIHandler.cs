@@ -9,7 +9,7 @@ public class DefaultUIHandler : CommentUIHandler
 
     public override void Close()
     {
-        
+        m_CloseCallback();
     }
 
     public override void Open()
@@ -17,13 +17,12 @@ public class DefaultUIHandler : CommentUIHandler
 
     }
 
-    public override void AddCommentToUI()
+    public override void AddCommentToUI(NS_Annotation.NS_Data.Comment comment)
     {
         CommentPanel obj = GetCommentPanelFromPool();
+        obj.InitCommentPanel(comment);
         obj.gameObject.SetActive(true);
         obj.transform.SetParent(ScrollViewContent.transform);
-        obj.transform.localScale = new Vector3(1, 1, 1);
-
-        AddCommentToAnnotationNode(new NS_Annotation.NS_Data.Comment(obj.authorText.text, obj.dateText.text, obj.contentText.text));
+        obj.transform.localScale = new Vector3(1, 1, 1);        
     }
 }

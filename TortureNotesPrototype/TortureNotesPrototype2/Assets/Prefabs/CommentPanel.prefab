@@ -180,6 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25a9af3decdb54b4b9eb1b81b50d6299, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CommentHandlerSO: {fileID: 11400000, guid: 135c2800b1a542042b8dd3f185a73c07, type: 2}
   authorText: {fileID: 114539641045183292}
   dateText: {fileID: 114417273724050388}
   contentText: {fileID: 114435896110269156}

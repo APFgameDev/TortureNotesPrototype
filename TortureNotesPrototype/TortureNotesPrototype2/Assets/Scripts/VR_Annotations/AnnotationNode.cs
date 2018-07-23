@@ -58,10 +58,11 @@ namespace NS_Annotation.NS_Data
         private Comment m_MainComment = new Comment();
         private List<Comment> m_Replies = new List<Comment>();
 
-        public AnnotationNode(string author, string content)
+        public AnnotationNode(string a_author, string a_date, string a_content)
         {
-            m_MainComment.author = author;
-            m_MainComment.content = content;
+            m_MainComment.author = a_author;
+            m_MainComment.date = a_date;
+            m_MainComment.content = a_content;
         }
 
         //Adds a comment to this annotation thread
@@ -93,12 +94,10 @@ namespace NS_Annotation.NS_Data
         }
 
         #region Properties
-
         public Comment MainThread { get { return m_MainComment; } }
         public List<Comment> Replies { get { return m_Replies; } }
         public int ThreadCount { get { return m_Replies.Count + 1; } }
         public Vector3 AnnotationPos { get; set; }
-
         #endregion
     }
 }

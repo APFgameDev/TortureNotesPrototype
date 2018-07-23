@@ -5,32 +5,32 @@ using UnityEngine.UI;
 using NS_Annotation.NS_Data;
 
 public class CommentPanel : MonoBehaviour
-{    
+{
+    public CommentHandlerSO CommentHandlerSO;
+
     public Text authorText;
     public Text dateText;
     public Text contentText;
 
     private Comment m_MyComment;
-    private CommentUIHandler m_UIManager;
 
     //called recursivily
-    public void InitCommentPanel(Comment comment, CommentUIHandler baseHandler)
+    public void InitCommentPanel(Comment comment)
     {    
         authorText.text = comment.author;
         dateText.text = comment.date;
-        contentText.text = comment.date;
+        contentText.text = comment.content;
 
         m_MyComment = comment;
-        m_UIManager = baseHandler;
     }
 
     public void EditComment()
     {
-        m_UIManager.ChangeContent(this);
+        CommentHandlerSO.commentHandler.ChangeContent(this);
     }
 
     public void DeleteComment()
     {
-        m_UIManager.DeleteComment(m_MyComment);
+        CommentHandlerSO.commentHandler.DeleteComment(m_MyComment);
     }
 }

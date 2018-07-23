@@ -33,5 +33,9 @@ public class VREditableText : VRInteractable
     public override void OnClick(VRInteractionData vrInteraction)
     {
         //enable keyboard set context
+        if(enabled)
+        {
+
+        }
     }
 }

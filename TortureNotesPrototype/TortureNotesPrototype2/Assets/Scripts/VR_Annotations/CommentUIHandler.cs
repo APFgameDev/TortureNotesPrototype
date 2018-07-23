@@ -22,12 +22,17 @@ public abstract class CommentUIHandler : MonoBehaviour
     protected CommentPanel m_CommentBeingEdited;
     #endregion
 
+    #region Private Memebers
+    protected Action m_CloseCallback;
+    #endregion  
+
     #region Abstract Methods
     public abstract void Open();
     public abstract void Close();
-    public abstract void AddCommentToUI();
-    #endregion  
+    public abstract void AddCommentToUI(Comment comment);
+    #endregion
 
+    #region Unity Monobehaviours
     public virtual void Awake()
     {
         objectPool = new ObjectPool<CommentPanel>(5, 5, CommentPanelPrefab);
@@ -37,29 +42,25 @@ public abstract class CommentUIHandler : MonoBehaviour
     {
         CHScriptObject.commentHandler = this;
     }
+    #endregion
 
-    public virtual void InitAnnotationPanel(AnnotationNode annotationNode)
+    #region Public Methods
+    //Needs to be called in order to populate the annotation panel
+    public virtual void InitAnnotationPanel(AnnotationNode annotationNode, Action closeCallback)
     {
-        m_CommentPanels.Capacity = annotationNode.ThreadCount;        
+        ClearCommentUI();
+        m_AnnotationNode = annotationNode;
+        m_CloseCallback = closeCallback;
+        m_CommentPanels.Capacity = annotationNode.ThreadCount;
+
+        //create the Original comment that the thread pool is based on.
+        AddCommentToUI(annotationNode.MainThread);
+
+        //Iterate through the thread of comments and create the reply comments
         foreach (Comment comment in annotationNode.Replies)
         {
-            CreateAnnotationPanel(comment);
+            AddCommentToUI(comment);
         }
-    }
-
-    /// <summary>
-    /// Adds a comment to the base annotation node
-    /// </summary>
-    protected virtual void AddCommentToAnnotationNode(Comment comment)
-    {
-        m_AnnotationNode.AddComment(comment);
-    }
-
-    protected virtual void CreateAnnotationPanel(Comment commentData)
-    {
-        CommentPanel commentPanel = GetCommentPanelFromPool();
-        commentPanel.InitCommentPanel(commentData, this);
-        m_CommentPanels.Add(commentPanel);
     }
 
     public virtual void ChangeContent(CommentPanel panelToEdit)
@@ -68,17 +69,11 @@ public abstract class CommentUIHandler : MonoBehaviour
         m_CommentBeingEdited = panelToEdit;
     }
 
-    protected virtual void PublishComment()
-    {
-        m_CommentBeingEdited.authorText.text = "Jim Bob, Joe";
-
-        DateTime date = new DateTime();
-        m_CommentBeingEdited.dateText.text = date.Day.ToString() + " / " + date.Month.ToString() + " / " + date.Year.ToString();
-    }
-
     public virtual CommentPanel GetCommentPanelFromPool()
     {
-        return objectPool.GetObjectFromPool();       
+        CommentPanel commentPanel = objectPool.GetObjectFromPool();
+        m_CommentPanels.Add(commentPanel);
+        return commentPanel;
     }
 
     /// <summary>
@@ -90,19 +85,50 @@ public abstract class CommentUIHandler : MonoBehaviour
         {
             DeleteThread();
         }
-        else 
+        else
         {
             m_AnnotationNode.RemoveComment(comment);
         }
     }
 
+    public void ReplyToComment()
+    {
+        
+    }    
+    #endregion
+
+    #region Protected Methods
+    /// <summary>
+    /// Adds a comment to the base annotation node
+    /// </summary>
+    protected virtual void AddCommentToAnnotationNode(Comment comment)
+    {
+        m_AnnotationNode.AddComment(comment);
+    }
+
+    protected virtual void PublishComment()
+    {
+        
+    }
+    
     /// Deletes the entire comment thread. This will delete the annotation from memory
     protected virtual void DeleteThread()
     {
         m_AnnotationNode.DeleteAnnotation();
-        foreach(CommentPanel commentPanel in m_CommentPanels)
+        foreach (CommentPanel commentPanel in m_CommentPanels)
         {
             commentPanel.gameObject.SetActive(false);
         }
-    }    
+    }
+
+    protected virtual void ClearCommentUI()
+    {
+        foreach(CommentPanel panels in  m_CommentPanels)
+        {
+            panels.gameObject.SetActive(false);
+        }
+
+        m_CommentPanels.Clear();        
+    }
+    #endregion
 }

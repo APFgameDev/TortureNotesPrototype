@@ -112,7 +112,7 @@ public class TagHandler : VRGrabbable
             commentHandlerSO.commentHandler.transform.localRotation = Quaternion.identity;
 
             commentHandlerSO.commentHandler.GetComponent<ScaleRect>().ScaleRectToMax();
-            commentHandlerSO.commentHandler.InitAnnotationPanel(aNodeComponent.annotationNode, null);
+            commentHandlerSO.commentHandler.InitAnnotationPanel(aNodeComponent.annotationNode);
             commentHandlerSO.commentHandler.Open();
         }
         else

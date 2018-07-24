@@ -1,6 +1,5 @@
 ﻿using NS_Annotation.NS_Data;
 using System.Collections.Generic;
-using System;
 using UnityEngine;
 
 public abstract class CommentUIHandler : MonoBehaviour
@@ -8,7 +7,7 @@ public abstract class CommentUIHandler : MonoBehaviour
     #region Public Members
     public CommentHandlerSO CHScriptObject;
     public GameObject CommentPanelPrefab;
-    //TODO: add a reference to the keyboard in here. This will be enabled and disabled when ever the user goes to edit or create a comment
+    public UnityEngine.Events.UnityEvent OnThreadDelete;
     #endregion
 
     #region protected Members
@@ -21,10 +20,6 @@ public abstract class CommentUIHandler : MonoBehaviour
 
     protected CommentPanel m_CommentBeingEdited;
     #endregion
-
-    #region Private Memebers
-    protected Action m_CloseCallback;
-    #endregion  
 
     #region Abstract Methods
     public abstract void Open();
@@ -46,11 +41,10 @@ public abstract class CommentUIHandler : MonoBehaviour
 
     #region Public Methods
     //Needs to be called in order to populate the annotation panel
-    public virtual void InitAnnotationPanel(AnnotationNode annotationNode, Action closeCallback)
+    public virtual void InitAnnotationPanel(AnnotationNode annotationNode)
     {
         ClearCommentUI();
         m_AnnotationNode = annotationNode;
-        m_CloseCallback = closeCallback;
         m_CommentPanels.Capacity = annotationNode.ThreadCount;
 
         //create the Original comment that the thread pool is based on.
@@ -115,6 +109,8 @@ public abstract class CommentUIHandler : MonoBehaviour
         {
             commentPanel.gameObject.SetActive(false);
         }
+
+        OnThreadDelete.Invoke();        
     }
 
     protected  virtual void DeleteReply(CommentPanel comment)

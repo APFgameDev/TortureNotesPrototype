@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 222249061464511416}
   - component: {fileID: 114315209356853616}
   - component: {fileID: 114807704060102366}
+  - component: {fileID: 114525624318773304}
   m_Layer: 0
   m_Name: Reply
   m_TagString: Untagged
@@ -249,6 +250,7 @@ GameObject:
   - component: {fileID: 224306991707433236}
   - component: {fileID: 222897721163017612}
   - component: {fileID: 114684707235918376}
+  - component: {fileID: 114590663214862286}
   m_Layer: 0
   m_Name: Placeholder
   m_TagString: Untagged
@@ -316,6 +318,7 @@ GameObject:
   - component: {fileID: 224642942324877856}
   - component: {fileID: 222675669129660808}
   - component: {fileID: 114311699232034422}
+  - component: {fileID: 114611284714526872}
   m_Layer: 0
   m_Name: Placeholder
   m_TagString: Untagged
@@ -732,6 +735,8 @@ MonoBehaviour:
   CHScriptObject: {fileID: 11400000, guid: 135c2800b1a542042b8dd3f185a73c07, type: 2}
   CommentPanelPrefab: {fileID: 1766300015274452, guid: 29e8d12eb4721c64d8c69e33ab3a912b,
     type: 2}
+  ReplyUserName: {fileID: 114684707235918376}
+  ReplyContent: {fileID: 114311699232034422}
   ScrollViewContent: {fileID: 1457259660788352}
 --- !u!114 &114391644981582138
 MonoBehaviour:
@@ -837,6 +842,17 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Scrollbar+ScrollEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114525624318773304
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1307486864408024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b817399933a13e4bba847989a193331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114583110603001184
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -864,6 +880,28 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114590663214862286
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1683017641424986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fcda7f0b2bd0a542814fabe974d68d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114611284714526872
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1967755270462784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fcda7f0b2bd0a542814fabe974d68d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114684707235918376
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1023,7 +1061,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114379221627300772}
         m_MethodName: CreateReplyToAnnotation
         m_Mode: 1
         m_Arguments:
@@ -1555,7 +1593,7 @@ RectTransform:
   m_GameObject: {fileID: 1445085308576644}
   m_LocalRotation: {x: -0, y: -0.21106203, z: -0, w: 0.97747266}
   m_LocalPosition: {x: 0, y: 0, z: -5.792448}
-  m_LocalScale: {x: 0.02, y: 0, z: 0.02}
+  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
   m_Children:
   - {fileID: 224358363801832974}
   - {fileID: 224181401423607606}
@@ -1566,7 +1604,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -2.2909591, y: 2.738136}
+  m_AnchoredPosition: {x: -2.2909591, y: 3.9}
   m_SizeDelta: {x: 198.71, y: 200}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!224 &224874600560898490

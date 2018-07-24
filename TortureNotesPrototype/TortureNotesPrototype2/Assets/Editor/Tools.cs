@@ -9,7 +9,7 @@ public class Tools
     {
         GameObject obj = new GameObject("Text");
         Text text = obj.AddComponent<Text>();
-        Outline outline = obj.AddComponent<Outline>();
+        //Outline outline = obj.AddComponent<Outline>();
         
         GameObject parent = Selection.activeGameObject;
 
@@ -27,7 +27,7 @@ public class Tools
         text.font = ArialFont;
         text.material = ArialFont.material;
 
-        outline.effectColor = Color.white;
-        outline.effectDistance = new Vector2(0.1f, 0.1f);
+        //outline.effectColor = Color.white;
+        //outline.effectDistance = new Vector2(0.1f, 0.1f);
     }
 }

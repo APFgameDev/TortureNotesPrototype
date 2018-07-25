@@ -4,9 +4,17 @@ using UnityEngine;
 
 namespace NS_Annotation.NS_Data
 {
+    public enum Priority
+    {
+        Low = 1,
+        Medium = 2,
+        High = 3
+    }
+
     [System.Serializable]
     public class Tag
     {
+        public int objectID;
         public string title;
         public string description;
         public Vector3 localPos;
@@ -19,12 +27,14 @@ namespace NS_Annotation.NS_Data
         public string author;
         public string date;
         public string content;
+        public Priority priority;
 
-        public Comment(string a_author, string a_date, string a_content)
+        public Comment(string a_author, string a_date, string a_content, Priority a_priority = Priority.Low)
         {
             author = a_author;
             date = a_date;
             content = a_content;
+            priority = a_priority;
         }
 
         public static bool operator ==(Comment a, Comment b)
@@ -55,7 +65,7 @@ namespace NS_Annotation.NS_Data
     public class AnnotationNode
     {
         [SerializeField]
-        private Comment m_MainComment = new Comment();
+        private Comment m_MainComment;
         [SerializeField]
         private List<Comment> m_Replies = new List<Comment>();
 
@@ -63,11 +73,9 @@ namespace NS_Annotation.NS_Data
         public Vector3 AnnotationStartPos;
         public float AnnotationScale;
 
-        public AnnotationNode(string a_author, string a_date, string a_content)
+        public AnnotationNode(string a_author, string a_date, string a_content, Priority a_priority = Priority.Low)
         {
-            m_MainComment.author = a_author;
-            m_MainComment.date = a_date;
-            m_MainComment.content = a_content;
+            m_MainComment = new Comment(a_author, a_date, a_content, a_priority);
         }
 
         //Adds a comment to this annotation thread

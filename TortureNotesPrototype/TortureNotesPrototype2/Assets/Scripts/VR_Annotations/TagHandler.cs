@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(LineRenderer))]
 public class TagHandler : VRGrabbable
-{ 
+{
     [SerializeField]
     Transform startOfLine;
 
@@ -41,13 +41,15 @@ public class TagHandler : VRGrabbable
     bool annotationsVisible = false;
     bool viewingAnnotationComments = false;
 
+    public Tag TagData { get { return tagData; } }
+
     private void Awake()
     {
         annotationNodePool = new ObjectPool<NodeComponent>(5, 5, AnnotationNodePrefab);
         lineRenderer = GetComponent<LineRenderer>();
     }
 
-    public void PlaceTag(Transform aTarget,Tag aTagData)
+    public void PlaceTag(Transform aTarget, Tag aTagData)
     {
         tagData = aTagData;
 
@@ -98,7 +100,7 @@ public class TagHandler : VRGrabbable
         }
     }
 
-    public void ViewAnnotation(NodeComponent aNodeComponent,Transform target)
+    public void ViewAnnotation(NodeComponent aNodeComponent, Transform target)
     {
         viewingAnnotationComments = !viewingAnnotationComments;
         if (viewingAnnotationComments)

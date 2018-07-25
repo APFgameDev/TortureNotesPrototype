@@ -1,11 +1,34 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using NS_Annotation.NS_Data;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
-
-public interface IIOStyle
+public abstract class IOStyle : MonoBehaviour
 {
-    void SaveData(Tag annotationNode);
-    Tag LoadData();
+    [SerializeField]
+    private string directory;
+
+    public string Directory { get { return directory; } }
+
+    public void Awake()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.sceneUnloaded += OnSceneUnloaded;
+    }
+
+    public void OnApplicationQuit()
+    {
+        SaveData(Directory);
+    }
+
+    public void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
+    {
+        LoadData(Directory);
+    }
+
+    public void OnSceneUnloaded(Scene scene)
+    {
+        SaveData(Directory);
+    }
+
+    public abstract void SaveData(string a_directory);
+    public abstract void LoadData(string a_directory);
 }

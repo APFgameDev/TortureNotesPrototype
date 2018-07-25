@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using NS_Annotation.NS_Data;
 using UnityEngine;
 
-public class IOEmpty : IIOStyle
+public class IOEmpty
 {
-    public Tag LoadData()
+    public Tag LoadData(string a_file)
     {
         return new Tag();
     }
 
-    public void SaveData(Tag annotationNode)
+    public void SaveData(string a_file)
     {
+        //LUL3D
     }
 }

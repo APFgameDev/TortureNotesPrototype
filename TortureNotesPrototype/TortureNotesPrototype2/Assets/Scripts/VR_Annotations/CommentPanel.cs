@@ -11,8 +11,10 @@ public class CommentPanel : MonoBehaviour
     public Text authorText;
     public Text dateText;
     public Text contentText;
+    public Image priorityImage;
 
     private Comment m_MyComment;
+
 
     //called recursivily
     public void InitCommentPanel(Comment comment)

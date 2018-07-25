@@ -51,8 +51,8 @@ public class VRControllerInputManager : MonoBehaviour
 
     private void Update()
     {
-        LeftControllerSection = (QuadrantDirections)LeftControllerInput.StickQuadrantDirection;
-        RightControllerSection = (QuadrantDirections)RightControllerInput.StickQuadrantDirection;
+        //LeftControllerSection = (QuadrantDirections)LeftControllerInput.StickQuadrantDirection;
+       // RightControllerSection = (QuadrantDirections)RightControllerInput.StickQuadrantDirection;
     }
     
     public int GetSectionFromQuadrant(int quadrant)

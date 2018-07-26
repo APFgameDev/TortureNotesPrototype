@@ -11,4 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 668f4349915e8b84f95dc66e4eacbab9, type: 3}
   m_Name: Normal Priority
   m_EditorClassIdentifier: 
-  color: {r: 0.21787111, g: 0.31097567, b: 0.9056604, a: 0}
+  color: {r: 0.21787111, g: 0.31097567, b: 0.9056604, a: 0.78431374}

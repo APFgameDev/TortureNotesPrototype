@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 [RequireComponent(typeof(Text), typeof(RectTransform))]
 public class VREditableText : VRInteractable
 {
-    Text text;
+    TextMeshProUGUI text;
 
     void Awake()
     {
         MathUtility.AddTriggerBoxToRectTransform(GetComponent<RectTransform>(), Vector3.forward * -0.1f);
-        text = GetComponent<Text>();
+        text = GetComponent<TextMeshProUGUI>();
     }
 
     private void Start()
@@ -36,7 +37,7 @@ public class VREditableText : VRInteractable
         if(enabled)
         {
             VRControllerInputManager.SetActive();
-            VRControllerInputManager.SetText(text);
+            //VRControllerInputManager.SetText(text);
         }
         else
         {

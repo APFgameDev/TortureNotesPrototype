@@ -1,17 +1,12 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Events;
 using NS_Annotation.NS_SO;
+using TMPro;
 
-
-public class RightVRControllerInput : VRInput
+public class RightVRControllerInput : VRController
 {
-    public enum RightControllerState
-    {
-        Menu,
-        Typing
-    }
+    #region Public
 
     public enum QuadrantDirections
     {
@@ -23,49 +18,67 @@ public class RightVRControllerInput : VRInput
     }
 
     public QuadrantDirections QuadrantSelection;
-
-    public delegate void OnStateChangeDelegate();
-    public event OnStateChangeDelegate OnStateChangeEvent;
-
     public VoidEvent DoneTypingEvent;
-    public StringVariable ControllerText;
-
-    public RightControllerState ControllerState = RightControllerState.Menu;
-    public RightControllerState State
-    {
-        get
-        {
-            return ControllerState;
-        }
-        set
-        {
-            ControllerState = value;
-            if (OnStateChangeEvent != null)
-                OnStateChangeEvent();
-        }
-    }
 
     public LeftVRControllerInput LeftControllerInput;
+    public GameObject ControllerCanvasLocation;
+    public GameObject BackgroundCanvas;
 
-    public Dictionary<int, List<string>> MenuOptions = new Dictionary<int, List<string>>()
+    public Dictionary<int, List<string>> MenuCollection = new Dictionary<int, List<string>>()
     {
-        { 0, new List<string> { "[Tab]" } },
-        { 1, new List<string> { "[Enter]" } },
-        { 2, new List<string> { "[Del]" } },
-        { 3, new List<string> { "[Space]" } }
+        { 0, new List<string> { "[Space]" } },  //Right
+        { 1, new List<string> { "" } },         //Top Right
+        { 2, new List<string> { "[Done]" } },   //Top
+        { 3, new List<string> { "" } },         //Top Left
+        { 4, new List<string> { "[Del]" } },    //Left
+        { 5, new List<string> { "" } },         //Bottom Left
+        { 6, new List<string> { "[Enter]" } },  //Bottom
+        { 7, new List<string> { "" } }          //Bottom Right
     };
+
+    public Dictionary<int, List<string>> NumberCollection = new Dictionary<int, List<string>>()
+    {
+        { 0, new List<string> { "9" } },
+        { 1, new List<string> { "8" } },
+        { 2, new List<string> { "7" } },
+        { 3, new List<string> { "6" } },
+        { 4, new List<string> { "5" } },
+        { 5, new List<string> { "" } },
+        { 6, new List<string> { "" } },
+        { 7, new List<string> { "" } },
+    };
+
+    public Dictionary<int, List<string>> SymbolCollection = new Dictionary<int, List<string>>()
+    {
+        { 0, new List<string> { "-" } },
+        { 1, new List<string> { "_" } },
+        { 2, new List<string> { ")" } },
+        { 3, new List<string> { "(" } },
+        { 4, new List<string> { "*" } },
+        { 5, new List<string> { "&" } },
+        { 6, new List<string> { "=" } },
+        { 7, new List<string> { "+" } }
+    };
+
+    public Dictionary<int, List<string>> CurrentDictionary;
+
+    #endregion
+
+    #region Private
 
     private bool isSelected = false;
 
-    private void Start()
+    #endregion
+
+    public override void Start()
     {
+        base.Start();
+
         if (VRControllerManager == null)
         {
             VRControllerManager = FindObjectOfType<VRControllerInputManager>();
         }
-
-        OnStateChangeEvent += OnControllerStateChange;
-        State = RightControllerState.Menu;
+        
         ChildScale = CircleColorParent.transform.GetChild(0).transform.localScale;
     }
 
@@ -75,29 +88,15 @@ public class RightVRControllerInput : VRInput
         ThumbPos.x = Input.GetAxis("RightStickHorizontal");
         ThumbPos.y = Input.GetAxis("RightStickVertical");
 
-        if (Input.GetAxis("RightIndexTrigger") > 0.5f && isSelected == false)
-        {
-            isSelected = true;
-            Debug.Log("Trigger Down!");
-            Select();
-        }
-
-        if (Input.GetAxis("RightIndexTrigger") < 0.5f && isSelected == true)
-        {
-            isSelected = false;
-            Debug.Log("Trigger Up!");
-        }
-
         StickQuadrantDirection = CalculateStickDir(ThumbPos);
-        QuadrantSelection = (QuadrantDirections)StickQuadrantDirection;
 
         //Something changed
         if (StickQuadrantDirection != PreviousStickPosition)
         {
-            //if (StickQuadrantDirection != -1 && PreviousStickPosition <= -1)
-            //{
-            //    Select();
-            //}
+            if (StickQuadrantDirection != -1 && PreviousStickPosition <= -1)
+            {
+                Select();
+            }
 
             StickDirectionChanged(StickQuadrantDirection);
             StickInput();
@@ -105,114 +104,195 @@ public class RightVRControllerInput : VRInput
 
         // Reset previous
         PreviousStickPosition = StickQuadrantDirection;
-
-        if (ThumbPos.x != 0.0f || ThumbPos.y != 0.0f)
-        {
-            CurrentLeftAngle = FindAngle(ThumbPos.x, ThumbPos.y);
-            SectionIndex = GetSectionFromAngle(CurrentLeftAngle);
-        }
     }
+
+    #region OnEventChange Functions
+
+    public override void OnCapsChange()
+    {
+        base.OnCapsChange();
+
+        UpdateVisuals();
+    }
+
+    public override void OnStateChange()
+    {
+        base.OnStateChange();
+
+        UpdateVisuals();
+    }
+
+    public override void OnInputStateChange()
+    {
+        base.OnInputStateChange();
+
+        UpdateVisuals();
+    }
+
+    #endregion
+
+    #region Selection Functions
 
     public override void Select()
     {
-        switch (ControllerState)
+        switch (State)
         {
-            case RightControllerState.Menu:
-                if (StickQuadrantDirection != -1)
-                {
-                    if (MenuOptions.ContainsKey(StickQuadrantDirection))
-                    {
-                        string test = GetCharactersFromList(MenuOptions[StickQuadrantDirection]);
-                        if (test == "[Del]")
-                        {
-                            string text = TestText.text;
-                            if (text != string.Empty)
-                                text = text.Remove(text.Length - 1);
-                            TestText.text = text;
-                        }
-                        else if (test == "[Space]")
-                        {
-                            TestText.text += " ";
-                        }
-                        else if (test == "[Tab]")
-                        {
-
-                        }
-                        else if (test == "[Enter]")
-                        {
-                            ControllerText.Value = TestText.text += "\n";
-                            DoneTypingEvent.Publish();
-                        }
-                    }
-                }
+            case ControllerState.Idle:
+                TypingSelect();
                 break;
-            case RightControllerState.Typing:
-                if (LeftControllerInput.StickQuadrantDirection != -1 && StickQuadrantDirection != -1)
-                {
-                    List<string> charactersFromLeftStickSelection = new List<string>(LeftControllerInput.GetListFromStickDirection());
-
-                    charactersFromLeftStickSelection.Reverse();
-
-                    if (PreviousStickPosition < charactersFromLeftStickSelection.Count)
-                    {
-                        TestText.text += charactersFromLeftStickSelection[StickQuadrantDirection];
-                    }
-                }
+            case ControllerState.Typing:
+                TypingSelect();
+                break;
+            case ControllerState.Menu:
+                MenuSelect();
                 break;
             default:
                 break;
         }
     }
 
-    private void OnControllerStateChange()
+    #region Typing Selection
+
+    private void TypingSelect()
     {
-        UpdateWheelText();
+        switch (InputState)
+        {
+            case ControllerInputState.Alphabet:
+                AlphabetSelect();
+                //ControllerText.Value = TextObject.text;
+                break;
+            case ControllerInputState.Symbol:
+                SymbolSelect();
+                //ControllerText.Value = TextObject.text;
+                break;
+            case ControllerInputState.Number:
+                NumberSelect();
+                //ControllerText.Value = TextObject.text;
+                break;
+            default:
+                break;
+        }
+
+        TypingEvent.Publish();
     }
 
-    private void UpdateWheelText()
+    private void AlphabetSelect()
     {
-        switch (ControllerState)
+        if (LeftControllerInput.StickQuadrantDirection != -1 && StickQuadrantDirection != -1)
         {
-            case RightControllerState.Menu:
-                AssignMenusOnCircle();
+            List<string> charactersFromLeftStickSelection = new List<string>(LeftControllerInput.GetListFromStickDirection(LeftControllerInput.CurrentDictionary));
+
+            charactersFromLeftStickSelection.Reverse();
+
+            if (StickQuadrantDirection < charactersFromLeftStickSelection.Count)
+            {
+                //TextObject.text += charactersFromLeftStickSelection[StickQuadrantDirection];
+                ControllerText.Value += charactersFromLeftStickSelection[StickQuadrantDirection];
+            }
+        }
+    }
+
+    private void NumberSelect()
+    {
+        if (StickQuadrantDirection != -1)
+        {
+            if (StickQuadrantDirection < NumberCollection.Count)
+            {
+                //Hard coded to use the first index. For now
+                //TextObject.text += NumberCollection[StickQuadrantDirection][0];
+                ControllerText.Value += NumberCollection[StickQuadrantDirection][0];
+            }
+        }
+    }
+
+    private void SymbolSelect()
+    {
+        if (StickQuadrantDirection != -1)
+        {
+            if (StickQuadrantDirection < SymbolCollection.Count)
+            {
+                //Hard coded to use the first index. For now
+                //TextObject.text += SymbolCollection[StickQuadrantDirection][0];
+                ControllerText.Value += SymbolCollection[StickQuadrantDirection][0];
+            }
+        }
+    }
+
+    #endregion
+
+    private void IdleSelect()
+    {
+
+    }
+
+    private void MenuSelect()
+    {
+        if (StickQuadrantDirection != -1)
+        {
+            if (MenuCollection.ContainsKey(StickQuadrantDirection))
+            {
+                string test = GetCharactersFromList(MenuCollection[StickQuadrantDirection]);
+                if (test == "[Del]" || test == "[del]" || test == "[DEL]")
+                {
+                    string text = ControllerText.Value;
+                    if (text != string.Empty)
+                        text = text.Remove(text.Length - 1);
+                    //TextObject.text = text;
+                    ControllerText.Value = text;
+                }
+                else if (test == "[Space]" || test == "[space]" || test == "[SPACE]")
+                {
+                    //TextObject.text += " ";
+                    ControllerText.Value += " ";
+                }
+                else if (test == "[Done]" || test == "[done]" || test == "[DONE]")
+                {
+                    DoneTypingEvent.Publish();
+                }
+                else if (test == "[Enter]" || test == "[enter]" || test == "[ENTER]")
+                {
+                    //ControllerText.Value = TextObject.text += "\n";
+                    ControllerText.Value += "\n";
+                }
+            }
+        }
+    }
+
+    #endregion    
+
+    #region Assigning Characters To Visual
+
+    public override void AssignCharactersToCircle()
+    {
+        switch (InputState)
+        {
+            case ControllerInputState.Alphabet:
+                AssignLettersToCircle();
                 break;
-            case RightControllerState.Typing:
-                AssignCharactersToCircle();
+            case ControllerInputState.Symbol:
+                AssignDictionaryToTextChildren(SymbolCollection);
+                break;
+            case ControllerInputState.Number:
+                AssignDictionaryToTextChildren(NumberCollection);
                 break;
             default:
                 break;
         }
     }
 
-    /// <summary>
-    /// Is called when the stick direction has been changed
-    /// </summary>
-    /// <param name="newDir"></param>
-    protected override void StickDirectionChanged(int newDir)
-    {
-        if (StickQuadrantDirection > -1)
-        {
-            //TestText.text = GetCharactersFromList(GetListFromFromIndex(0));
-        }
-        else
-        {
-            //TestText.text = string.Empty;
-        }
-    }
-
-    public void AssignCharactersToCircle()
+    public override void AssignLettersToCircle()
     {
         ClearCharactersOnCircle();
 
         if (LeftControllerInput.StickQuadrantDirection != -1)
         {
-            List<string> charactersFromLeftStickSelection = new List<string>(LeftControllerInput.GetListFromStickDirection());
+            List<string> charactersFromLeftStickSelection = new List<string>(LeftControllerInput.GetListFromStickDirection(LeftControllerInput.CurrentDictionary));
 
             charactersFromLeftStickSelection.Reverse();
 
             for (int i = 0; i < charactersFromLeftStickSelection.Count; i++)
             {
-                Text child = CircleTextParent.transform.GetChild(i).GetComponent<Text>();
+                TextMeshProUGUI child = CircleTextParent.transform.GetChild(i).GetComponent<TextMeshProUGUI>();
                 child.text = charactersFromLeftStickSelection[i];
             }
         }
@@ -222,36 +302,64 @@ public class RightVRControllerInput : VRInput
     {
         ClearCharactersOnCircle();
 
-        for (int i = 0; i < MenuOptions.Count; i++)
+        for (int i = 0; i < MenuCollection.Count; i++)
         {
-            Text child = CircleTextParent.transform.GetChild(i).GetComponent<Text>();
-            child.text = GetCharactersFromList(GetListFromFromIndex(i));
+            TextMeshProUGUI child = CircleTextParent.transform.GetChild(i).GetComponent<TextMeshProUGUI>();
+            child.text = GetCharactersFromList(GetListFromFromIndex(i, MenuCollection), false);
         }
     }
 
-    public void ClearCharactersOnCircle()
+    #endregion
+
+    #region Utility Functions
+
+    public void EnableDisableBackgroundCanvas()
     {
-        for (int i = 0; i < CircleTextParent.transform.childCount; i++)
+        BackgroundCanvas.SetActive(!BackgroundCanvas.activeSelf);
+    }
+
+    public Dictionary<int, List<string>> GetDictionaryFromControllerState()
+    {
+        switch (State)
         {
-            Text child = CircleTextParent.transform.GetChild(i).GetComponent<Text>();
-            child.text = string.Empty;
+            case ControllerState.Idle:
+                return null;
+            case ControllerState.Typing:
+                switch (InputState)
+                {
+                    case ControllerInputState.Alphabet:
+                        return null;
+                    case ControllerInputState.Symbol:
+                        return SymbolCollection;
+                    case ControllerInputState.Number:
+                        return NumberCollection;
+                    default:
+                        return null;
+                }
+            case ControllerState.Menu:
+                return MenuCollection;
+            default:
+                return null;
         }
     }
 
-    public List<string> GetListFromFromIndex(int index)
+    public override void UpdateVisuals()
     {
-        return MenuOptions[index];
-    }
-
-    public string GetCharactersFromList(List<string> list)
-    {
-        string returnedString = string.Empty;
-
-        for (int i = 0; i < list.Count; i++)
+        switch (State)
         {
-            returnedString += list[i];
+            case ControllerState.Idle:
+                AssignCharactersToCircle();
+                break;
+            case ControllerState.Typing:
+                AssignCharactersToCircle();
+                break;
+            case ControllerState.Menu:
+                AssignMenusOnCircle();
+                break;
+            default:
+                break;
         }
-
-        return returnedString;
     }
+
+    #endregion
 }

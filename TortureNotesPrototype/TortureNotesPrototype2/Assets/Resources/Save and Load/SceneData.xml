@@ -1,0 +1,28 @@
+<Scene id = "-1">
+  <Tags count =" 1">
+    <uniqueID>6</uniqueID>
+    <title>"title here"</title>
+    <description> put your trash content here</description>
+    <posX>0.0f</posX>
+    <posY>0.0f</posY>
+    <posZ>0.0f</posZ>
+
+    <Annotations>
+      <count> 1 </count>
+      <mainThread>
+        <mainThreadCreator>creator's name</mainThreadCreator>
+        <mainThreadCreationDate>creation date</mainThreadCreationDate>
+        <mainThreadContent>main thread content</mainThreadContent>
+        <mainThreadPriority>1</mainThreadPriority>
+      </mainThread>
+
+      <replies>
+        <count> 1 </count>
+        <commentOwner>this comment owner</commentOwner>
+        <commentCreationDate>day this comment was created</commentCreationDate>
+        <commentContent>comment content</commentContent>
+        <commentPriority>1</commentPriority>
+      </replies>      
+    </Annotations>    
+  </Tags>  
+</Scene>

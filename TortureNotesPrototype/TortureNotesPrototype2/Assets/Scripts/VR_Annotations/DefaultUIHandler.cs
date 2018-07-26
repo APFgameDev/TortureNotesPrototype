@@ -36,7 +36,9 @@ public class DefaultUIHandler : CommentUIHandler
         CommentPanel obj = GetCommentPanelFromPool();
         obj.InitCommentPanel(comment);
         obj.gameObject.SetActive(true);
+
         obj.transform.SetParent(ScrollViewContent.transform);
+
         switch (obj.Comment.priority)
         {
             case Priority.Low:
@@ -48,7 +50,7 @@ public class DefaultUIHandler : CommentUIHandler
                 break;
 
             case Priority.High:                
-                obj.priorityImage.color = highPriority.color;
+                obj.priorityImage.color = highPriority.color;               
                 break;
 
             default:
@@ -56,7 +58,7 @@ public class DefaultUIHandler : CommentUIHandler
                 break;
         }
 
-        obj.transform.localScale = new Vector3(1, 1, 1);
+        obj.gameObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
         obj.transform.localPosition = Vector3.zero;
         obj.transform.localRotation = Quaternion.identity;
     }

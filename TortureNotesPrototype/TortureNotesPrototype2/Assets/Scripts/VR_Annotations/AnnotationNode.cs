@@ -16,7 +16,7 @@ namespace NS_Annotation.NS_Data
     {
         public int objectID;
         public string title;
-        public string description;
+       // public string description;
         public Vector3 localPos;
         public List<AnnotationNode> annotationNodes = new List<AnnotationNode>();
         public int AnnotationCount { get { return annotationNodes.Count; } }
@@ -69,6 +69,8 @@ namespace NS_Annotation.NS_Data
         [SerializeField]
         private List<Comment> m_Replies = new List<Comment>();
 
+        public string m_AnnotationTitle;
+
         public Vector3 AnnotationEndPos;
         public Vector3 AnnotationStartPos;
         public float AnnotationScale;
@@ -107,7 +109,7 @@ namespace NS_Annotation.NS_Data
         }
 
         #region Properties
-        public Comment MainThread { get { return m_MainComment; } }
+        public Comment MainThread { get { return m_MainComment; } set { m_MainComment = value; } }
         public List<Comment> Replies { get { return m_Replies; } }
         public int ThreadCount { get { return m_Replies.Count + 1; } }
         #endregion

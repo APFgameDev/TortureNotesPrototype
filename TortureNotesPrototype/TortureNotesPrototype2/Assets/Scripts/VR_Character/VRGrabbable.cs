@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+
 public class VRGrabbable : VRInteractable
 {
     [SerializeField]
@@ -14,6 +15,8 @@ public class VRGrabbable : VRInteractable
 
     Transform originalParent;
 
+    public bool grabEnabled = true;
+
     private void OnEnable()
     {
         originalParent = transform.parent;
@@ -21,18 +24,33 @@ public class VRGrabbable : VRInteractable
 
     override public void OnClick(VRInteractionData vrInteractionData)
     {
+        base.OnClick(vrInteractionData);
+
+        if (grabEnabled == false)
+            return;
+
         if (transform.parent == null || transform.parent != vrInteractionData.handTrans)
             transform.parent = vrInteractionData.handTrans;
     }
 
     override public void OnClickRelease(VRInteractionData vrInteractionData)
     {
+        base.OnClickRelease(vrInteractionData);
+
+        if (grabEnabled == false)
+            return;
+
         if (transform.parent == vrInteractionData.handTrans)
             transform.parent = originalParent;
     }
 
     public override void OnClickHeld(VRInteractionData vrInteraction)
     {
+        base.OnClickHeld(vrInteraction);
+
+        if (grabEnabled == false)
+            return;
+
         if (rotSpeed > 0 && vrInteraction.secondaryClickPressed == false)
         {
             transform.Rotate(vrInteraction.handTrans.right, rotSpeed * Time.deltaTime * vrInteraction.movementDirection.y, Space.World);

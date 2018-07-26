@@ -12,28 +12,9 @@ MonoBehaviour:
   m_Name: Cube
   m_EditorClassIdentifier: 
   mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-  material: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  material: {fileID: 2100000, guid: 8d580e615350628428599b1e0d81f7bd, type: 2}
   tag:
-    title: Cube
-    description: This Is more Info
-    localPos: {x: 0, y: 5, z: -1}
-    annotationNodes:
-    - m_MainComment:
-        author: Alex
-        date: Friday
-        content: Hello People
-      m_Replies:
-      - author: Liam
-        date: Friday
-        content: You're Dumb
-      AnnotationEndPos: {x: 2, y: 2, z: 0}
-      AnnotationStartPos: {x: 1, y: 0, z: 0}
-      AnnotationScale: 1
-    - m_MainComment:
-        author: Liam
-        date: Thursday
-        content: Stupid Cube!
-      m_Replies: []
-      AnnotationEndPos: {x: -2, y: 1, z: 0}
-      AnnotationStartPos: {x: 0, y: 0, z: 1}
-      AnnotationScale: 1
+    title: This Is a Tag
+    description: 
+    localPos: {x: -0.0036447267, y: 3.4449375, z: -1.8610355}
+    annotationNodes: []

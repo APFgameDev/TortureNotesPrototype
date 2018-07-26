@@ -10,38 +10,67 @@ public class ScaleRect : MonoBehaviour
     AnimationCurve scaleCurve;
     [SerializeField]
     [Range(0.1f,5)]
-    float scaleSpeed;
+    float scaleSpeed = 0.1f;
 
     [SerializeField]
     Vector3 maxScale;
     [SerializeField]
     Vector3 minScale;
 
+    System.Action callBackWhenDone;
+
+    bool currentlyScaling = false;
+
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
     }
 
-    public void ScaleRectToMax()
+    public void ScaleRectToMax(System.Action aCallBackWhenDone = null)
     {
-        StopAllCoroutines();
-        StartCoroutine(ScaleRectCoroutine(minScale, maxScale));
+        StartScaleRect(true, aCallBackWhenDone);
     }
 
-    public void ScaleRectToMin()
+    public void ScaleRectToMin(System.Action aCallBackWhenDone = null)
     {
+        StartScaleRect(false, aCallBackWhenDone);
+    }
+
+    public void StartScaleRect(bool maximize, System.Action aCallBackWhenDone = null)
+    {
+        callBackWhenDone = aCallBackWhenDone;
+
         StopAllCoroutines();
+
         if (gameObject.activeInHierarchy)
         {
-            StartCoroutine(ScaleRectCoroutine(maxScale, minScale));
+            if (maximize)
+                StartCoroutine(ScaleRectCoroutine(minScale, maxScale));
+            else
+                StartCoroutine(ScaleRectCoroutine(maxScale, minScale));
         }
+    }
+
+    public bool GetIsCurrentlyScaling()
+    {
+        return currentlyScaling;
+    }
+
+    public void SetToMinScale()
+    {
+        rectTransform.localScale = minScale;
+    }
+
+    public void SetToMaxScale()
+    {
+        rectTransform.localScale = maxScale;
     }
 
     IEnumerator ScaleRectCoroutine(Vector3 start, Vector3 end)
     {
         float time = start.InverseLerp(end, rectTransform.localScale);
-        Vector3 startScale = rectTransform.localScale;
 
+        currentlyScaling = true;
         while (time < 1)
         {
             rectTransform.localScale = Vector3.Lerp(start, end, scaleCurve.Evaluate(time));
@@ -52,5 +81,10 @@ public class ScaleRect : MonoBehaviour
         }
 
         rectTransform.localScale = Vector3.Lerp(start, end, scaleCurve.Evaluate(1));
+        currentlyScaling = false;
+
+
+        if (callBackWhenDone != null)
+            callBackWhenDone();
     }
 }

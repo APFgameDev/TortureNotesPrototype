@@ -61,6 +61,11 @@ public class ObjectPool<T> where T : MonoBehaviour
         }
     }
 
+    public T[] GetActiveObjects()
+    {
+        return activeObjects.ToArray();
+    }
+
 
     void ExpandPool()
     {

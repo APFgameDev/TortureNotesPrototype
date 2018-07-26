@@ -45,7 +45,7 @@ public class XMLIOStyle : IOStyle
                 float z = reader.ReadContentAsFloat();
 
                 tagHandler.TagData.title = title;
-                tagHandler.TagData.description = description;
+               // tagHandler.TagData.description = description;
                 tagHandler.TagData.localPos = new Vector3(x, y, z);
 
                 //next we do the annotations
@@ -134,7 +134,7 @@ public class XMLIOStyle : IOStyle
             writer.WriteEndElement();
 
             writer.WriteStartElement("description");
-            writer.WriteString(tag.TagData.description);
+           // writer.WriteString(tag.TagData.description);
             writer.WriteEndElement();
 
             writer.WriteStartElement("posX");

@@ -4,6 +4,7 @@ using UnityEngine;
 using NS_Annotation.NS_Data;
 using UnityEngine.UI;
 
+
 [RequireComponent(typeof(LineRenderer))]
 public class NodeComponent : VRGrabbable
 {
@@ -11,6 +12,9 @@ public class NodeComponent : VRGrabbable
 
     [SerializeField]
     ScaleRect scaleThreadTopicRect;
+
+    [SerializeField]
+    ScaleRect scaleMainCommentRect;
 
     [SerializeField]
     Text threadTopicText;
@@ -22,7 +26,7 @@ public class NodeComponent : VRGrabbable
     Text dateText;
 
     [SerializeField]
-    VRInteractable m_nodeHighlightArea;
+    VRGrabbable m_nodeHighlightArea;
 
     [SerializeField]
     Transform startOfLine;
@@ -47,6 +51,8 @@ public class NodeComponent : VRGrabbable
 
         annotationNode = aAnnotationNode;
 
+     
+
         transform.position = target.position + annotationNode.AnnotationEndPos;
 
         m_nodeHighlightArea.transform.parent = aTarget;
@@ -61,6 +67,14 @@ public class NodeComponent : VRGrabbable
         dateText.text = aAnnotationNode.MainThread.date;
 
         tagHandler = aTagHandler;
+
+        scaleThreadTopicRect.SetToMinScale();
+
+        grabEnabled = false;
+        ToggleEditableText(false);
+        m_nodeHighlightArea.grabEnabled = false;
+
+        gameObject.SetActive(true);      
     }
 
     private void Update()
@@ -71,20 +85,76 @@ public class NodeComponent : VRGrabbable
             lineRenderer.SetPositions(new Vector3[] { startOfLine.position, m_nodeHighlightArea.transform.position });
     }
 
+    public void ScaleThread(bool expanding,System.Action onComplete = null)
+    {
+        if(expanding)
+        {
+            scaleThreadTopicRect.StartScaleRect(true, onComplete += ScaleToMaxMainComment);
+        }
+        else
+        {
+            scaleMainCommentRect.StartScaleRect(false, ScaleToMinThreadTopic);
+        }
+
+
+    }
+
+    void ScaleToMaxMainComment()
+    {
+        scaleMainCommentRect.StartScaleRect(true);
+    }
+
+    void ScaleToMinThreadTopic()
+    {
+        scaleThreadTopicRect.StartScaleRect(false);
+    }
 
     public override void OnHoverEnter(VRInteractionData vrInteraction)
     {
-        scaleThreadTopicRect.ScaleRectToMax();
+        if (tagHandler.tagHandlerMode != TagHandlerMode.Regular)
+            return;
+
+        ScaleThread(true);
     }
 
     public override void OnHoverExit(VRInteractionData vrInteraction)
     {
-        scaleThreadTopicRect.ScaleRectToMin();
+        if (tagHandler.tagHandlerMode != TagHandlerMode.Regular)
+            return;
+
+        ScaleThread(false);
     }
 
     public void ViewCommentsInAnnotation()
     {
-        tagHandler.ViewAnnotation(this, target);
+        if (tagHandler.tagHandlerMode == TagHandlerMode.Delete)
+        {
+            tagHandler.DeleteThread(this);
+        }
+        else
+        {
+            tagHandler.ViewAnnotationComments(this, target);
+        }
+    }
+
+    public void ToggleEditableText(bool isEditing)
+    {
+        threadTopicText.GetComponent<VREditableText>().enabled = isEditing;
+
+        if (isEditing == false)
+        {
+            Comment comment = annotationNode.MainThread;
+
+            comment.content = threadTopicText.text;
+
+            annotationNode.MainThread = comment;
+        }
+    }
+
+    public void ToggleEditPlacement(bool canBePlaced)
+    {
+        m_nodeHighlightArea.grabEnabled = canBePlaced;
+        grabEnabled = canBePlaced;
     }
 
     private void OnDisable()
@@ -96,5 +166,12 @@ public class NodeComponent : VRGrabbable
     private void OnEnable()
     {
         m_nodeHighlightArea.gameObject.SetActive(true);
+    }
+
+    public void SaveData()
+    {
+        annotationNode.AnnotationStartPos = target.InverseTransformPoint(m_nodeHighlightArea.transform.position);
+        annotationNode.AnnotationScale = m_nodeHighlightArea.transform.lossyScale.x;
+        annotationNode.AnnotationEndPos = target.InverseTransformPoint(transform.position);
     }
 }

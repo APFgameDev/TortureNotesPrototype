@@ -13,7 +13,7 @@ public class ModelData : ScriptableObject
 
     public NS_Annotation.NS_Data.Tag tag;
 
-    public GameObject CreateGameObject(GameObject tagHandlerPrefab, Transform spawnPlace)
+    public TagHandler CreateGameObject(GameObject tagHandlerPrefab, ToolBox toolBox, Transform spawnPlace, System.Action<TagHandler, bool> aCallBackOnToggleAnnotationView)
     {
         GameObject newGameObject = new GameObject();
         newGameObject.transform.position = spawnPlace.position;
@@ -26,15 +26,23 @@ public class ModelData : ScriptableObject
         meshFilter.mesh = mesh;
 
         MeshCollider meshCollider = newGameObject.AddComponent<MeshCollider>();
+        meshCollider.inflateMesh = true;
+        meshCollider.skinWidth = 0.1f;
         meshCollider.convex = true;
+   
         meshCollider.isTrigger = true;
-        VRGrabbable vrGrabbable = newGameObject.AddComponent<VRGrabbable>();
-        vrGrabbable.SetSpeeds(100, 0.1f, 0.1f);
+        VRSelectableObject vrSelectable = newGameObject.AddComponent<VRSelectableObject>();
+        vrSelectable.SetSpeeds(100, 0.1f, 0.1f);
+        vrSelectable.SetToolBox(toolBox);
+
 
         GameObject newTagHandler = GameObject.Instantiate(tagHandlerPrefab);
+        TagHandler tagHandler = newTagHandler.GetComponent<TagHandler>();
 
-        newTagHandler.GetComponent<TagHandler>().PlaceTag(newGameObject.transform, tag);
+        vrSelectable.SetTagHandler(tagHandler);
 
-        return newGameObject;
+        tagHandler.PlaceTag(newGameObject.transform, tag, aCallBackOnToggleAnnotationView);
+
+        return tagHandler;
     }
 }

@@ -8,31 +8,27 @@ public class VRInteractable : MonoBehaviour
 
     public virtual void OnHoverEnter(VRInteractionData vrInteraction)
     {
-        if(m_Events.OnHoverEnter != null)
-            m_Events.OnHoverEnter.Invoke();
+        m_Events.OnHoverEnter.Invoke(vrInteraction);
     }
     public virtual void OnHoverExit(VRInteractionData vrInteraction)
     {
-        if (m_Events.OnHoverExit != null)
-            m_Events.OnHoverExit.Invoke();
+        m_Events.OnHoverExit.Invoke(vrInteraction);
     }
     public virtual void OnClick(VRInteractionData vrInteraction)
     {
-        if (m_Events.OnClick != null)
-            m_Events.OnClick.Invoke();
+        m_Events.OnClick.Invoke(vrInteraction);
     }
     public virtual void OnClickHeld(VRInteractionData vrInteraction)
     {
-        if (m_Events.OnClickHeld != null)
-            m_Events.OnClickHeld.Invoke();
+        m_Events.OnClickHeld.Invoke(vrInteraction);
     }
     public virtual void OnClickRelease(VRInteractionData vrInteraction)
     {
-        if (m_Events.OnClickRelease != null)
-            m_Events.OnClickRelease.Invoke();
+        m_Events.OnClickRelease.Invoke(vrInteraction);
     }
 }
 
+[System.Serializable]
 public struct VRInteractionData
 {
     public System.Func<Vector3, Vector3> GetClosestLaserPoint;
@@ -43,11 +39,16 @@ public struct VRInteractionData
 }
 
 [System.Serializable]
-public struct InteractEvents
+public class InteractEvents
 {
-    public UnityEvent OnHoverEnter;
-    public UnityEvent OnHoverExit;
-    public UnityEvent OnClick;
-    public UnityEvent OnClickHeld;
-    public UnityEvent OnClickRelease;
+    public VRInteractionEvent OnHoverEnter = new VRInteractionEvent();
+    public VRInteractionEvent OnHoverExit = new VRInteractionEvent();
+    public VRInteractionEvent OnClick = new VRInteractionEvent();
+    public VRInteractionEvent OnClickHeld = new VRInteractionEvent();
+    public VRInteractionEvent OnClickRelease = new VRInteractionEvent();
+}
+
+[System.Serializable]
+public class VRInteractionEvent : UnityEvent<VRInteractionData>
+{
 }

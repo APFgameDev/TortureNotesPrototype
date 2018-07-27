@@ -58,15 +58,10 @@ public class VRControllerInputManager : MonoBehaviour
         {
             RightControllerInput = FindObjectOfType<RightVRControllerInput>();
         }
-
-        //SetActive();
     }
 
     private void Update()
     {
-        //LeftControllerSection = (QuadrantDirections)LeftControllerInput.StickQuadrantDirection;
-       // RightControllerSection = (QuadrantDirections)RightControllerInput.StickQuadrantDirection;
-
         #region Dock/UnDock
 
         if (Input.GetAxis("LeftGripTrigger") > 0.8f && Input.GetAxis("RightGripTrigger") > 0.8f && doOnce == true)
@@ -217,12 +212,10 @@ public class VRControllerInputManager : MonoBehaviour
                 RightControllerInput.gameObject.transform.SetParent(dockedPanel.RightControllerLocation); //
                 RightControllerInput.gameObject.transform.localPosition = Vector3.zero;                   // Right
                 RightControllerInput.gameObject.transform.localRotation = Quaternion.identity;            //
-
-                //string currentText = RightControllerInput.TextObject.text;
+                
+                //Get text from controller text
                 string currentText = RightControllerInput.ControllerText.Value;
-
-                //Assign the text object
-                //SetText(dockedPanel.TextObject);
+                
                 //Assign the text
                 dockedPanel.TextObject.text = currentText;
             }
@@ -230,8 +223,9 @@ public class VRControllerInputManager : MonoBehaviour
         else
         {
             RightControllerInput.EnableDisableBackgroundCanvas();
-            //SetText(RightControllerInput.BackgroundCanvas.GetComponent<VRPanel>().TextObject);
-            //RightControllerInput.TextObject.text = DockedPanel.GetComponent<VRPanel>().TextObject.text;
+            
+            //Get the controller to update its text box
+            RightControllerInput.TypingEvent.Publish();
 
             RightControllerInput.gameObject.transform.SetParent(RightControllerInput.ControllerCanvasLocation.transform);
             RightControllerInput.gameObject.transform.localPosition = Vector3.zero;

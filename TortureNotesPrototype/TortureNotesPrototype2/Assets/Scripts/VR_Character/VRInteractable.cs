@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class VRInteractable : MonoBehaviour
 {
+    public Vector3 hitPoint;
+
     [SerializeField]
     private InteractEvents m_Events = new InteractEvents();
 
@@ -32,6 +34,7 @@ public class VRInteractable : MonoBehaviour
 public struct VRInteractionData
 {
     public System.Func<Vector3, Vector3> GetClosestLaserPoint;
+    public System.Func<Vector3, Vector3, Vector3> GetClosestLaserPointOnPlane;
     public Transform handTrans;
     public Vector2 movementDirection;
     public bool secondaryClickPressed;

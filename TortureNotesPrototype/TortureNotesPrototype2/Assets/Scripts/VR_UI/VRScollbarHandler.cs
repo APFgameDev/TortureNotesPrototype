@@ -9,18 +9,16 @@ using UnityEngine.UI;
 public class VRScollbarHandler : VRSelectableHandler
 {
     Scrollbar scrollBar;
-    RectTransform rectTransform;
 
     // Use this for initialization
     void Awake()
     {
         scrollBar = GetComponent<Scrollbar>();
-        rectTransform = GetComponent<RectTransform>();
         InitSelectableHandler();
     }
 
     public override void OnClickHeld(VRInteractionData vrInteraction)
     {
-        scrollBar.value = MathUtility.CalculateDragValue(rectTransform, transform, Camera.main.WorldToScreenPoint(vrInteraction.GetClosestLaserPoint(transform.position)), scrollBar.direction, 0, 1);
+       scrollBar.value =  MathUtility.CalculateDragValue(selectableRect, scrollBar.handleRect, vrInteraction.GetClosestLaserPointOnPlane(transform.position, transform.forward), scrollBar.direction, 0, 1);
     }
 }

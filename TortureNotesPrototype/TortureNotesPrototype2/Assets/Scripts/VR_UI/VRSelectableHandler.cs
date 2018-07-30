@@ -12,6 +12,9 @@ public class VRSelectableHandler : VRInteractable
     Selectable selectable;
     IPointerClickHandler clickHandler;
 
+    [SerializeField]
+    protected RectTransform selectableRect;
+
     private void Awake()
     {
         InitSelectableHandler();
@@ -21,7 +24,10 @@ public class VRSelectableHandler : VRInteractable
         selectable = GetComponent<Selectable>();
         clickHandler = GetComponent<IPointerClickHandler>();
 
-        MathUtility.AddTriggerBoxToRectTransform(GetComponent<RectTransform>(),Vector3.zero);     
+        if (selectableRect == null)
+            selectableRect = GetComponent<RectTransform>();
+        if (GetComponent<BoxCollider>() == null)
+            MathUtility.AddTriggerBoxToRectTransform(selectableRect, Vector3.forward * -0.1f, gameObject);
     }
 
     override public void OnHoverEnter(VRInteractionData vrInteraction)

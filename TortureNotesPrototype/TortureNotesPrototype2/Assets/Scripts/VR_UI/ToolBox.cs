@@ -17,9 +17,9 @@ public class ToolBox : VRGrabbable
     [SerializeField]
     TagHandlerToggles handlerToggles;
 
-    //ObjectPool<>
+    ObjectPool<AnnotationPanel> annotationPanelPool;
 
-    //GameObject content;
+    GameObject content;
 
     private void Awake()
     {
@@ -40,7 +40,7 @@ public class ToolBox : VRGrabbable
 
             scaleRect.ScaleRectToMin(WhenDoneMinimizing);
             currentSelectedObject = aObjectActivating;
-        }  
+        }
     }
 
     void WhenDoneMinimizing()

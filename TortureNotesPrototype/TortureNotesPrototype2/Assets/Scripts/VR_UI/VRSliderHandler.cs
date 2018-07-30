@@ -20,6 +20,6 @@ public class VRSliderHandler : VRSelectableHandler
 
     public override void OnClickHeld(VRInteractionData vrInteraction)
     {
-        slider.value = MathUtility.CalculateDragValue(rectTransform, transform, Camera.main.WorldToScreenPoint(vrInteraction.GetClosestLaserPoint(transform.position)), (Scrollbar.Direction)slider.direction, slider.minValue, slider.maxValue);
+        slider.value = MathUtility.CalculateDragValue(selectableRect, slider.handleRect, vrInteraction.GetClosestLaserPointOnPlane(transform.position, transform.forward), (Scrollbar.Direction)slider.direction, 0, 1);
     }
 }

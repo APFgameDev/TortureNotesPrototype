@@ -37,6 +37,7 @@ public class Laser : MonoBehaviour
         vrInteraction.handTrans = transform;
         vrInteraction.changeColor = ChangeLaseColor;
         vrInteraction.GetClosestLaserPoint = CalculateClosestPointOnLaserFromInteractable;
+        vrInteraction.GetClosestLaserPointOnPlane = CalculateClosestPointOnLaserFromInteractableOnPlane;
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.positionCount = 2;
         ChangeLaseColor(DEFAULTLASERCOLOR);
@@ -72,10 +73,10 @@ public class Laser : MonoBehaviour
             for (int i = 0; i < hit.Length; i++)
             {
                 GameObject other = hit[i].collider.gameObject;
-                VRInteractable vrInteractable = other.GetComponent<VRInteractable>();
-
+                VRInteractable vrInteractable = other.GetComponent<VRInteractable>();              
                 if (vrInteractable != null && vrInteractable.enabled)
                 {
+                    vrInteractable.hitPoint = hit[i].point;
                     if (hit[i].distance < closestInteractableDist)
                     {
                         closestInteractable = vrInteractable;
@@ -95,6 +96,7 @@ public class Laser : MonoBehaviour
             }
             else if (isClickHeld == false && m_heldInteractable != null)
             {
+            
                 m_heldInteractable.OnClickRelease(vrInteraction);
                 m_heldInteractable = null;
             }
@@ -131,9 +133,12 @@ public class Laser : MonoBehaviour
 
     Vector3 CalculateClosestPointOnLaserFromInteractable(Vector3 pos)
     {
+        return transform.position + Vector3.Project(pos - transform.position, transform.forward);
+    }
 
-        return Vector3.Project(pos - transform.position, transform.forward);
-
+    Vector3 CalculateClosestPointOnLaserFromInteractableOnPlane(Vector3 pos,Vector3 normal)
+    {
+       return pos + Vector3.ProjectOnPlane(CalculateClosestPointOnLaserFromInteractable(pos) - pos, normal);
     }
 
     void ChangeLaseColor(Color color)

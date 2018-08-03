@@ -2,13 +2,14 @@
 
 namespace Brinx.SO
 {
-    /// <summary>ScriptableObject container for a bool</summary>
-    [CreateAssetMenu(fileName = "BoolVar", menuName = "SO Variables/Bool", order = 0)]
-    public class BoolVariable : ScriptableObject
+    /// <summary>ScriptableObject container for a Vector2</summary>
+    [CreateAssetMenu(fileName = "Vector2Var", menuName = "SO Variables/Vector2", order = 5)]
+    public class Vector2Variable : ScriptableObject
     {
         [SerializeField]
-        bool m_Value;
-        public bool Value
+        Vector2 m_Value;
+
+        public Vector2 Value
         {
             get { return m_Value; }
             set
@@ -20,12 +21,13 @@ namespace Brinx.SO
                 }
             }
         }
-        public bool ResetOnEnable;
-        public bool ResetValue;
-        /// <summary>Invoked whenever the variable's Value is changed</summary>
-        public event System.Action ValueChanged = delegate { };
 
-        public void SetValue(bool a_value)
+        public bool ResetOnEnabled;
+        public Vector2 ResetValue;
+        /// <summary>Invoked whenever the variable's Value is changed</summary>
+        public System.Action ValueChanged = delegate { };
+
+        public void SetValue(Vector2 a_value)
         {
             Value = a_value;
         }
@@ -36,14 +38,13 @@ namespace Brinx.SO
         }
 
         private void OnEnable()
-        {            
+        {
             ValueChanged = delegate { };
 
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.playModeStateChanged += ResetEventOnExitPlaymode;
-#endif //UNITY_EDITOR
-
-            if (ResetOnEnable)
+#endif
+            if (ResetOnEnabled)
             {
                 Value = ResetValue;
             }
@@ -57,6 +58,6 @@ namespace Brinx.SO
                 ValueChanged = delegate { };
             }
         }
-#endif //UNITY_EDITOR
+#endif
     }
-};
+}

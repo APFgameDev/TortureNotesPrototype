@@ -1,17 +1,17 @@
 ﻿namespace Brinx.SO
 {
     [System.Serializable]
-    public class BoolReference
+    public class Vector2Reference
     {
         /// <summary>Whether to use an editor-assigned constant or a ScriptableObject variable</summary>
         public bool UseVariable = false;
-        /// <summary>Constant value. Primarily used for testing and debuging</summary>
-        public bool ConstantValue;
+        /// <summary>Constant value. Primarily used for testing and debugging </summary>
+        public UnityEngine.Vector2 ConstantValue;
         /// <summary>Linked ScriptableObject variable</summary>
-        public BoolVariable Variable;
+        public Vector2Variable Variable;
 
         /// <summary>Both Get and Set affect ConstantValue or Variable.Value, depending on UseVariable</summary>
-        public bool Value
+        public UnityEngine.Vector2 Value
         {
             get
             {
@@ -20,6 +20,7 @@
                 else
                     return Variable.Value;
             }
+
             set
             {
                 if (!UseVariable || (!UnityEngine.Application.isPlaying && Variable == null))
@@ -29,7 +30,7 @@
             }
         }
 
-        public static implicit operator bool(BoolReference reference)
+        public static implicit operator UnityEngine.Vector2(Vector2Reference reference)
         {
             return reference.Value;
         }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace NS_Annotation.NS_SO
+namespace Brinx.SO
 {
     /// <summary>Listens to the linked VoidEvent and invokes a response</summary>
     [ExecuteInEditMode]

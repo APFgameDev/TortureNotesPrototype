@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace NS_Annotation.NS_SO
+namespace Brinx.SO
 {
     /// <summary>ScriptableObject container for an int</summary>
     [CreateAssetMenu(fileName = "IntVar", menuName = "SO Variables/Int", order = 3)]

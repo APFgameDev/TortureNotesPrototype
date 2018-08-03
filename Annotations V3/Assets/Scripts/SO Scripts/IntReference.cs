@@ -1,4 +1,4 @@
-﻿namespace NS_Annotation.NS_SO
+﻿namespace Brinx.SO
 {
     [System.Serializable]
     public class IntReference

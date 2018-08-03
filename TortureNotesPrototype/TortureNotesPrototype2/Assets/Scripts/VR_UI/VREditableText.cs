@@ -11,7 +11,7 @@ public class VREditableText : VRInteractable
 
     void Awake()
     {
-        MathUtility.AddTriggerBoxToRectTransform(GetComponent<RectTransform>(), Vector3.forward * -0.1f);
+        MathUtility.AddTriggerBoxToRectTransform(GetComponent<RectTransform>(), Vector3.forward * -0.1f, gameObject);
         text = GetComponent<TextMeshProUGUI>();
     }
 

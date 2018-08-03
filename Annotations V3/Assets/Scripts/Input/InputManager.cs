@@ -119,7 +119,7 @@ public class InputManager : MonoBehaviour
         m_RightTriggerHeldPercent.Value = Input.GetAxis(m_RightTrigger);
         if (m_RightTriggerHeldPercent.Value >= m_RightTriggerDeadZone.Value)
         {
-            m_LeftTriggerHeld.Value = true;
+            m_RightTriggerHeld.Value = true;
             m_OnRightTriggerPressed.Publish();
         }
         else

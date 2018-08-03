@@ -325,14 +325,14 @@ MonoBehaviour:
     type: 2}
   m_LeftGripDeadZone:
     UseVariable: 0
-    ConstantValue: 0
+    ConstantValue: 0.1
     Variable: {fileID: 0}
   m_LeftGripHeld: {fileID: 11400000, guid: 88df5642eac45854cac64b78a42b2be6, type: 2}
   m_LeftTriggerHeldPercent: {fileID: 11400000, guid: f64878c02cb0d57498ce134f98d42750,
     type: 2}
   m_LeftTriggerDeadZone:
     UseVariable: 0
-    ConstantValue: 0
+    ConstantValue: 0.1
     Variable: {fileID: 0}
   m_LeftTriggerHeld: {fileID: 11400000, guid: 1256305051a59e247981435b005aaa6a, type: 2}
   m_LeftAxisDirection: {fileID: 11400000, guid: c8458dee0f1e1c941891aa334bc48da4,
@@ -342,14 +342,14 @@ MonoBehaviour:
     type: 2}
   m_RightGripDeadZone:
     UseVariable: 0
-    ConstantValue: 0
+    ConstantValue: 0.1
     Variable: {fileID: 0}
   m_RightGripHeld: {fileID: 11400000, guid: 1d2dfc8dfcea53640be930c941d31920, type: 2}
   m_RightTriggerHeldPercent: {fileID: 11400000, guid: 6fb5ef7dab820d740bdeec85a70a7ca5,
     type: 2}
   m_RightTriggerDeadZone:
     UseVariable: 0
-    ConstantValue: 0
+    ConstantValue: 0.1
     Variable: {fileID: 0}
   m_RightTriggerHeld: {fileID: 11400000, guid: 22d884d99f9c3554b9e3020508538222, type: 2}
   m_RightAxisDirection: {fileID: 11400000, guid: cb034abcfdb04d04790ca98d9de7095f,

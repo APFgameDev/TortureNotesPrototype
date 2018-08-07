@@ -1,9 +1,10 @@
 fileFormatVersion: 2
-guid: 1103c5f33dfdc4d46bdfbc500f11a068
+guid: bbb17c7866cf0e246ba463b3be7b8758
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - m_KeyboardSO: {fileID: 11400000, guid: acdfb3363e35ea248a63e17098a83206, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

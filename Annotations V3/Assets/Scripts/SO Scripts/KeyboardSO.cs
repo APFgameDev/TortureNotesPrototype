@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 using Annotation.SO;
+using Annotation.SO;
 
 namespace Annotation.SO
 {

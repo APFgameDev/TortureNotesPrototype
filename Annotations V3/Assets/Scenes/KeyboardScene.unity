@@ -225,18 +225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 11e7b31d58dd083498fb0cb1393f37f4, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: ca190aae6d769184d9f20eab1f20e94d,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 77820b7cdcdb6494db9b863c2c676f4f,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: 457d0b67278451842a6f2c495bd5843f, type: 2}
-  m_LerpColor: {fileID: 11400000, guid: fc759a3300c72074dbde4d0c85f33576, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: acdfb3363e35ea248a63e17098a83206, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 
 --- !u!65 &27584461
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1386,18 +1374,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 11e7b31d58dd083498fb0cb1393f37f4, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: ca190aae6d769184d9f20eab1f20e94d,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 77820b7cdcdb6494db9b863c2c676f4f,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: 457d0b67278451842a6f2c495bd5843f, type: 2}
-  m_LerpColor: {fileID: 11400000, guid: fc759a3300c72074dbde4d0c85f33576, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: acdfb3363e35ea248a63e17098a83206, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 
 --- !u!65 &148280388
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1564,18 +1540,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 11e7b31d58dd083498fb0cb1393f37f4, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: ca190aae6d769184d9f20eab1f20e94d,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 77820b7cdcdb6494db9b863c2c676f4f,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: 457d0b67278451842a6f2c495bd5843f, type: 2}
-  m_LerpColor: {fileID: 11400000, guid: fc759a3300c72074dbde4d0c85f33576, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: acdfb3363e35ea248a63e17098a83206, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 
 --- !u!65 &213685415
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2077,18 +2041,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 11e7b31d58dd083498fb0cb1393f37f4, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: ca190aae6d769184d9f20eab1f20e94d,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 77820b7cdcdb6494db9b863c2c676f4f,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: 457d0b67278451842a6f2c495bd5843f, type: 2}
-  m_LerpColor: {fileID: 11400000, guid: fc759a3300c72074dbde4d0c85f33576, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: acdfb3363e35ea248a63e17098a83206, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 
 --- !u!65 &305293485
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2187,18 +2139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 11e7b31d58dd083498fb0cb1393f37f4, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: ca190aae6d769184d9f20eab1f20e94d,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 77820b7cdcdb6494db9b863c2c676f4f,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: 457d0b67278451842a6f2c495bd5843f, type: 2}
-  m_LerpColor: {fileID: 11400000, guid: fc759a3300c72074dbde4d0c85f33576, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: acdfb3363e35ea248a63e17098a83206, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 
 --- !u!65 &306568202
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2393,18 +2333,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 11e7b31d58dd083498fb0cb1393f37f4, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: ca190aae6d769184d9f20eab1f20e94d,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 77820b7cdcdb6494db9b863c2c676f4f,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: 457d0b67278451842a6f2c495bd5843f, type: 2}
-  m_LerpColor: {fileID: 11400000, guid: fc759a3300c72074dbde4d0c85f33576, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: acdfb3363e35ea248a63e17098a83206, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 
 --- !u!65 &329479843
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2657,18 +2585,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 11e7b31d58dd083498fb0cb1393f37f4, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: ca190aae6d769184d9f20eab1f20e94d,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 77820b7cdcdb6494db9b863c2c676f4f,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: 457d0b67278451842a6f2c495bd5843f, type: 2}
-  m_LerpColor: {fileID: 11400000, guid: fc759a3300c72074dbde4d0c85f33576, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: acdfb3363e35ea248a63e17098a83206, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 
 --- !u!65 &353190068
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2762,7 +2678,33 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114321436551998310, guid: fbe6d184b5238b14692cb6749ac50d99,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114347780460140352, guid: fbe6d184b5238b14692cb6749ac50d99,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114236158710366426, guid: fbe6d184b5238b14692cb6749ac50d99,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 120995992373786390, guid: fbe6d184b5238b14692cb6749ac50d99,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 120891818506196208, guid: fbe6d184b5238b14692cb6749ac50d99,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114290720809062144, guid: fbe6d184b5238b14692cb6749ac50d99, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: fbe6d184b5238b14692cb6749ac50d99, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &394279231
@@ -3719,18 +3661,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 11e7b31d58dd083498fb0cb1393f37f4, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: ca190aae6d769184d9f20eab1f20e94d,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 77820b7cdcdb6494db9b863c2c676f4f,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: 457d0b67278451842a6f2c495bd5843f, type: 2}
-  m_LerpColor: {fileID: 11400000, guid: fc759a3300c72074dbde4d0c85f33576, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: acdfb3363e35ea248a63e17098a83206, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 
 --- !u!65 &525890274
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3983,18 +3913,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 11e7b31d58dd083498fb0cb1393f37f4, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: ca190aae6d769184d9f20eab1f20e94d,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 77820b7cdcdb6494db9b863c2c676f4f,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: 457d0b67278451842a6f2c495bd5843f, type: 2}
-  m_LerpColor: {fileID: 11400000, guid: fc759a3300c72074dbde4d0c85f33576, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: acdfb3363e35ea248a63e17098a83206, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 
 --- !u!65 &567491153
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4093,18 +4011,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 11e7b31d58dd083498fb0cb1393f37f4, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: ca190aae6d769184d9f20eab1f20e94d,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 77820b7cdcdb6494db9b863c2c676f4f,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: 457d0b67278451842a6f2c495bd5843f, type: 2}
-  m_LerpColor: {fileID: 11400000, guid: fc759a3300c72074dbde4d0c85f33576, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: acdfb3363e35ea248a63e17098a83206, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 
 --- !u!65 &577363127
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4440,18 +4346,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 11e7b31d58dd083498fb0cb1393f37f4, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: ca190aae6d769184d9f20eab1f20e94d,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 77820b7cdcdb6494db9b863c2c676f4f,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: 457d0b67278451842a6f2c495bd5843f, type: 2}
-  m_LerpColor: {fileID: 11400000, guid: fc759a3300c72074dbde4d0c85f33576, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: acdfb3363e35ea248a63e17098a83206, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 
 --- !u!65 &627924681
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4894,18 +4788,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 11e7b31d58dd083498fb0cb1393f37f4, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: ca190aae6d769184d9f20eab1f20e94d,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 77820b7cdcdb6494db9b863c2c676f4f,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: 457d0b67278451842a6f2c495bd5843f, type: 2}
-  m_LerpColor: {fileID: 11400000, guid: fc759a3300c72074dbde4d0c85f33576, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: acdfb3363e35ea248a63e17098a83206, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 
 --- !u!65 &664616761
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5367,18 +5249,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 11e7b31d58dd083498fb0cb1393f37f4, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: ca190aae6d769184d9f20eab1f20e94d,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 77820b7cdcdb6494db9b863c2c676f4f,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: 457d0b67278451842a6f2c495bd5843f, type: 2}
-  m_LerpColor: {fileID: 11400000, guid: fc759a3300c72074dbde4d0c85f33576, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: acdfb3363e35ea248a63e17098a83206, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 
 --- !u!65 &742004553
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6439,18 +6309,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 11e7b31d58dd083498fb0cb1393f37f4, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: ca190aae6d769184d9f20eab1f20e94d,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 77820b7cdcdb6494db9b863c2c676f4f,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: 457d0b67278451842a6f2c495bd5843f, type: 2}
-  m_LerpColor: {fileID: 11400000, guid: fc759a3300c72074dbde4d0c85f33576, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: acdfb3363e35ea248a63e17098a83206, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 
 --- !u!65 &950404000
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8003,18 +7861,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 11e7b31d58dd083498fb0cb1393f37f4, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: ca190aae6d769184d9f20eab1f20e94d,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 77820b7cdcdb6494db9b863c2c676f4f,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: 457d0b67278451842a6f2c495bd5843f, type: 2}
-  m_LerpColor: {fileID: 11400000, guid: fc759a3300c72074dbde4d0c85f33576, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: acdfb3363e35ea248a63e17098a83206, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 
 --- !u!65 &1263193684
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8142,18 +7988,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 11e7b31d58dd083498fb0cb1393f37f4, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: ca190aae6d769184d9f20eab1f20e94d,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 77820b7cdcdb6494db9b863c2c676f4f,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: 457d0b67278451842a6f2c495bd5843f, type: 2}
-  m_LerpColor: {fileID: 11400000, guid: fc759a3300c72074dbde4d0c85f33576, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: acdfb3363e35ea248a63e17098a83206, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 
 --- !u!65 &1295429850
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8252,18 +8086,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 11e7b31d58dd083498fb0cb1393f37f4, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: ca190aae6d769184d9f20eab1f20e94d,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 77820b7cdcdb6494db9b863c2c676f4f,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: 457d0b67278451842a6f2c495bd5843f, type: 2}
-  m_LerpColor: {fileID: 11400000, guid: fc759a3300c72074dbde4d0c85f33576, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: acdfb3363e35ea248a63e17098a83206, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 
 --- !u!65 &1296928390
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9328,18 +9150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 11e7b31d58dd083498fb0cb1393f37f4, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: ca190aae6d769184d9f20eab1f20e94d,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 77820b7cdcdb6494db9b863c2c676f4f,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: 457d0b67278451842a6f2c495bd5843f, type: 2}
-  m_LerpColor: {fileID: 11400000, guid: fc759a3300c72074dbde4d0c85f33576, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: acdfb3363e35ea248a63e17098a83206, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 
 --- !u!65 &1531178250
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9438,18 +9248,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 11e7b31d58dd083498fb0cb1393f37f4, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: ca190aae6d769184d9f20eab1f20e94d,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 77820b7cdcdb6494db9b863c2c676f4f,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: 457d0b67278451842a6f2c495bd5843f, type: 2}
-  m_LerpColor: {fileID: 11400000, guid: fc759a3300c72074dbde4d0c85f33576, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: acdfb3363e35ea248a63e17098a83206, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 
 --- !u!65 &1537000437
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9702,18 +9500,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 11e7b31d58dd083498fb0cb1393f37f4, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: ca190aae6d769184d9f20eab1f20e94d,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 77820b7cdcdb6494db9b863c2c676f4f,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: 457d0b67278451842a6f2c495bd5843f, type: 2}
-  m_LerpColor: {fileID: 11400000, guid: fc759a3300c72074dbde4d0c85f33576, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: acdfb3363e35ea248a63e17098a83206, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 
 --- !u!65 &1590898553
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9812,18 +9598,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 11e7b31d58dd083498fb0cb1393f37f4, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: ca190aae6d769184d9f20eab1f20e94d,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 77820b7cdcdb6494db9b863c2c676f4f,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: 457d0b67278451842a6f2c495bd5843f, type: 2}
-  m_LerpColor: {fileID: 11400000, guid: fc759a3300c72074dbde4d0c85f33576, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: acdfb3363e35ea248a63e17098a83206, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 
 --- !u!65 &1660556103
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9922,18 +9696,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 11e7b31d58dd083498fb0cb1393f37f4, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: ca190aae6d769184d9f20eab1f20e94d,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 77820b7cdcdb6494db9b863c2c676f4f,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: 457d0b67278451842a6f2c495bd5843f, type: 2}
-  m_LerpColor: {fileID: 11400000, guid: fc759a3300c72074dbde4d0c85f33576, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: acdfb3363e35ea248a63e17098a83206, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 
 --- !u!65 &1672636872
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10186,18 +9948,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 11e7b31d58dd083498fb0cb1393f37f4, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: ca190aae6d769184d9f20eab1f20e94d,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 77820b7cdcdb6494db9b863c2c676f4f,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: 457d0b67278451842a6f2c495bd5843f, type: 2}
-  m_LerpColor: {fileID: 11400000, guid: fc759a3300c72074dbde4d0c85f33576, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: acdfb3363e35ea248a63e17098a83206, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 
 --- !u!65 &1686188265
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10640,18 +10390,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 11e7b31d58dd083498fb0cb1393f37f4, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: ca190aae6d769184d9f20eab1f20e94d,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 77820b7cdcdb6494db9b863c2c676f4f,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: 457d0b67278451842a6f2c495bd5843f, type: 2}
-  m_LerpColor: {fileID: 11400000, guid: fc759a3300c72074dbde4d0c85f33576, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: acdfb3363e35ea248a63e17098a83206, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 
 --- !u!65 &1747638157
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11716,18 +11454,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 11e7b31d58dd083498fb0cb1393f37f4, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: ca190aae6d769184d9f20eab1f20e94d,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 77820b7cdcdb6494db9b863c2c676f4f,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: 457d0b67278451842a6f2c495bd5843f, type: 2}
-  m_LerpColor: {fileID: 11400000, guid: fc759a3300c72074dbde4d0c85f33576, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: acdfb3363e35ea248a63e17098a83206, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 
 --- !u!65 &2064982005
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11974,18 +11700,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 11e7b31d58dd083498fb0cb1393f37f4, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: ca190aae6d769184d9f20eab1f20e94d,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 77820b7cdcdb6494db9b863c2c676f4f,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: 457d0b67278451842a6f2c495bd5843f, type: 2}
-  m_LerpColor: {fileID: 11400000, guid: fc759a3300c72074dbde4d0c85f33576, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: acdfb3363e35ea248a63e17098a83206, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 
 --- !u!65 &2138972570
 BoxCollider:
   m_ObjectHideFlags: 0

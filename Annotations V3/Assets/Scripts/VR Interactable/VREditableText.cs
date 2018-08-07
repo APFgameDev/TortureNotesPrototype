@@ -6,7 +6,6 @@ using TMPro;
 
 namespace Annotation
 {
-
     [RequireComponent(typeof(Text), typeof(RectTransform))]
     public class VREditableText : VR_UI_Interactable
     {

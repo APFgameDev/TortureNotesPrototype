@@ -37,8 +37,7 @@ public class VRGrabbable : VRInteractable
         if (m_grabed == true)
             return;
 
-        transform.parent = vrInteractionData.handTrans;
-        m_grabed = true;
+        GrabObject(vrInteractionData.handTrans);
     }
 
     override public void OnClickRelease(VRInteractionData vrInteractionData)
@@ -96,5 +95,16 @@ public class VRGrabbable : VRInteractable
         rotSpeed = aRotSpeed;
         reelInSpeed = aReelInSpeed;
         scaleSpeed = aScaleSpeed;
+    }
+
+    public void SetOriginalParent(Transform parent)
+    {
+        originalParent = parent;
+    }
+
+    public void GrabObject(Transform handTrans)
+    {
+        transform.parent = handTrans;
+        m_grabed = true;
     }
 }

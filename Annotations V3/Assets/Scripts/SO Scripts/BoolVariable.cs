@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Brinx.SO
+namespace Annotation.SO
 {
     /// <summary>ScriptableObject container for a bool</summary>
     [CreateAssetMenu(fileName = "BoolVar", menuName = "SO Variables/Bool", order = 0)]

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Brinx.SO
+namespace Annotation.SO
 {
     /// <summary>ScriptableObject container for a Vector2</summary>
     [CreateAssetMenu(fileName = "Vector2Var", menuName = "SO Variables/Vector2", order = 5)]

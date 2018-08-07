@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Brinx.SO
+namespace Annotation.SO
 {
     /// <summary>ScriptableObject container for a float </summary>
     [CreateAssetMenu(fileName = "FloatVar", menuName = "SO Variables/Float", order = 4)]

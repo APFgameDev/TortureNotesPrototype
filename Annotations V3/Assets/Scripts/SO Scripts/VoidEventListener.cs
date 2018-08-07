@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Brinx.SO
+namespace Annotation.SO
 {
     /// <summary>Listens to the linked VoidEvent and invokes a response</summary>
     [ExecuteInEditMode]

@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using Brinx.SO;
+using Annotation.SO;
 
 public class InputManager : MonoBehaviour
 {

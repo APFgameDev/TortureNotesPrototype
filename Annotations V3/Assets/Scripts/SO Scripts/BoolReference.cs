@@ -1,4 +1,4 @@
-﻿namespace Brinx.SO
+﻿namespace Annotation.SO
 {
     [System.Serializable]
     public class BoolReference

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Brinx.SO
+namespace Annotation.SO
 {
     /// <summary>ScriptableObject containing an event that several listeners respond to when published</summary>
     [CreateAssetMenu(fileName = "VoidEvent", menuName = "SO Events/Void", order = 0)]

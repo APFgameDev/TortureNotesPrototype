@@ -372,6 +372,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LeftHand: {fileID: 4847201708125568}
   m_RightHand: {fileID: 4377149200829478}
+  m_RightHandTransformSO: {fileID: 11400000, guid: 1b8717bc90925b948b34fb524eea9398,
+    type: 2}
+  m_LeftHandTransformSO: {fileID: 11400000, guid: 9e02000d7235f6a41936843b55f540fb,
+    type: 2}
 --- !u!114 &114321436551998310
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -383,8 +387,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 044ff88a1ee177a48bd493eff2ab0325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_clickVar: {fileID: 11400000, guid: 9720bbcf3f41fdf468804a0f3a7506fc, type: 2}
-  m_secondaryClickVar: {fileID: 11400000, guid: 17ec5b4b806fb024c84c2ce8a41a0982,
+  m_clickVar: {fileID: 11400000, guid: 17ec5b4b806fb024c84c2ce8a41a0982, type: 2}
+  m_secondaryClickVar: {fileID: 11400000, guid: 9720bbcf3f41fdf468804a0f3a7506fc,
     type: 2}
   m_thumbAxis: {fileID: 11400000, guid: cb034abcfdb04d04790ca98d9de7095f, type: 2}
   m_otherLaserClickVar: {fileID: 11400000, guid: 88df5642eac45854cac64b78a42b2be6,
@@ -402,8 +406,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 044ff88a1ee177a48bd493eff2ab0325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_clickVar: {fileID: 11400000, guid: 88df5642eac45854cac64b78a42b2be6, type: 2}
-  m_secondaryClickVar: {fileID: 11400000, guid: 81343db9ede4f2a4fb300303db7ed4ed,
+  m_clickVar: {fileID: 11400000, guid: 81343db9ede4f2a4fb300303db7ed4ed, type: 2}
+  m_secondaryClickVar: {fileID: 11400000, guid: 88df5642eac45854cac64b78a42b2be6,
     type: 2}
   m_thumbAxis: {fileID: 11400000, guid: c8458dee0f1e1c941891aa334bc48da4, type: 2}
   m_otherLaserClickVar: {fileID: 11400000, guid: 9720bbcf3f41fdf468804a0f3a7506fc,

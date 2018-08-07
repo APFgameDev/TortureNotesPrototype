@@ -27,7 +27,7 @@ public class VRSelectableHandler : VR_UI_Interactable
 
     override public void OnHoverEnter(VRInteractionData vrInteraction)
     {
-        if (numSelecting == 0)
+        if (numSelecting == 0 && selectable != null)
         {
             selectable.OnPointerEnter(new PointerEventData(EventSystem.current));
         }
@@ -41,7 +41,7 @@ public class VRSelectableHandler : VR_UI_Interactable
     {
         numSelecting--;
 
-        if (numSelecting == 0)
+        if (numSelecting == 0 && selectable != null)
         {
             selectable.OnPointerExit(new PointerEventData(EventSystem.current));
         }
@@ -54,7 +54,7 @@ public class VRSelectableHandler : VR_UI_Interactable
         base.OnClick(vrInteraction);
 
         PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
-        pointerEventData.position = Camera.main.WorldToScreenPoint(hitPoint);
+        pointerEventData.position = Camera.main.WorldToScreenPoint(m_hitPoint);
 
         if (clickHandler != null)
             clickHandler.OnPointerClick(pointerEventData);

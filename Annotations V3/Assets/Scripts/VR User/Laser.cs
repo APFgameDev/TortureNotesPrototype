@@ -8,6 +8,7 @@ namespace Annotation
     [RequireComponent(typeof(LineRenderer))]
     public class Laser : MonoBehaviour
     {
+
         #region Laser Inputs
         [SerializeField]
         private SO.BoolVariable m_clickVar;
@@ -105,7 +106,7 @@ namespace Annotation
                         // validation for interactable
                         if (vrInteractable != null && vrInteractable.enabled)
                         {
-                            vrInteractable.hitPoint = hit[i].point;
+                            vrInteractable.m_hitPoint = hit[i].point;
 
                             //find closest interactable calculation
                             if (hit[i].distance < closestInteractableDist)
@@ -125,7 +126,25 @@ namespace Annotation
                 //only add held interactable and set it as closest interactable
                 else
                 {
-                    m_interactablesCollidedWithThisFrame.Add(m_heldInteractable);
+                    if(m_heldInteractable.StickyHover)
+                        m_interactablesCollidedWithThisFrame.Add(m_heldInteractable);
+                    else
+                    {
+                       Collider[] colliders = m_heldInteractable.GetComponents<Collider>();
+
+                        Ray ray = new Ray(transform.position, transform.forward);
+                        RaycastHit raycastHit;
+
+                        for (int i = 0; i < colliders.Length; i++)
+                        {
+                            if (colliders[i].Raycast(ray, out raycastHit, m_maxLaserDistance))
+                            {
+                                m_interactablesCollidedWithThisFrame.Add(m_heldInteractable);
+                                break;
+                            }
+                        }
+                    }
+
                     closestInteractable = m_heldInteractable;
                     closestInteractableDist = Vector3.Distance(transform.position, m_heldInteractable.transform.position);
                 }
@@ -159,7 +178,7 @@ namespace Annotation
                 else if (isClickHeld == false && m_isClicked == true)
                     m_isClicked = false;
             }
-
+            Debug.Log(m_heldInteractable);
             //Check For On Click Released or held
             {
                 //We are holding a Interactable
@@ -193,6 +212,18 @@ namespace Annotation
                 m_interactablesCollidedWithLastFrame.Clear();
                 m_interactablesCollidedWithLastFrame.AddRange(m_interactablesCollidedWithThisFrame);
             }
+        }
+
+        public void ForceHoldObject(VRInteractable vRInteractable,bool callReleaseOnAlreadyHeld = true)
+        {
+            //We are holding a Interactable
+            if (m_heldInteractable != null && callReleaseOnAlreadyHeld == true)
+                m_heldInteractable.OnClickRelease(m_vrInteractionData);
+
+            m_heldInteractable = vRInteractable;
+
+            if (m_heldInteractable != null)
+                m_heldInteractable.OnClick(m_vrInteractionData);
         }
 
 

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: Right Trigger Held Percent
   m_EditorClassIdentifier: 
   m_Value: 0
-  ResetOnEnabled: 0
+  ResetOnEnabled: 1
   ResetValue: 0

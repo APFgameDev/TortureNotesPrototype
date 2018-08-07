@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: Right Grip Held
   m_EditorClassIdentifier: 
   m_Value: 0
-  ResetOnEnable: 0
+  ResetOnEnable: 1
   ResetValue: 0

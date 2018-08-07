@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: Right Axis Direction
   m_EditorClassIdentifier: 
   m_Value: {x: 0, y: 0}
-  ResetOnEnabled: 0
+  ResetOnEnabled: 1
   ResetValue: {x: 0, y: 0}

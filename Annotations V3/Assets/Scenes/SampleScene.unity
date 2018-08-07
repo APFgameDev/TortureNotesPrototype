@@ -388,12 +388,34 @@ MonoBehaviour:
         PublicKeyToken=null
     OnHoverExit:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1419471981}
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
       m_TypeName: VRInteractionEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
     OnClick:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1419471981}
+          m_MethodName: StartDrawing
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
       m_TypeName: VRInteractionEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
     OnClickHeld:
@@ -403,10 +425,27 @@ MonoBehaviour:
         PublicKeyToken=null
     OnClickRelease:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1419471981}
+          m_MethodName: AutoPlace
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
       m_TypeName: VRInteractionEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-  m_annotationPrefab: {fileID: 0}
+  m_annotationPrefab: {fileID: 1970220208984566, guid: 6284b41d3f0f3ee47b2d72b9a847b9b4,
+    type: 2}
+  m_PlacementOffset: 0
+  m_IsTriggerHeld:
+    UseVariable: 0
+    ConstantValue: 0
+    Variable: {fileID: 0}
 --- !u!1001 &1552582245
 Prefab:
   m_ObjectHideFlags: 0

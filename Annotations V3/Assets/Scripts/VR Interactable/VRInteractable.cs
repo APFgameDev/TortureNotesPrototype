@@ -3,7 +3,10 @@ using UnityEngine;
 
 public class VRInteractable : MonoBehaviour
 {
-    public Vector3 hitPoint;
+    public Vector3 m_hitPoint;
+
+    protected bool m_stickyHover = true;
+    public bool StickyHover { get { return m_stickyHover; } protected set { m_stickyHover = value; } }
 
     [SerializeField]
     private InteractEvents m_Events = new InteractEvents();

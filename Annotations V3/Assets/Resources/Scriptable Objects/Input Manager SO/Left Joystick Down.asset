@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: Left Joystick Down
   m_EditorClassIdentifier: 
   m_Value: 0
-  ResetOnEnable: 0
+  ResetOnEnable: 1
   ResetValue: 0

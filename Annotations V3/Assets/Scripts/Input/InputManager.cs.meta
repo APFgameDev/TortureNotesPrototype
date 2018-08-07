@@ -38,7 +38,7 @@ MonoImporter:
       type: 2}
   - m_OnRightJoystickPressed: {fileID: 11400000, guid: c21693363996be64da90d48c2381471f,
       type: 2}
-  executionOrder: 0
+  executionOrder: -100
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 

@@ -15,7 +15,7 @@ public class VRGrabbable : VRInteractable
     const float SELECTABLE_OUTLINE_WIDTH = 0.05f;
 
     private Transform originalParent;
-    private bool m_grabed = false;
+    protected bool m_grabed = false;
     private MeshRenderer meshRenderer;
 
     short hoverCounts = 0;
@@ -46,7 +46,7 @@ public class VRGrabbable : VRInteractable
 
         if (transform.parent == vrInteractionData.handTrans)
         {
-            transform.parent = originalParent;
+            transform.SetParent(originalParent);
             m_grabed = false;
         }
     }
@@ -74,7 +74,6 @@ public class VRGrabbable : VRInteractable
 
         if (hoverCounts == 1)
         {
-            meshRenderer.material.SetFloat("_HighLightSize", SELECTABLE_OUTLINE_WIDTH);
             base.OnHoverEnter(vrInteraction);
         }
     }
@@ -85,7 +84,6 @@ public class VRGrabbable : VRInteractable
 
         if (hoverCounts == 0)
         {
-            meshRenderer.material.SetFloat("_HighLightSize", 0);
             base.OnHoverExit(vrInteraction);
         }
     }
@@ -104,7 +102,7 @@ public class VRGrabbable : VRInteractable
 
     public void GrabObject(Transform handTrans)
     {
-        transform.parent = handTrans;
+        transform.SetParent(handTrans);
         m_grabed = true;
     }
 }

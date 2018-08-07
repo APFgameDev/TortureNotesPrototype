@@ -22,28 +22,26 @@ public abstract class KeyboardKey : MonoBehaviour
     [SerializeField]
     private FloatRangeSO m_ColorHitLerpTime;
 
-    [Header("Do we want to lerp the colors?")]
-    [SerializeField]
-    private BoolVariable m_LerpColor;
-
     [Header("Main Keyboard")]
     [SerializeField]
-    private KeyboardSO m_KeyboardSO;
+    protected KeyboardSO m_KeyboardSO;
 
     [SerializeField]
     private IntVariable m_HitAngle;
 
-    private byte m_Count;
+    private byte m_TriggerCount;
     private Color m_OriginalColor;
-    private Material m_material;
+    private Color m_PreviousColor;
+    private Material m_Material;
 
     protected virtual void Awake()
     {
-        m_material = GetComponent<MeshRenderer>().material;
+        m_Material = GetComponent<MeshRenderer>().material;
 
-        if (m_material != null)
+        if (m_Material != null)
         {
-            m_OriginalColor = m_material.color;
+            m_OriginalColor = m_Material.color;
+            m_PreviousColor = m_OriginalColor;
         }
     }
 
@@ -52,68 +50,78 @@ public abstract class KeyboardKey : MonoBehaviour
     /// </summary>
     protected abstract void OnHit();
 
+    #region OnHover Functions
+
+    /// <summary>
+    /// Called when the mallet exits the trigger box of the key
+    /// </summary>
     protected virtual void OnHoverExit()
     {
         //Only call the hover exit code for the last object triggering it
-        if (m_Count <= 1)
+        if (m_TriggerCount <= 1)
         {
-            ////Stop the previous coroutine
-            //StopAllCoroutines();
-            ////Go from the current color to the original color
-            //StartCoroutine(LerpColors(m_material.color, m_OriginalColor, m_ColorHoverExitLerpTime.m_Value));
-
             SetMaterialColor(m_OriginalColor);
         }
 
-        if (m_Count >= 1)
+        if (m_TriggerCount >= 1)
         {
-            m_Count--;
+            m_TriggerCount--;
         }
-
-        Debug.Log("Hover Exit");
     }
 
+    /// <summary>
+    /// Called when the mallet enters the trigger box of the key
+    /// </summary>
     protected virtual void OnHoverEnter()
     {
         //Only call the hover enter code for the first object triggering it
-        if (m_Count < 1)
+        if (m_TriggerCount < 1)
         {
-            ////Stop the previous coroutine
-            //StopAllCoroutines();
-            ////Go from the current color to the hover color
-            //StartCoroutine(LerpColors(m_material.color, m_HoverColor.m_Value, m_ColorHoverEnterLerpTime.m_Value));
-
             SetMaterialColor(m_HoverColor.m_Value);
         }
 
-        m_Count++;
+        m_TriggerCount++;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    #endregion
+
+    #region OnHit Functions
+
+    /// <summary>
+    /// Called from the child box collider when the mallet enters the box collider of the key
+    /// </summary>
+    public virtual void OnHitEnter(Collider other)
     {
-        ////Stop the previous coroutine
-        //StopCoroutine("LerpColors");
-        ////Go from the current color to the hit color
-        //StartCoroutine(LerpColors(m_material.color, m_HitColor.m_Value, m_ColorHitLerpTime.m_Value));
+        Vector3 direction = other.gameObject.transform.position - transform.position;
 
-        SetMaterialColor(m_HitColor.m_Value);
+        float angleBetween = Vector3.Angle(transform.up.normalized, direction.normalized);
 
-        //Call the on hit
-        OnHit();
+        if (angleBetween < m_HitAngle.Value)
+        {
+            SetMaterialColor(m_HitColor.m_Value);
+
+            //Call the on hit
+            OnHit();
+        }
     }
+
+    /// <summary>
+    /// Called from the child box collider when the mallet exits the box collider of the key
+    /// </summary>
+    public virtual void OnHitExit(Collider other)
+    {
+        SetMaterialColor(m_PreviousColor);
+    }
+
+    #endregion
+
+    #region OnPhysics Functions
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Keyboard Mallet")
         {
-            Vector3 direction = other.transform.position - transform.position;
-            
-            float angleBetween = Vector3.Angle(transform.up.normalized, direction.normalized);
-
-            if (angleBetween < m_HitAngle.Value)
-            {
-                OnHoverEnter();
-            }
+            OnHoverEnter();
         }
     }
 
@@ -125,36 +133,20 @@ public abstract class KeyboardKey : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Lerps from one color to an other color at a given duration
-    /// </summary>
-    /// <param name="from"></param>
-    /// <param name="to"></param>
-    /// <param name="duration"></param>
-    /// <returns></returns>
-    public IEnumerator LerpColors(Color from, Color to, float duration)
-    {
-        if (m_LerpColor.Value == true)
-        {
-            float timer = 0.0f;
+    #endregion
 
-            while (timer <= duration)
-            {
-                yield return null;
-
-                m_material.color = Color.Lerp(from, to, timer / duration);
-                timer += Time.deltaTime;
-            }
-        }
-    }
+    #region Utility Functions
 
     /// <summary>
-    /// Will set the material's color to the color passed in
+    /// Will set the material's color to the color passed in. Also sets the previous color
     /// </summary>
     /// <param name="newColor"></param>
     public void SetMaterialColor(Color newColor)
     {
-        m_material.color = newColor;
+        m_PreviousColor = m_Material.color;
+        m_Material.color = newColor;
     }
+
+    #endregion
 }
 

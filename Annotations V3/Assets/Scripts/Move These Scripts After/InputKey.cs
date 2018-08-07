@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Annotation.SO;
+using TMPro;
 
 public class InputKey : KeyboardKey
 {
@@ -13,16 +14,24 @@ public class InputKey : KeyboardKey
     [SerializeField]
     private string m_InputValue;
 
+    [Header("Want the visual text to be caps when caps?")]
+    [SerializeField]
+    private bool m_CapsText = true;
+
+    private TextMeshProUGUI Text;
+
     protected override void Awake()
     {
         base.Awake();
+
+        Text = GetComponentInChildren<TextMeshProUGUI>();
 
         m_IsCaps.ValueChanged += OnCapsChange;
     }
 
     protected override void OnHit()
     {
-
+        m_KeyboardSO.AppendString(m_InputValue);
     }
 
     /// <summary>
@@ -31,5 +40,9 @@ public class InputKey : KeyboardKey
     private void OnCapsChange()
     {
         //Update visuals
+        if(m_CapsText == true)
+        {
+            Text.text = m_IsCaps.Value ? Text.text.ToUpper() : Text.text.ToLower();
+        }
     }
 }

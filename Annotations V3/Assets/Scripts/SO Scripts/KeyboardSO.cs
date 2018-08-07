@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 using Annotation.SO;
-using Annotation.SO;
 
 namespace Annotation.SO
 {
@@ -11,12 +10,10 @@ namespace Annotation.SO
         public UnityEvent m_OnTurnOn;
         public UnityEvent m_OnTurnOff;
         public UnityEvent m_OnPublish;
+        public BoolVariable m_IsCaps;
 
         [SerializeField]
         private StringVariable m_KeyboardInputSO;
-
-        [SerializeField]
-        private BoolVariable m_IsCaps;
 
         private void OnEnable()
         {
@@ -40,6 +37,18 @@ namespace Annotation.SO
         public void AppendString(string character)
         {
             m_KeyboardInputSO.Value += m_IsCaps.Value ? character.ToUpper() : character.ToLower();
+        }
+
+        public void RemoveString()
+        {
+            string value = m_KeyboardInputSO.Value;
+
+            if (value != string.Empty)
+            {
+                value = value.Substring(0, value.Length - 1);
+            }
+
+            m_KeyboardInputSO.Value = value;
         }
     }
 }

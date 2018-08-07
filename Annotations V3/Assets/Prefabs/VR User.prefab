@@ -37,8 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4321686514366370}
   - component: {fileID: 114060239207545608}
-  - component: {fileID: 114236158710366426}
-  - component: {fileID: 114290720809062144}
+  - component: {fileID: 114008369870331082}
   m_Layer: 0
   m_Name: VR User
   m_TagString: Untagged
@@ -292,20 +291,7 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1201793972873322}
   m_Enabled: 1
---- !u!114 &114060239207545608
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1269853764788876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbc6dcaa5f8d8ff40a584b6ed3d2af4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_LeftHand: {fileID: 4847201708125568}
-  m_RightHand: {fileID: 4377149200829478}
---- !u!114 &114236158710366426
+--- !u!114 &114008369870331082
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -330,36 +316,36 @@ MonoBehaviour:
     type: 2}
   m_LeftGripDeadZone:
     UseVariable: 0
-    ConstantValue: 0.1
+    ConstantValue: 0.001
     Variable: {fileID: 0}
   m_LeftGripHeld: {fileID: 11400000, guid: 88df5642eac45854cac64b78a42b2be6, type: 2}
   m_LeftTriggerHeldPercent: {fileID: 11400000, guid: f64878c02cb0d57498ce134f98d42750,
     type: 2}
   m_LeftTriggerDeadZone:
     UseVariable: 0
-    ConstantValue: 0.1
+    ConstantValue: 0.001
     Variable: {fileID: 0}
-  m_LeftTriggerHeld: {fileID: 11400000, guid: 1256305051a59e247981435b005aaa6a, type: 2}
+  m_LeftTriggerHeld: {fileID: 11400000, guid: 81343db9ede4f2a4fb300303db7ed4ed, type: 2}
   m_LeftAxisDirection: {fileID: 11400000, guid: c8458dee0f1e1c941891aa334bc48da4,
     type: 2}
-  m_LeftJoystickDown: {fileID: 11400000, guid: 491d1e06e70b6bb4b86e5e358220e711, type: 2}
+  m_LeftJoystickDown: {fileID: 11400000, guid: 3d515de4b3f77994fab33c71ed5dbb61, type: 2}
   m_RightGripHeldPercent: {fileID: 11400000, guid: 3580acdc3fb62fd4ab6418a6cbd091df,
     type: 2}
   m_RightGripDeadZone:
     UseVariable: 0
-    ConstantValue: 0.1
+    ConstantValue: 0.001
     Variable: {fileID: 0}
-  m_RightGripHeld: {fileID: 11400000, guid: 1d2dfc8dfcea53640be930c941d31920, type: 2}
+  m_RightGripHeld: {fileID: 11400000, guid: 9720bbcf3f41fdf468804a0f3a7506fc, type: 2}
   m_RightTriggerHeldPercent: {fileID: 11400000, guid: 6fb5ef7dab820d740bdeec85a70a7ca5,
     type: 2}
   m_RightTriggerDeadZone:
     UseVariable: 0
-    ConstantValue: 0.1
+    ConstantValue: 0.001
     Variable: {fileID: 0}
-  m_RightTriggerHeld: {fileID: 11400000, guid: 22d884d99f9c3554b9e3020508538222, type: 2}
+  m_RightTriggerHeld: {fileID: 11400000, guid: 17ec5b4b806fb024c84c2ce8a41a0982, type: 2}
   m_RightAxisDirection: {fileID: 11400000, guid: cb034abcfdb04d04790ca98d9de7095f,
     type: 2}
-  m_RightJoystickDown: {fileID: 11400000, guid: d99b472cf3ce0214b983783135b2cd70,
+  m_RightJoystickDown: {fileID: 11400000, guid: d8c7575e198461a439d3d34ef00b98b9,
     type: 2}
   m_OnLeftTriggerPressed: {fileID: 11400000, guid: e4b6869f1233c8c439143fe93078e99a,
     type: 2}
@@ -369,11 +355,11 @@ MonoBehaviour:
     type: 2}
   m_OnRightGripPressed: {fileID: 11400000, guid: 7f59c260ae1066c49aac154252d57af9,
     type: 2}
-  m_OnLeftJoystickPressed: {fileID: 11400000, guid: 297df3de47d078f4a9cbc9590c89ef2d,
+  m_OnLeftJoystickPressed: {fileID: 11400000, guid: 1c8b1716d257eaf49bf9b81f62d2f069,
     type: 2}
-  m_OnRightJoystickPressed: {fileID: 11400000, guid: 7d51a4630d622904f85efbb55c205d01,
+  m_OnRightJoystickPressed: {fileID: 11400000, guid: c21693363996be64da90d48c2381471f,
     type: 2}
---- !u!114 &114290720809062144
+--- !u!114 &114060239207545608
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -381,53 +367,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1269853764788876}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecc49a05b2798784196887016c7a6b77, type: 3}
+  m_Script: {fileID: 11500000, guid: fbc6dcaa5f8d8ff40a584b6ed3d2af4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LeftTrigger: LeftIndexTrigger
-  m_RightTrigger: RightIndexTrigger
-  m_LeftGrip: LeftGripTrigger
-  m_RightGrip: RightGripTrigger
-  m_RightStickVertical: RightStickVertical
-  m_RightStickHorizontal: RightStickHorizontal
-  m_RightJoystickPressed: RightStickPress
-  m_LeftStickVertical: LeftStickVertical
-  m_LeftStickHorizontal: LeftStickHorizontal
-  m_LeftJoystickPressed: LeftStickPress
-  m_LeftGripHeldPercent: {fileID: 0}
-  m_LeftGripDeadZone:
-    UseVariable: 0
-    ConstantValue: 0
-    Variable: {fileID: 0}
-  m_LeftGripHeld: {fileID: 0}
-  m_LeftTriggerHeldPercent: {fileID: 0}
-  m_LeftTriggerDeadZone:
-    UseVariable: 0
-    ConstantValue: 0
-    Variable: {fileID: 0}
-  m_LeftTriggerHeld: {fileID: 0}
-  m_LeftAxisDirection: {fileID: 0}
-  m_LeftJoystickDown: {fileID: 0}
-  m_RightGripHeldPercent: {fileID: 0}
-  m_RightGripDeadZone:
-    UseVariable: 0
-    ConstantValue: 0
-    Variable: {fileID: 0}
-  m_RightGripHeld: {fileID: 0}
-  m_RightTriggerHeldPercent: {fileID: 0}
-  m_RightTriggerDeadZone:
-    UseVariable: 0
-    ConstantValue: 0
-    Variable: {fileID: 0}
-  m_RightTriggerHeld: {fileID: 0}
-  m_RightAxisDirection: {fileID: 0}
-  m_RightJoystickDown: {fileID: 0}
-  m_OnLeftTriggerPressed: {fileID: 0}
-  m_OnRightTriggerPressed: {fileID: 0}
-  m_OnLeftGripPressed: {fileID: 0}
-  m_OnRightGripPressed: {fileID: 0}
-  m_OnLeftJoystickPressed: {fileID: 0}
-  m_OnRightJoystickPressed: {fileID: 0}
+  m_LeftHand: {fileID: 4847201708125568}
+  m_RightHand: {fileID: 4377149200829478}
 --- !u!114 &114321436551998310
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -439,8 +383,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 044ff88a1ee177a48bd493eff2ab0325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_clickVar: {fileID: 11400000, guid: 1d2dfc8dfcea53640be930c941d31920, type: 2}
-  m_secondaryClickVar: {fileID: 11400000, guid: 22d884d99f9c3554b9e3020508538222,
+  m_clickVar: {fileID: 11400000, guid: 9720bbcf3f41fdf468804a0f3a7506fc, type: 2}
+  m_secondaryClickVar: {fileID: 11400000, guid: 17ec5b4b806fb024c84c2ce8a41a0982,
     type: 2}
   m_thumbAxis: {fileID: 11400000, guid: cb034abcfdb04d04790ca98d9de7095f, type: 2}
   m_otherLaserClickVar: {fileID: 11400000, guid: 88df5642eac45854cac64b78a42b2be6,
@@ -459,10 +403,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_clickVar: {fileID: 11400000, guid: 88df5642eac45854cac64b78a42b2be6, type: 2}
-  m_secondaryClickVar: {fileID: 11400000, guid: 1256305051a59e247981435b005aaa6a,
+  m_secondaryClickVar: {fileID: 11400000, guid: 81343db9ede4f2a4fb300303db7ed4ed,
     type: 2}
   m_thumbAxis: {fileID: 11400000, guid: c8458dee0f1e1c941891aa334bc48da4, type: 2}
-  m_otherLaserClickVar: {fileID: 11400000, guid: 1d2dfc8dfcea53640be930c941d31920,
+  m_otherLaserClickVar: {fileID: 11400000, guid: 9720bbcf3f41fdf468804a0f3a7506fc,
     type: 2}
   m_otherHand: {fileID: 4377149200829478}
   m_maxLaserDistance: 20

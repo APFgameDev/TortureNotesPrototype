@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-namespace Brinx
+namespace Annotation
 {
 
     [RequireComponent(typeof(Text), typeof(RectTransform))]

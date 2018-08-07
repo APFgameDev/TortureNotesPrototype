@@ -1,8 +1,8 @@
-﻿using System.Collections;
+﻿
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Brinx
+namespace Annotation
 {
 
     [RequireComponent(typeof(LineRenderer))]
@@ -10,15 +10,15 @@ namespace Brinx
     {
         #region Laser Inputs
         [SerializeField]
-        private Annotation.SO.BoolVariable m_clickVar;
+        private SO.BoolVariable m_clickVar;
         [SerializeField]
-        private Annotation.SO.BoolVariable m_secondaryClickVar;
+        private SO.BoolVariable m_secondaryClickVar;
         [SerializeField]
-        private Annotation.SO.Vector2Variable m_thumbAxis;
+        private SO.Vector2Variable m_thumbAxis;
         #endregion
 
         [SerializeField]
-        private Annotation.SO.BoolVariable m_otherLaserClickVar;
+        private SO.BoolVariable m_otherLaserClickVar;
 
         [SerializeField]
         Transform m_otherHand;

@@ -1,11 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
-using NS_Annotation.NS_SO;
 using Annotation.SO;
 
-namespace NS_Annotation.NS_SO
+namespace Annotation.SO
 {
     [CreateAssetMenu(fileName = "KeyboardSO", menuName = "Keyboard SO/Keyboard", order = 0)]
     public class KeyboardSO : ScriptableObject

@@ -10,15 +10,15 @@ namespace Brinx
     {
         #region Laser Inputs
         [SerializeField]
-        private SO.BoolVariable m_clickVar;
+        private Annotation.SO.BoolVariable m_clickVar;
         [SerializeField]
-        private SO.BoolVariable m_secondaryClickVar;
+        private Annotation.SO.BoolVariable m_secondaryClickVar;
         [SerializeField]
-        private SO.Vector2Variable m_thumbAxis;
+        private Annotation.SO.Vector2Variable m_thumbAxis;
         #endregion
 
         [SerializeField]
-        private SO.BoolVariable m_otherLaserClickVar;
+        private Annotation.SO.BoolVariable m_otherLaserClickVar;
 
         [SerializeField]
         Transform m_otherHand;

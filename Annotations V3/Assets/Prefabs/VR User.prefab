@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 4321686514366370}
   - component: {fileID: 114060239207545608}
   - component: {fileID: 114236158710366426}
+  - component: {fileID: 114290720809062144}
   m_Layer: 0
   m_Name: VR User
   m_TagString: Untagged
@@ -56,6 +57,8 @@ GameObject:
   - component: {fileID: 33047358437364764}
   - component: {fileID: 23483389680760428}
   - component: {fileID: 65616382053133796}
+  - component: {fileID: 120995992373786390}
+  - component: {fileID: 114347780460140352}
   m_Layer: 0
   m_Name: Left Hand
   m_TagString: Untagged
@@ -74,6 +77,8 @@ GameObject:
   - component: {fileID: 33890492430166998}
   - component: {fileID: 23014846158939508}
   - component: {fileID: 65168313662919706}
+  - component: {fileID: 120891818506196208}
+  - component: {fileID: 114321436551998310}
   m_Layer: 0
   m_Name: Right Hand
   m_TagString: Untagged
@@ -368,3 +373,280 @@ MonoBehaviour:
     type: 2}
   m_OnRightJoystickPressed: {fileID: 11400000, guid: 7d51a4630d622904f85efbb55c205d01,
     type: 2}
+--- !u!114 &114290720809062144
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1269853764788876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecc49a05b2798784196887016c7a6b77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LeftTrigger: LeftIndexTrigger
+  m_RightTrigger: RightIndexTrigger
+  m_LeftGrip: LeftGripTrigger
+  m_RightGrip: RightGripTrigger
+  m_RightStickVertical: RightStickVertical
+  m_RightStickHorizontal: RightStickHorizontal
+  m_RightJoystickPressed: RightStickPress
+  m_LeftStickVertical: LeftStickVertical
+  m_LeftStickHorizontal: LeftStickHorizontal
+  m_LeftJoystickPressed: LeftStickPress
+  m_LeftGripHeldPercent: {fileID: 0}
+  m_LeftGripDeadZone:
+    UseVariable: 0
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  m_LeftGripHeld: {fileID: 0}
+  m_LeftTriggerHeldPercent: {fileID: 0}
+  m_LeftTriggerDeadZone:
+    UseVariable: 0
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  m_LeftTriggerHeld: {fileID: 0}
+  m_LeftAxisDirection: {fileID: 0}
+  m_LeftJoystickDown: {fileID: 0}
+  m_RightGripHeldPercent: {fileID: 0}
+  m_RightGripDeadZone:
+    UseVariable: 0
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  m_RightGripHeld: {fileID: 0}
+  m_RightTriggerHeldPercent: {fileID: 0}
+  m_RightTriggerDeadZone:
+    UseVariable: 0
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  m_RightTriggerHeld: {fileID: 0}
+  m_RightAxisDirection: {fileID: 0}
+  m_RightJoystickDown: {fileID: 0}
+  m_OnLeftTriggerPressed: {fileID: 0}
+  m_OnRightTriggerPressed: {fileID: 0}
+  m_OnLeftGripPressed: {fileID: 0}
+  m_OnRightGripPressed: {fileID: 0}
+  m_OnLeftJoystickPressed: {fileID: 0}
+  m_OnRightJoystickPressed: {fileID: 0}
+--- !u!114 &114321436551998310
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1491574133278234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 044ff88a1ee177a48bd493eff2ab0325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_clickVar: {fileID: 11400000, guid: 1d2dfc8dfcea53640be930c941d31920, type: 2}
+  m_secondaryClickVar: {fileID: 11400000, guid: 22d884d99f9c3554b9e3020508538222,
+    type: 2}
+  m_thumbAxis: {fileID: 11400000, guid: cb034abcfdb04d04790ca98d9de7095f, type: 2}
+  m_otherLaserClickVar: {fileID: 11400000, guid: 88df5642eac45854cac64b78a42b2be6,
+    type: 2}
+  m_otherHand: {fileID: 4847201708125568}
+  m_maxLaserDistance: 20
+--- !u!114 &114347780460140352
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1363548205238992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 044ff88a1ee177a48bd493eff2ab0325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_clickVar: {fileID: 11400000, guid: 88df5642eac45854cac64b78a42b2be6, type: 2}
+  m_secondaryClickVar: {fileID: 11400000, guid: 1256305051a59e247981435b005aaa6a,
+    type: 2}
+  m_thumbAxis: {fileID: 11400000, guid: c8458dee0f1e1c941891aa334bc48da4, type: 2}
+  m_otherLaserClickVar: {fileID: 11400000, guid: 1d2dfc8dfcea53640be930c941d31920,
+    type: 2}
+  m_otherHand: {fileID: 4377149200829478}
+  m_maxLaserDistance: 20
+--- !u!120 &120891818506196208
+LineRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1491574133278234}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  m_Parameters:
+    serializedVersion: 2
+    widthMultiplier: 0.1
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 0
+    alignment: 0
+    textureMode: 0
+    generateLightingData: 0
+  m_UseWorldSpace: 1
+  m_Loop: 0
+--- !u!120 &120995992373786390
+LineRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1363548205238992}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  m_Parameters:
+    serializedVersion: 2
+    widthMultiplier: 0.1
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 0
+    alignment: 0
+    textureMode: 0
+    generateLightingData: 0
+  m_UseWorldSpace: 1
+  m_Loop: 0

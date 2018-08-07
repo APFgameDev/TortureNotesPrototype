@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using NS_Annotation.NS_SO;
+using Annotation.SO;
 
 namespace NS_Annotation.NS_SO
 {

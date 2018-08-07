@@ -8,6 +8,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8185b83074eb2a44b2a222e13881aab, type: 3}
-  m_Name: OnRightJoystickPressed
+  m_Script: {fileID: 11500000, guid: 364ebc8c2e0fbcd4d8e4bca37012c1fe, type: 3}
+  m_Name: Left Joystick Down
   m_EditorClassIdentifier: 
+  m_Value: 0
+  ResetOnEnable: 0
+  ResetValue: 0

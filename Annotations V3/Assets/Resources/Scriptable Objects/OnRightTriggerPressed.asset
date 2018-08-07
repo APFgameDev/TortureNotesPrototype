@@ -8,6 +8,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8185b83074eb2a44b2a222e13881aab, type: 3}
+  m_Script: {fileID: 11500000, guid: be68dbba261a1114187f36b6bbb011b3, type: 3}
   m_Name: OnRightTriggerPressed
   m_EditorClassIdentifier: 

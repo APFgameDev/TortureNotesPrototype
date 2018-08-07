@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace NS_Annotation.NS_SO
+namespace Annotation.SO
 {
     /// <summary>ScriptableObject container for an int</summary>
     [CreateAssetMenu(fileName = "FloatRange", menuName = "SO Variables/FloatRange", order = 4)]

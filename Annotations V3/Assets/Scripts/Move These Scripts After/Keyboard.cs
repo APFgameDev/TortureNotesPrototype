@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using NS_Annotation.NS_SO;
+using Annotation.SO;
 
 public class Keyboard : MonoBehaviour
 {

@@ -5,15 +5,15 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  - m_HitColor: {fileID: 11400000, guid: 11e7b31d58dd083498fb0cb1393f37f4, type: 2}
-  - m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: ca190aae6d769184d9f20eab1f20e94d,
+  - m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
+  - m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
       type: 2}
-  - m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 77820b7cdcdb6494db9b863c2c676f4f,
+  - m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
       type: 2}
-  - m_ColorHitLerpTime: {fileID: 11400000, guid: 457d0b67278451842a6f2c495bd5843f,
+  - m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be,
       type: 2}
   - m_LerpColor: {fileID: 11400000, guid: fc759a3300c72074dbde4d0c85f33576, type: 2}
-  - m_KeyboardSO: {fileID: 11400000, guid: acdfb3363e35ea248a63e17098a83206, type: 2}
+  - m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
   - m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
   - m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
   executionOrder: 0

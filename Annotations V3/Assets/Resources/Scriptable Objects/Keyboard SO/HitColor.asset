@@ -8,7 +8,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49a8cf311aa7dbc41a2ddae346c450da, type: 3}
-  m_Name: KeyHoverExitColorLerpTime
+  m_Script: {fileID: 11500000, guid: 016bb7709548ee64e8c36d88db79a46b, type: 3}
+  m_Name: HitColor
   m_EditorClassIdentifier: 
-  m_Value: 1
+  m_Value: {r: 0, g: 0.31307483, b: 1, a: 0}

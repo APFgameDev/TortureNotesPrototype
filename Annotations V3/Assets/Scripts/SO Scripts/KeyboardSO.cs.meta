@@ -3,7 +3,10 @@ guid: 1103c5f33dfdc4d46bdfbc500f11a068
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - m_KeyboardInputSO: {fileID: 11400000, guid: 710f2553354bf3844be9d8d954f87321,
+      type: 2}
+  - m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -8,7 +8,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b40a2a380f1afd4e820f316f41efa0c, type: 3}
+  m_Script: {fileID: 11500000, guid: 1103c5f33dfdc4d46bdfbc500f11a068, type: 3}
   m_Name: KeyboardSO
   m_EditorClassIdentifier: 
   m_OnTurnOn:
@@ -26,5 +26,5 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_KeyboardInputSO: {fileID: 0}
-  m_IsCaps: {fileID: 0}
+  m_KeyboardInputSO: {fileID: 11400000, guid: 710f2553354bf3844be9d8d954f87321, type: 2}
+  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}

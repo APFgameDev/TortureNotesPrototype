@@ -6581,7 +6581,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1003092181618324}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.66, y: 0, z: 0.000000059604645}
+  m_LocalPosition: {x: 0.65999997, y: 0, z: 0}
   m_LocalScale: {x: 0.19999999, y: 0.04, z: 0.19999999}
   m_Children:
   - {fileID: 224752535707582380}
@@ -6676,7 +6676,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1788035300040084}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.44, y: 0, z: 0.00000008940697}
+  m_LocalPosition: {x: 0.44, y: 0, z: 0}
   m_LocalScale: {x: 0.19999999, y: 0.04, z: 0.19999999}
   m_Children:
   - {fileID: 224375309863192570}
@@ -7043,7 +7043,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1876135492858298}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.32, y: 0, z: 0.000000059604645}
+  m_LocalPosition: {x: 1.32, y: 0, z: 0}
   m_LocalScale: {x: 0.19999999, y: 0.04, z: 0.19999999}
   m_Children:
   - {fileID: 224286594549778256}
@@ -7335,7 +7335,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1416555430783796}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.88, y: 0, z: 0.00000008940697}
+  m_LocalPosition: {x: 0.88, y: 0, z: 0}
   m_LocalScale: {x: 0.19999999, y: 0.04, z: 0.19999999}
   m_Children:
   - {fileID: 224896359306118036}
@@ -7380,7 +7380,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1015354434233062}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.1, y: 0, z: 0.00000008940697}
+  m_LocalPosition: {x: 1.1, y: 0, z: 0}
   m_LocalScale: {x: 0.19999999, y: 0.04, z: 0.19999999}
   m_Children:
   - {fileID: 224905313723998636}
@@ -8488,7 +8488,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1662943596189524}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.22, y: 0, z: 0.00000008940697}
+  m_LocalPosition: {x: 0.22, y: 0, z: 0}
   m_LocalScale: {x: 0.19999999, y: 0.04, z: 0.19999999}
   m_Children:
   - {fileID: 224351804089702636}
@@ -14458,7 +14458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114245055690877586}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114005232328481320
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14497,18 +14497,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: '@'
-  m_CapsText: 0
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
+  m_CapsText: 1
 --- !u!114 &114005453059857350
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14552,17 +14550,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: n
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114007613358010258
 MonoBehaviour:
@@ -15391,17 +15387,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: k
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114045661477072608
 MonoBehaviour:
@@ -15414,7 +15408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114146424640143312}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114047820760120866
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15447,17 +15441,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: d
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114055030966840076
 MonoBehaviour:
@@ -15647,18 +15639,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6667c0d46b5f15841b8444cb6feb89c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Keys:
-  - {fileID: 1154650600318804}
-  - {fileID: 1100497595923494}
-  - {fileID: 1439318330010020}
-  - {fileID: 1449802904872470}
-  - {fileID: 1104157647723382}
-  - {fileID: 1517691229700410}
-  - {fileID: 1149857341781204}
-  - {fileID: 1151132073381074}
-  - {fileID: 1414741963563322}
-  - {fileID: 1357930552016602}
-  m_KeyHorizontalSpacing: 0.22
+  m_Keys: []
+  m_KeyHorizontalSpacing: 0
 --- !u!114 &114072091393554968
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15831,7 +15813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114543155150747192}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114082084671943156
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15843,7 +15825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114365731371184868}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114085867470009448
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15968,17 +15950,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: y
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114087251867990744
 MonoBehaviour:
@@ -16146,18 +16126,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 9
-  m_CapsText: 0
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
+  m_CapsText: 1
 --- !u!114 &114092688056734136
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16282,7 +16260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114367593784651434}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114095223608701194
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16295,16 +16273,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Keys:
-  - {fileID: 1154650600318804}
-  - {fileID: 1100497595923494}
-  - {fileID: 1439318330010020}
-  - {fileID: 1449802904872470}
-  - {fileID: 1104157647723382}
-  - {fileID: 1517691229700410}
-  - {fileID: 1149857341781204}
-  - {fileID: 1151132073381074}
-  - {fileID: 1414741963563322}
-  - {fileID: 1357930552016602}
+  - {fileID: 1956762510411122}
+  - {fileID: 1662943596189524}
+  - {fileID: 1788035300040084}
+  - {fileID: 1003092181618324}
+  - {fileID: 1416555430783796}
+  - {fileID: 1015354434233062}
+  - {fileID: 1876135492858298}
   m_KeyHorizontalSpacing: 0.22
 --- !u!114 &114096891541310850
 MonoBehaviour:
@@ -16483,17 +16458,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: l
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114106928377649386
 MonoBehaviour:
@@ -16506,7 +16479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114044493127572118}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114110583163713322
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16518,7 +16491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114826662268836080}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114113616888714482
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16643,9 +16616,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce8060b1e550adf42b45d22ebf1ff25f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_AlphabetKeys: {fileID: 1705028706410876}
-  m_PunctuationKeys: {fileID: 1264507202376590}
+  m_KeyboardSO: {fileID: 0}
+  m_AlphabetKeys: {fileID: 0}
+  m_PunctuationKeys: {fileID: 0}
 --- !u!114 &114124989010472442
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16738,7 +16711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114783658009660020}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114134850048987634
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16890,29 +16863,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 802a6f00e275faa4abdc2c8996e28190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: e79392bb49aecc54ca5c4fd95a7c2de6, type: 2}
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
   m_Command:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114119385956757590}
-        m_MethodName: RemoveString
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114145541313068920
@@ -16926,7 +16886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114590765410968050}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114145810995971238
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16981,18 +16941,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 5
-  m_CapsText: 0
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
+  m_CapsText: 1
 --- !u!114 &114148399950413858
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -17004,7 +16962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114940844628725364}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114150119175127190
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -17058,18 +17016,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: '%'
-  m_CapsText: 0
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
+  m_CapsText: 1
 --- !u!114 &114155147018678604
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -17097,17 +17053,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: m
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114159575749742010
 MonoBehaviour:
@@ -17120,18 +17074,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: ':'
-  m_CapsText: 0
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
+  m_CapsText: 1
 --- !u!114 &114161168819458524
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -17164,7 +17116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114086077001875404}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114162811878275324
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -17176,18 +17128,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: '#'
-  m_CapsText: 0
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
+  m_CapsText: 1
 --- !u!114 &114164337985142682
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -17759,7 +17709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114931514265877498}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114175621561394772
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -17884,17 +17834,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: m
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114182258083372460
 MonoBehaviour:
@@ -17907,7 +17855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114781654521004868}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114183321542339848
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -17919,7 +17867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114735570343001020}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114183668222986696
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -18022,18 +17970,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: e79392bb49aecc54ca5c4fd95a7c2de6, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: ' '
-  m_CapsText: 0
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
+  m_CapsText: 1
 --- !u!114 &114189193015580564
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -18045,17 +17991,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: c
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114192041236034850
 MonoBehaviour:
@@ -18089,18 +18033,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: ;
-  m_CapsText: 0
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
+  m_CapsText: 1
 --- !u!114 &114193249340673132
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -18112,17 +18054,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: e
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114196348823384950
 MonoBehaviour:
@@ -18377,7 +18317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114303510490199102}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114210271087769332
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -18389,7 +18329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114967973665877880}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114211168009976514
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -18821,7 +18761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114361823130052156}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114243714068065448
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -18849,18 +18789,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 7
-  m_CapsText: 0
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
+  m_CapsText: 1
 --- !u!114 &114248447390444682
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -18888,18 +18826,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: (
-  m_CapsText: 0
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
+  m_CapsText: 1
 --- !u!114 &114260871814050152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -19400,17 +19336,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: u
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114276278917911342
 MonoBehaviour:
@@ -19460,7 +19394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114099247381071144}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114283668047472332
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -19622,18 +19556,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: '&'
-  m_CapsText: 0
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
+  m_CapsText: 1
 --- !u!114 &114306268932147356
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -19871,18 +19803,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: '-'
-  m_CapsText: 0
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
+  m_CapsText: 1
 --- !u!114 &114308933441701614
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -19894,7 +19824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114705682408224942}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114310735986154668
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -20046,7 +19976,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114159575749742010}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114328293938951580
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -20375,7 +20305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114879092389647190}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114340284532248990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -20387,17 +20317,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: p
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114343097822616442
 MonoBehaviour:
@@ -20635,7 +20563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114658893728328604}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114360791687894008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -20674,18 +20602,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 2
-  m_CapsText: 0
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
+  m_CapsText: 1
 --- !u!114 &114365731371184868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -20697,18 +20623,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 0
-  m_CapsText: 0
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
+  m_CapsText: 1
 --- !u!114 &114366221108835264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -20736,18 +20660,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: /
-  m_CapsText: 0
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
+  m_CapsText: 1
 --- !u!114 &114369990189663628
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -20936,7 +20858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114500621214213758}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114397828276679066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -21093,7 +21015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114193249340673132}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114411642048970044
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -21237,18 +21159,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: ;
-  m_CapsText: 0
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
+  m_CapsText: 1
 --- !u!114 &114424968507529364
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -21276,7 +21196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114808743358587354}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114436543275155150
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -21288,7 +21208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114051616403365652}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114436948086358238
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -21321,7 +21241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114918701728821392}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114440887708463328
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -21397,7 +21317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114998576578701168}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114452617013429626
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -21543,7 +21463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114849693343913004}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114458799793700088
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -21555,7 +21475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114890687676663452}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114462787198242996
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -21567,7 +21487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114307270347425218}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114462822870290092
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -21579,7 +21499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114154026902680238}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114466507481980010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -21618,7 +21538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114761086171014140}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114472914346534176
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -21630,7 +21550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114177407394320060}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114477646506405022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -21900,7 +21820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114092000353030482}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114494142561415576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -21912,7 +21832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114189193015580564}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114494684050260790
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -21924,17 +21844,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: v
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114498546867570580
 MonoBehaviour:
@@ -21984,17 +21902,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: b
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114500627142923136
 MonoBehaviour:
@@ -22103,7 +22019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114931179921258488}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114520210541586202
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22173,17 +22089,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: r
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114547273234979528
 MonoBehaviour:
@@ -22514,7 +22428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114588106567340692}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114557115238786750
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22526,18 +22440,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: )
-  m_CapsText: 0
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
+  m_CapsText: 1
 --- !u!114 &114566610046469678
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22603,7 +22515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114598842904137122}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114578973539858708
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22717,18 +22629,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: '&'
-  m_CapsText: 0
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
+  m_CapsText: 1
 --- !u!114 &114590765410968050
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -22740,17 +22650,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: s
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114591429072448514
 MonoBehaviour:
@@ -22763,18 +22671,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: (
-  m_CapsText: 0
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
+  m_CapsText: 1
 --- !u!114 &114592751171687590
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -23044,7 +22950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114657614729518546}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114596784125345100
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -23077,17 +22983,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: .
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114599497781735408
 MonoBehaviour:
@@ -23256,18 +23160,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 1
-  m_CapsText: 0
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
+  m_CapsText: 1
 --- !u!114 &114613524718375964
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -23279,7 +23181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114647464662311832}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114614889699300304
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -23328,18 +23230,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6667c0d46b5f15841b8444cb6feb89c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Keys:
-  - {fileID: 1154650600318804}
-  - {fileID: 1100497595923494}
-  - {fileID: 1439318330010020}
-  - {fileID: 1449802904872470}
-  - {fileID: 1104157647723382}
-  - {fileID: 1517691229700410}
-  - {fileID: 1149857341781204}
-  - {fileID: 1151132073381074}
-  - {fileID: 1414741963563322}
-  - {fileID: 1357930552016602}
-  m_KeyHorizontalSpacing: 0.22
+  m_Keys: []
+  m_KeyHorizontalSpacing: 0
 --- !u!114 &114620168083712458
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -23512,7 +23404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114557115238786750}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114627476755995506
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -23556,17 +23448,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: z
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114637287092566382
 MonoBehaviour:
@@ -23595,18 +23485,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: )
-  m_CapsText: 0
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
+  m_CapsText: 1
 --- !u!114 &114643984463332942
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -23618,7 +23506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114424066257648116}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114647464662311832
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -23630,17 +23518,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: ','
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114648987001092300
 MonoBehaviour:
@@ -23696,17 +23582,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: o
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114658641786978204
 MonoBehaviour:
@@ -23746,17 +23630,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: b
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114660314186184788
 MonoBehaviour:
@@ -23945,7 +23827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114786280942433104}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114677638059265990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -23994,17 +23876,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: i
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114686690641771150
 MonoBehaviour:
@@ -24146,7 +24026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114162811878275324}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114691131477207552
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -24292,18 +24172,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: ':'
-  m_CapsText: 0
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
+  m_CapsText: 1
 --- !u!114 &114700844442719492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -24344,18 +24222,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 6
-  m_CapsText: 0
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
+  m_CapsText: 1
 --- !u!114 &114710514308679420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -24441,7 +24317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114193028457361924}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114735570343001020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -24453,17 +24329,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: c
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114736736095099660
 MonoBehaviour:
@@ -24772,7 +24646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114494684050260790}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114749531102067252
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -25173,7 +25047,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114606622809969582}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114759627234115572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -25243,17 +25117,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: x
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114762150609340606
 MonoBehaviour:
@@ -25437,17 +25309,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: v
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114781654521004868
 MonoBehaviour:
@@ -25460,17 +25330,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: j
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114783658009660020
 MonoBehaviour:
@@ -25483,29 +25351,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 802a6f00e275faa4abdc2c8996e28190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: e79392bb49aecc54ca5c4fd95a7c2de6, type: 2}
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
   m_Command:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114119385956757590}
-        m_MethodName: ToggleCaps
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114783877408127892
@@ -25766,17 +25621,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: w
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114786353848079800
 MonoBehaviour:
@@ -25816,17 +25669,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: t
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114786518324003618
 MonoBehaviour:
@@ -25968,7 +25819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114794272133454760}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114794272133454760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -25980,18 +25831,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 8
-  m_CapsText: 0
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
+  m_CapsText: 1
 --- !u!114 &114794370341479902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -26243,17 +26092,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: q
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114810128382992468
 MonoBehaviour:
@@ -26314,7 +26161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114643644450390160}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114818160620037480
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -26342,29 +26189,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 802a6f00e275faa4abdc2c8996e28190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: e79392bb49aecc54ca5c4fd95a7c2de6, type: 2}
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
   m_Command:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114119385956757590}
-        m_MethodName: SwitchKeys
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114824936339824420
@@ -26491,18 +26325,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: '@'
-  m_CapsText: 0
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
+  m_CapsText: 1
 --- !u!114 &114827223364824960
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -26669,17 +26501,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: h
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114833897546624526
 MonoBehaviour:
@@ -26761,17 +26591,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: f
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114843909691017436
 MonoBehaviour:
@@ -27058,7 +26886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114685973900147896}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114847442349136036
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -27097,17 +26925,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: a
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114851267244231694
 MonoBehaviour:
@@ -27157,7 +26983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114875755515469920}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114858972058198806
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -27211,7 +27037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114786362925491200}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114869769278347938
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -27223,7 +27049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114637197885482888}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114871239572263600
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -27278,17 +27104,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: z
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114876094900718220
 MonoBehaviour:
@@ -27301,7 +27125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114774722137400060}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114877632524630590
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -27356,7 +27180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114005932048573962}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114879092389647190
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -27368,18 +27192,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: '%'
-  m_CapsText: 0
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
+  m_CapsText: 1
 --- !u!114 &114879548334049284
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -27391,7 +27213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114591429072448514}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114887352029111376
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -27446,7 +27268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114993681955595020}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114888045355674742
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -27458,7 +27280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114832799879731282}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114889128795026720
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -27599,29 +27421,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 802a6f00e275faa4abdc2c8996e28190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: e79392bb49aecc54ca5c4fd95a7c2de6, type: 2}
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
   m_Command:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114119385956757590}
-        m_MethodName: DoneTyping
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114890996407258928
@@ -27635,7 +27444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114340284532248990}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114901951144306612
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -27647,7 +27456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114699380772751062}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114903327612311566
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -27659,18 +27468,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6667c0d46b5f15841b8444cb6feb89c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Keys:
-  - {fileID: 1154650600318804}
-  - {fileID: 1100497595923494}
-  - {fileID: 1439318330010020}
-  - {fileID: 1449802904872470}
-  - {fileID: 1104157647723382}
-  - {fileID: 1517691229700410}
-  - {fileID: 1149857341781204}
-  - {fileID: 1151132073381074}
-  - {fileID: 1414741963563322}
-  - {fileID: 1357930552016602}
-  m_KeyHorizontalSpacing: 0.22
+  m_Keys: []
+  m_KeyHorizontalSpacing: 0
 --- !u!114 &114911457231535752
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -27935,17 +27734,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: x
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114918823379083578
 MonoBehaviour:
@@ -28098,7 +27895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114944175070113034}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114920439897645742
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -28286,7 +28083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114272610052399816}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114924482339832280
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -28298,7 +28095,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114187773124237492}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114925130700266800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -28531,18 +28328,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 3
-  m_CapsText: 0
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
+  m_CapsText: 1
 --- !u!114 &114931514265877498
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -28554,18 +28349,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: 4
-  m_CapsText: 0
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
+  m_CapsText: 1
 --- !u!114 &114931613500825464
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -28609,17 +28402,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: n
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114941894631766862
 MonoBehaviour:
@@ -28653,7 +28444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114159133296021164}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114942913829280840
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -28713,18 +28504,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: '-'
-  m_CapsText: 0
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
+  m_CapsText: 1
 --- !u!114 &114945675522175960
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -28763,7 +28552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114141833242540814}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114948556748917234
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -28802,7 +28591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114843727038614970}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114952024440956958
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -28814,18 +28603,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6667c0d46b5f15841b8444cb6feb89c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Keys:
-  - {fileID: 1206582397329454}
-  - {fileID: 1241953359042792}
-  - {fileID: 1205456712285194}
-  - {fileID: 1353149067375760}
-  - {fileID: 1008987888137342}
-  - {fileID: 1374081825961516}
-  - {fileID: 1699866260693664}
-  - {fileID: 1619884645133530}
-  - {fileID: 1997062683827006}
-  - {fileID: 1090381731633056}
-  m_KeyHorizontalSpacing: 0.22
+  m_Keys: []
+  m_KeyHorizontalSpacing: 0
 --- !u!114 &114952766672235924
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -29160,17 +28939,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: g
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
   m_CapsText: 1
 --- !u!114 &114971557205444972
 MonoBehaviour:
@@ -29220,7 +28997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114258664932776766}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114977836121320022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -29533,18 +29310,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: /
-  m_CapsText: 0
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
+  m_CapsText: 1
 --- !u!114 &114995519855551324
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -29556,7 +29331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114005283963496346}
+  m_ParentKey: {fileID: 0}
 --- !u!114 &114998576578701168
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -29568,18 +29343,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3934209c013e1e44cae8f67f4ac4630d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
-  m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
-  m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
-    type: 2}
-  m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
-    type: 2}
-  m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be, type: 2}
-  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
-  m_HitAngle: {fileID: 11400000, guid: ccc429f3534357e49b5aaba599efbb1e, type: 2}
-  m_IsCaps: {fileID: 11400000, guid: 7c82609394fff1d489d8f1cccd4f0a26, type: 2}
-  m_InputValue: \u00F7
-  m_CapsText: 0
+  m_HoverColor: {fileID: 0}
+  m_HitColor: {fileID: 0}
+  m_ColorHoverEnterLerpTime: {fileID: 0}
+  m_ColorHoverExitLerpTime: {fileID: 0}
+  m_ColorHitLerpTime: {fileID: 0}
+  m_KeyboardSO: {fileID: 0}
+  m_HitAngle: {fileID: 0}
+  m_IsCaps: {fileID: 0}
+  m_InputValue: 
+  m_CapsText: 1
 --- !u!114 &114998682403291452
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -29591,7 +29364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 679884c1ee6b72e4691771d8d63298d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ParentKey: {fileID: 114819621227565786}
+  m_ParentKey: {fileID: 0}
 --- !u!222 &222008853242030062
 CanvasRenderer:
   m_ObjectHideFlags: 1

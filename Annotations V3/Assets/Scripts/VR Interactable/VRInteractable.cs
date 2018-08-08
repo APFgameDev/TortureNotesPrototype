@@ -1,5 +1,6 @@
 ﻿using UnityEngine.Events;
 using UnityEngine;
+using Annotation;
 
 public class VRInteractable : MonoBehaviour
 {
@@ -38,10 +39,9 @@ public struct VRInteractionData
 {
     public System.Func<Vector3, Vector3, Vector3> GetClosestLaserPointOnPlane;
     public System.Func<Vector3, Vector3> GetClosestLaserPoint;
-    public Transform handTrans;
-    public Vector2 movementDirection;
-    public bool secondaryClickPressed;
-    public System.Action<Color> changeColor;
+    public Transform m_handTrans;
+    public Laser m_laser;
+    public System.Action<Color> ChangeColor;
 }
 
 [System.Serializable]

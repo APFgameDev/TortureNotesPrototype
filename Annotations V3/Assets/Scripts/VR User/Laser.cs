@@ -16,13 +16,11 @@ namespace Annotation
         private SO.BoolVariable m_secondaryClickVar;
         [SerializeField]
         private SO.Vector2Variable m_thumbAxis;
+
+        public bool GetIsClickHeld { get { return m_clickVar.Value; } }
+        public bool GetIsSecondaryClickHeld { get { return m_clickVar.Value; } }
+        public Vector2 GetThumbAxisValue { get { return m_thumbAxis.Value; } }
         #endregion
-
-        [SerializeField]
-        private SO.BoolVariable m_otherLaserClickVar;
-
-        [SerializeField]
-        Transform m_otherHand;
 
         [SerializeField]
         [Range(0.1f, 60f)]
@@ -46,11 +44,11 @@ namespace Annotation
         {
             //set up vr interaction data
             {
-                m_vrInteractionData.handTrans = transform;
-                m_vrInteractionData.changeColor = ChangeLaseColor;
+                m_vrInteractionData.m_handTrans = transform;
+                m_vrInteractionData.m_laser = this;
+                m_vrInteractionData.ChangeColor = ChangeLaseColor;
                 m_vrInteractionData.GetClosestLaserPointOnPlane = CalculateClosestPointOnLaserFromInteractableOnPlane;
                 m_vrInteractionData.GetClosestLaserPoint = CalculateClosestPointOnLaserFromInteractable;
-
             }
 
             // set up line renderer
@@ -69,14 +67,6 @@ namespace Annotation
 
             //Check click and secondary click Inputs
             bool isClickHeld = m_clickVar.Value;
-
-            // add input data to m_VRInteractableData
-            {
-                m_vrInteractionData.secondaryClickPressed = m_secondaryClickVar.Value;
-
-                // get joystick movement direction
-                m_vrInteractionData.movementDirection = m_thumbAxis.Value;
-            }
 
             m_interactablesCollidedWithThisFrame.Clear();
 
@@ -178,7 +168,7 @@ namespace Annotation
                 else if (isClickHeld == false && m_isClicked == true)
                     m_isClicked = false;
             }
-            Debug.Log(m_heldInteractable);
+
             //Check For On Click Released or held
             {
                 //We are holding a Interactable

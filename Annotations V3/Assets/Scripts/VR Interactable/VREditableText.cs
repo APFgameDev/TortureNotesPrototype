@@ -19,12 +19,12 @@ namespace Annotation
 
         override public void OnHoverEnter(VRInteractionData vrInteraction)
         {
-            vrInteraction.changeColor(Color.green);
+            vrInteraction.ChangeColor(Color.green);
         }
 
         override public void OnHoverExit(VRInteractionData vrInteraction)
         {
-            vrInteraction.changeColor(Laser.DEFAULT_LASER_COLOR);
+            vrInteraction.ChangeColor(Laser.DEFAULT_LASER_COLOR);
         }
 
         public override void OnClick(VRInteractionData vrInteraction)

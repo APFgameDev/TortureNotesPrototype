@@ -37,7 +37,7 @@ public class VRAnnotatable : VRInteractable
         if(m_isDrawing == false)
         {
             m_isDrawing = true;
-            m_CurrentInteractionHand = vrInteraction.handTrans;
+            m_CurrentInteractionHand = vrInteraction.m_handTrans;
             m_highlightPlacePoint = m_hitPoint;
         }
     }
@@ -56,11 +56,11 @@ public class VRAnnotatable : VRInteractable
 
     public void StartDrag(VRInteractionData vrInteraction)
     {     
-        if (vrInteraction.handTrans == m_CurrentInteractionHand && m_isDrawing)
+        if (vrInteraction.m_handTrans == m_CurrentInteractionHand && m_isDrawing)
         {
             //get VRAnnotation componet call setup
             VRAnnotation vRAnnotation = Instantiate(m_annotationPrefab).GetComponentInChildren<VRAnnotation>();
-            vrInteraction.handTrans.GetComponent<Annotation.Laser>().ForceHoldObject(vRAnnotation, false);
+            vrInteraction.m_laser.ForceHoldObject(vRAnnotation, false);
             vRAnnotation.transform.position = vrInteraction.GetClosestLaserPoint(m_highlightPlacePoint);
             vRAnnotation.StartUp(m_highlightPlacePoint);
             OnFinish();

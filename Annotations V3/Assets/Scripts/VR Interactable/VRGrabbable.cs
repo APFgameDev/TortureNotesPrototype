@@ -37,14 +37,14 @@ public class VRGrabbable : VRInteractable
         if (m_grabed == true)
             return;
 
-        GrabObject(vrInteractionData.handTrans);
+        GrabObject(vrInteractionData.m_handTrans);
     }
 
     override public void OnClickRelease(VRInteractionData vrInteractionData)
     {
         base.OnClickRelease(vrInteractionData);
 
-        if (transform.parent == vrInteractionData.handTrans)
+        if (transform.parent == vrInteractionData.m_handTrans)
         {
             transform.SetParent(originalParent);
             m_grabed = false;
@@ -55,16 +55,18 @@ public class VRGrabbable : VRInteractable
     {
         base.OnClickHeld(vrInteraction);
 
-        if (rotSpeed > 0 && vrInteraction.secondaryClickPressed == false)
+        Vector2 inputAxis = vrInteraction.m_laser.GetThumbAxisValue;
+
+        if (rotSpeed > 0 && vrInteraction.m_laser.GetIsSecondaryClickHeld == false)
         {
-            transform.position = transform.position - vrInteraction.handTrans.forward * reelInSpeed * -vrInteraction.movementDirection.y;
-            transform.localScale = transform.localScale + Vector3.one * scaleSpeed * -vrInteraction.movementDirection.x;
+            transform.position = transform.position - vrInteraction.m_handTrans.forward * reelInSpeed * -inputAxis.y;
+            transform.localScale = transform.localScale + Vector3.one * scaleSpeed * -inputAxis.x;
         }
 
-        else if (vrInteraction.secondaryClickPressed)
+        else if (vrInteraction.m_laser.GetIsClickHeld)
         {
-            transform.Rotate(vrInteraction.handTrans.right, rotSpeed * Time.deltaTime * vrInteraction.movementDirection.y, Space.World);
-            transform.Rotate(vrInteraction.handTrans.up, -rotSpeed * Time.deltaTime * vrInteraction.movementDirection.x, Space.World);
+            transform.Rotate(vrInteraction.m_handTrans.right, rotSpeed * Time.deltaTime * inputAxis.y, Space.World);
+            transform.Rotate(vrInteraction.m_handTrans.up, -rotSpeed * Time.deltaTime * inputAxis.x, Space.World);
         }
     }
 

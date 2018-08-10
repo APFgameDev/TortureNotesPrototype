@@ -2,7 +2,7 @@
 using TMPro;
 using UnityEngine;
 
-[RequireComponent(typeof(TextMeshProUGUI))]
+[RequireComponent(typeof(TextMeshProUGUI), typeof(VoidEventListener))]
 public class VRText : MonoBehaviour
 {
     [SerializeField]
@@ -11,6 +11,13 @@ public class VRText : MonoBehaviour
     private StringVariable m_InputString;
 
     private TextMeshProUGUI m_TextComp;
+
+    private VoidEventListener m_VoidEventListener;
+
+    private void Awake()
+    {
+        m_VoidEventListener = GetComponent<VoidEventListener>();
+    }
 
     private void OnEnable()
     {
@@ -24,12 +31,15 @@ public class VRText : MonoBehaviour
 
     public void StartListening()
     {
-        m_KeyboardSO.m_OnPublish.AddListener(AppendText);
+        //m_KeyboardSO.m_OnPublish.AddListener(AppendText);
+        m_KeyboardSO.m_DoneTypingEvent.SubscribeListener(m_VoidEventListener);
     }
 
     public void AppendText()
     {
         m_TextComp.text = m_InputString.Value;
-        m_KeyboardSO.m_OnPublish.RemoveListener(AppendText);
+        //m_KeyboardSO.m_OnPublish.RemoveListener(AppendText);
+        m_KeyboardSO.m_DoneTypingEvent.UnSubscribeListener(m_VoidEventListener);
+
     }
 }

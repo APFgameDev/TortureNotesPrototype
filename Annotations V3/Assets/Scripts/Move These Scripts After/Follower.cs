@@ -45,4 +45,13 @@ public class Follower : MonoBehaviour
             }
         }
     }
+
+    /// <summary>
+    /// Sets the target of the follower script to the target passed in
+    /// </summary>
+    /// <param name="target"></param>
+    public void SetTarget(MatrixVariable target)
+    {
+        m_TargetMatrix = target;
+    }
 }

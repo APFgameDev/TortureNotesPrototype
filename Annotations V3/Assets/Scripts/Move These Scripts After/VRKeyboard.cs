@@ -13,16 +13,8 @@ public class VRKeyboard : Keyboard
     public GameObject m_AlphabetKeys;
     public GameObject m_PunctuationKeys;
 
-    [SerializeField]
-    private GameObject[] m_TurnOffKeyboardObjects;
-    [SerializeField]
-    private GameObject[] m_TurnOnKeyboardObjects;
-
     private void Awake()
     {
-        m_KeyboardSO.m_OnTurnOn.AddListener(delegate { ToggleKeyboard(false); });
-        m_KeyboardSO.m_OnTurnOff.AddListener(delegate { ToggleKeyboard(true); });
-
         SetActive(false);
     }
 
@@ -38,29 +30,12 @@ public class VRKeyboard : Keyboard
 
     public void DoneTyping()
     {
-        m_KeyboardSO.m_OnPublish.Invoke();        
+        m_KeyboardSO.m_DoneTypingEvent.Publish();
     }
 
     public void SwitchKeys()
     {
         m_AlphabetKeys.SetActive(!m_AlphabetKeys.activeInHierarchy);
         m_PunctuationKeys.SetActive(!m_PunctuationKeys.activeInHierarchy);
-    }
-    
-    public void ToggleKeyboard(bool toggle)
-    {
-        foreach (GameObject obj in m_TurnOffKeyboardObjects)
-        {
-            if (obj != null)
-                obj.SetActive(toggle);
-        }
-
-        foreach (GameObject obj in m_TurnOnKeyboardObjects)
-        {
-            if (obj != null)
-                obj.SetActive(!toggle);
-        }
-
-        SetActive(!toggle);
     }
 }

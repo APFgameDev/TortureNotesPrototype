@@ -7,28 +7,17 @@ namespace Annotation.SO
     [CreateAssetMenu(fileName = "KeyboardSO", menuName = "Keyboard SO/Keyboard", order = 0)]
     public class KeyboardSO : ScriptableObject
     {
-        public UnityEvent m_OnTurnOn;
-        public UnityEvent m_OnTurnOff;
-        public UnityEvent m_OnPublish;
+        //public UnityEvent m_OnTurnOn;
+        //public UnityEvent m_OnTurnOff;
+        //public UnityEvent m_OnPublish;
         public BoolVariable m_IsCaps;
+
+        public VoidEvent m_DoneTypingEvent;
+        public VoidEvent m_TurnOffEvent;
+        public VoidEvent m_TurnOnEvent;
 
         [SerializeField]
         private StringVariable m_KeyboardInputSO;
-
-        private void OnEnable()
-        {
-            Reset();
-        }
-
-        /// <summary>
-        /// Clears all listeners from the events
-        /// </summary>
-        public void Reset()
-        {
-            m_OnTurnOn.RemoveAllListeners();
-            m_OnTurnOff.RemoveAllListeners();
-            m_OnPublish.RemoveAllListeners();
-        }
 
         /// <summary>
         /// Will add the passed in character string to the KeyboardInputSO
@@ -54,17 +43,12 @@ namespace Annotation.SO
         public void InvokeTurnOn()
         {
             m_KeyboardInputSO.Value = string.Empty;
-            m_OnTurnOn.Invoke();
+            m_TurnOnEvent.Publish();
         }
 
         public void InvokeTurnOff()
         {
-            m_OnTurnOff.Invoke();
-        }
-
-        public void PublishText()
-        {
-
+            m_TurnOffEvent.Publish();
         }
     }
 }

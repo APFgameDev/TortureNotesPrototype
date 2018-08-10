@@ -16,20 +16,34 @@ public class StickyNote : MonoBehaviour
     [SerializeField]
     private Follower m_Follower;
 
+    [Header("Comment Variables")]
+    [SerializeField]
+    private TextMeshProUGUI m_NumberOfReplies;
+    [SerializeField]
+    private GameObject m_NotificationCircle;
+
+    [Header("StickyNote Text")]
     [SerializeField]
     private TextMeshProUGUI m_Text;
 
-    [SerializeField]
-    private TextMeshProUGUI m_NumberOfReplies;
-
+    [Header("StickyNote Background Panel Image")]
     [SerializeField]
     private Image m_BackgroundImage;
+
+    [Header("Sticky flying around Matrices")]
+    [SerializeField]
+    private MatrixVariable m_KeyboardMatrix;
 
     private void Awake()
     {
         if(m_BackgroundImage == null)
         {
             m_BackgroundImage = GetComponent<Image>();
+        }
+
+        if(m_Follower == null)
+        {
+            m_Follower = GetComponent<Follower>();
         }
     }
 
@@ -40,6 +54,26 @@ public class StickyNote : MonoBehaviour
     public void SetColor(Color color)
     {
         m_BackgroundImage.color = color;
+    }
+
+    /// <summary>
+    /// Will turn on the keyboard.
+    /// Will send the sticky to the keyboard
+    /// </summary>
+    public void EditSticky()
+    {
+        m_KeyboardSO.InvokeTurnOn();
+        SetStickyTarget(m_KeyboardMatrix);
+    }
+
+    /// <summary>
+    /// Sets the target of the follower script in the sticky note to the target passed in
+    /// </summary>
+    /// <param name="target"></param>
+    public void SetStickyTarget(MatrixVariable target)
+    {
+        m_Follower.enabled = true;
+        m_Follower.SetTarget(target);
     }
 
     public void OnHeldCallBack()
@@ -69,5 +103,25 @@ public class StickyNote : MonoBehaviour
     public void OnGrabUnfoldComments()
     {
 
+    }
+
+    public void SetPreviousPosition(Transform position)
+    {
+
+    }
+
+    public void SetWhiteboard(Whiteboard whiteboard)
+    {
+        m_Whiteboard = whiteboard;
+    }
+
+    /// <summary>
+    /// Will set its transform back to normal and tell the follower script to stop
+    /// </summary>
+    public void SetBackToParent()
+    {
+        transform.localPosition = Vector3.zero;
+        transform.localScale = Vector3.one;
+        m_Follower.enabled = false;
     }
 }

@@ -13,6 +13,8 @@ public class Whiteboard : MonoBehaviour
 
     [SerializeField]
     private Transform m_Workbar;
+    [SerializeField]
+    private int m_MaxWorkbarChildCount = 5;
 
     [SerializeField]
     private KeyboardSO m_KeyboardSO;
@@ -49,13 +51,26 @@ public class Whiteboard : MonoBehaviour
     }
 
     /// <summary>
-    /// Will instantiate a sticky note, and have it go to the keyboard
+    /// Will instantiate a sticky note and call edit sticky on the sticky note
     /// </summary>
     public void CreateStickyNote()
     {
-        GameObject sticky = Instantiate(m_StickyNotePrefab);
+        if(m_Workbar.childCount < m_MaxWorkbarChildCount)
+        {
+            GameObject sticky = Instantiate(m_StickyNotePrefab, m_Workbar);
 
-        //Turn on keyboard
+            StickyNote stickyNote = sticky.GetComponentInChildren<StickyNote>();
+
+            stickyNote.SetWhiteboard(this);
+            stickyNote.EditSticky();
+
+            //Testing for now
+            sticky.GetComponentInChildren<VRText>().StartListening();
+        }
+        else
+        {
+            Debug.Log("Too many sticky notes on work bar");
+        }
     }
 
     /// <summary>

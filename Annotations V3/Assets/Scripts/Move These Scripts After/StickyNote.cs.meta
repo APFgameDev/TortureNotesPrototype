@@ -3,7 +3,15 @@ guid: 6271425e777622f47807afa76cc2a5af
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
+  - m_Whiteboard: {instanceID: 0}
+  - m_Follower: {instanceID: 0}
+  - m_NumberOfReplies: {instanceID: 0}
+  - m_NotificationCircle: {instanceID: 0}
+  - m_Text: {instanceID: 0}
+  - m_BackgroundImage: {instanceID: 0}
+  - m_KeyboardMatrix: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

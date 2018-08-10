@@ -57,7 +57,7 @@ public class ColumnManager : MonoBehaviour
             stickynote.transform.parent.SetParent(transform);
 
             //Reset its position
-            stickynote.transform.position = Vector3.zero;
+            stickynote.transform.localPosition = Vector3.zero;
 
             //Reset its scale
             stickynote.transform.localScale = Vector3.one;

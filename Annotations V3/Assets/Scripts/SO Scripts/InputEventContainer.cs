@@ -20,7 +20,7 @@ public class InputEventContainer : ScriptableObject
         if (m_HeldPercentage.Value < m_DeadZone.Value && currentInputValue >= m_DeadZone.Value)
         {
             m_IsBeingHeld.Value = true;
-            m_Pressed.UnityEvent.Invoke();
+            m_Pressed.UnityEvent.Invoke();            
         }
 
         //if it wasn't first held on this frame then just check to see if the previous value was greater then the deadzone, but the current value isn't. If this statement is true then the Trigger is no longer being held

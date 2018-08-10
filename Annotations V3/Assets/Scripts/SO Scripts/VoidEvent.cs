@@ -8,12 +8,19 @@ namespace Annotation.SO
     public class VoidEvent : ScriptableObject
     {
         List<VoidEventListener> m_Listeners = new List<VoidEventListener>();
+        List<VoidEventMultiListener> m_MultiListeners = new List<VoidEventMultiListener>();
 
         public void Publish()
         {
             for (int i = m_Listeners.Count - 1; i >= 0; i--)
             {
                 m_Listeners[i].OnEventPublished();
+                
+            }
+
+            for (int i = m_MultiListeners.Count; i >= 0; i++)
+            {
+                m_MultiListeners[i].OnEventPublished();
             }
         }
 
@@ -24,6 +31,18 @@ namespace Annotation.SO
             if (!m_Listeners.Contains(a_ToSubscribe))
             {
                 m_Listeners.Add(a_ToSubscribe);
+            }          
+        }
+
+        /// <summary>
+        /// Adds argument to list of multi listeners invoked when this game event is published
+        /// </summary>
+        /// <param name="a_ToSubscribe"></param>
+        public void SubscribeListener(VoidEventMultiListener a_ToSubscribe)
+        {
+            if(!m_MultiListeners.Contains(a_ToSubscribe))
+            {
+                m_MultiListeners.Add(a_ToSubscribe);
             }
         }
 
@@ -36,5 +55,14 @@ namespace Annotation.SO
                 m_Listeners.Remove(a_ToUnSubscribe);
             }
         }
+
+        public void UnSubscribeListener(VoidEventMultiListener a_ToUnsubscribe)
+        {
+            if(m_MultiListeners.Contains(a_ToUnsubscribe))
+            {
+                m_MultiListeners.Remove(a_ToUnsubscribe);
+            }
+        }
+
     }
 }

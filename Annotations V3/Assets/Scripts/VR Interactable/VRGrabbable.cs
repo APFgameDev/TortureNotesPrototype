@@ -12,6 +12,13 @@ public class VRGrabbable : VRInteractable
     float reelInSpeed = 0;
     [SerializeField]
     float scaleSpeed = 0;
+    [SerializeField]
+    [Range(0.001f, 5f)]
+    float m_minScale;
+    [SerializeField]
+    [Range(5f, 100f)]
+    float m_maxScale;
+
     const float SELECTABLE_OUTLINE_WIDTH = 0.05f;
 
     private Transform originalParent;
@@ -20,6 +27,9 @@ public class VRGrabbable : VRInteractable
 
     short hoverCounts = 0;
     float m_laserScaleStartDistance;
+
+    UnityEngine.Events.UnityAction ScaleUpdate;
+    UnityEngine.Events.UnityAction SetStartScaleDistance;
 
     private void Awake()
     {
@@ -38,26 +48,23 @@ public class VRGrabbable : VRInteractable
         if (m_grabed == true)
             return;
 
+        SetStartScaleDistance = delegate
+        {
+            SetLaserStartScaleDistance(
+                vrInteractionData.m_handTrans.position,
+                vrInteractionData.m_laser.GetOtherLaser.transform.position);
+        };
 
-        vrInteractionData.m_laser.GetOtherLaser.GetGripEvents.OnPressed.UnityEvent.AddListener
-            (
-                delegate 
-                {
-                    SetLaserStartScaleDistance(
-                        vrInteractionData.m_handTrans.position,
-                        vrInteractionData.m_laser.GetOtherLaser.transform.position );
-                }
-            );
+        ScaleUpdate = delegate
+        {
+            UpdateScale(
+                vrInteractionData.m_handTrans.position,
+                vrInteractionData.m_laser.GetOtherLaser.transform.position);
+        };
 
-        vrInteractionData.m_laser.GetOtherLaser.GetGripEvents.OnHeld.UnityEvent.AddListener
-            (
-                delegate 
-                {
-                    UpdateScale(
-                        vrInteractionData.m_handTrans.position,
-                        vrInteractionData.m_laser.GetOtherLaser.transform.position );
-                }
-            );
+        vrInteractionData.m_laser.GetOtherLaser.GetGripEvents.OnPressed.UnityEvent.AddListener (SetStartScaleDistance);
+
+        vrInteractionData.m_laser.GetOtherLaser.GetGripEvents.OnHeld.UnityEvent.AddListener(ScaleUpdate);
 
         GrabObject(vrInteractionData.m_handTrans);
     }
@@ -70,6 +77,12 @@ public class VRGrabbable : VRInteractable
         {
             transform.SetParent(originalParent);
             m_grabed = false;
+
+
+            vrInteractionData.m_laser.GetOtherLaser.GetGripEvents.OnPressed.UnityEvent.RemoveListener (SetStartScaleDistance);
+
+            vrInteractionData.m_laser.GetOtherLaser.GetGripEvents.OnHeld.UnityEvent.RemoveListener (ScaleUpdate);
+
         }
     }
 
@@ -79,9 +92,10 @@ public class VRGrabbable : VRInteractable
 
         Vector2 inputAxis = vrInteraction.m_laser.GetThumbAxisValue;
 
-        if (vrInteraction.m_laser.GetTriggerEvents.inputPressed == false)
+        if (vrInteraction.m_laser.GetTriggerEvents.inputPressed.Value == false)
         {
-            transform.position = transform.position - vrInteraction.m_handTrans.forward * reelInSpeed * -inputAxis.y;
+            if(Vector3.Distance( vrInteraction.m_handTrans.position, transform.position) < vrInteraction.m_laser.GetMaxLaserDistance )
+            transform.position = transform.position + vrInteraction.m_handTrans.forward * reelInSpeed * inputAxis.y;
         }
         else
         {
@@ -118,7 +132,8 @@ public class VRGrabbable : VRInteractable
     public void UpdateScale(Vector3 laserPos, Vector3 otherLaserPos)
     {
         float currentScaleDistance = Vector3.Distance(laserPos, otherLaserPos);
-        transform.localScale += Vector3.one * (currentScaleDistance - m_laserScaleStartDistance) * scaleSpeed;
+        transform.localScale = Vector3.ClampMagnitude( Vector3.Max( transform.localScale + Vector3.one * (currentScaleDistance - m_laserScaleStartDistance) * scaleSpeed, Vector3.one * m_minScale), m_maxScale);
+        m_laserScaleStartDistance = currentScaleDistance;
     }
 
     public void SetLaserStartScaleDistance(Vector3 laserPos, Vector3 otherLaserPos)

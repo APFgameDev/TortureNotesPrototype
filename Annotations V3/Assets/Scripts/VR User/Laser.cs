@@ -30,6 +30,8 @@ namespace Annotation
         [Range(0.1f, 60f)]
         private float m_maxLaserDistance = 20f;
 
+        public float GetMaxLaserDistance {get { return m_maxLaserDistance; } }
+
         private LineRenderer m_lineRenderer;
 
         #region VR Interactable variables
@@ -117,6 +119,8 @@ namespace Annotation
                             closestInteractable.OnHoverEnter(m_vrInteractionData);
                         if (m_closestInteractable != null)
                             m_closestInteractable.OnHoverExit(m_vrInteractionData);
+
+                        m_closestInteractable = closestInteractable;
                     }
                 }
 

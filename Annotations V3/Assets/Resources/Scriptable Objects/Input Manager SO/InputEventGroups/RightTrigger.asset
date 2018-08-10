@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 244dbc12375a7c443b072d7dd0f30eca, type: 3}
+  m_Name: RightTrigger
+  m_EditorClassIdentifier: 
+  OnPressed: {fileID: 11400000, guid: 70a8a70dc54835940a0127f4fc517449, type: 2}
+  OnHeld: {fileID: 11400000, guid: 237d1d9a238ee3043885da89bc3e1835, type: 2}
+  OnReleased: {fileID: 11400000, guid: 9cfe47cd5febae04288401259addc886, type: 2}
+  inputPressed: {fileID: 11400000, guid: 17ec5b4b806fb024c84c2ce8a41a0982, type: 2}

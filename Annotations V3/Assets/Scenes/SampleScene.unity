@@ -245,6 +245,18 @@ GameObject:
   m_PrefabParentObject: {fileID: 1741486637264070, guid: fbe6d184b5238b14692cb6749ac50d99,
     type: 2}
   m_PrefabInternal: {fileID: 1552582245}
+--- !u!114 &790515577 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114863932326400634, guid: fbe6d184b5238b14692cb6749ac50d99,
+    type: 2}
+  m_PrefabInternal: {fileID: 1552582245}
+  m_Script: {fileID: 11500000, guid: 044ff88a1ee177a48bd493eff2ab0325, type: 3}
+--- !u!114 &1252940985 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114683963911610976, guid: fbe6d184b5238b14692cb6749ac50d99,
+    type: 2}
+  m_PrefabInternal: {fileID: 1552582245}
+  m_Script: {fileID: 11500000, guid: 044ff88a1ee177a48bd493eff2ab0325, type: 3}
 --- !u!1 &1419471975
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,7 +268,7 @@ GameObject:
   - component: {fileID: 1419471978}
   - component: {fileID: 1419471977}
   - component: {fileID: 1419471976}
-  - component: {fileID: 1419471981}
+  - component: {fileID: 1419471980}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -331,7 +343,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1419471981
+--- !u!114 &1419471980
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -339,7 +351,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1419471975}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef92e31a1bd03a14e9c61fd32c4776d4, type: 3}
+  m_Script: {fileID: 11500000, guid: 7e65f23666e4dc0409715d5b0db1582b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_hitPoint: {x: 0, y: 0, z: 0}
@@ -351,34 +363,12 @@ MonoBehaviour:
         PublicKeyToken=null
     OnHoverExit:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1419471981}
-          m_MethodName: StartDrag
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
       m_TypeName: VRInteractionEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
     OnClick:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1419471981}
-          m_MethodName: StartDrawing
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
       m_TypeName: VRInteractionEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
     OnClickHeld:
@@ -388,27 +378,29 @@ MonoBehaviour:
         PublicKeyToken=null
     OnClickRelease:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1419471981}
-          m_MethodName: PlaceAnnotation
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
       m_TypeName: VRInteractionEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-  m_annotationPrefab: {fileID: 1242483389641454, guid: b0fa6129514339646b307e827bccc3b3,
-    type: 2}
-  m_PlacementOffset: 3
-  m_IsTriggerHeld:
-    UseVariable: 0
-    ConstantValue: 0
-    Variable: {fileID: 0}
+    OnSecondaryClick:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: VRInteractionEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+    OnSecondaryClickHeld:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: VRInteractionEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+    OnSecondaryClickRelease:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: VRInteractionEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+  rotSpeed: 100
+  reelInSpeed: 0.01
+  scaleSpeed: 20
+  m_minScale: 1
+  m_maxScale: 20
 --- !u!1001 &1552582245
 Prefab:
   m_ObjectHideFlags: 0
@@ -457,6 +449,46 @@ Prefab:
       propertyPath: m_TestEvent
       value: 
       objectReference: {fileID: 11400000, guid: 1067aeeb95b1e6447821a7b59ef6af59,
+        type: 2}
+    - target: {fileID: 114683963911610976, guid: fbe6d184b5238b14692cb6749ac50d99,
+        type: 2}
+      propertyPath: m_otherLaser
+      value: 
+      objectReference: {fileID: 790515577}
+    - target: {fileID: 114896320534395960, guid: fbe6d184b5238b14692cb6749ac50d99,
+        type: 2}
+      propertyPath: m_OnRightJoystickPressed
+      value: 
+      objectReference: {fileID: 11400000, guid: c3c5904b2e0dd204abc3464a38dfaccf,
+        type: 2}
+    - target: {fileID: 114683963911610976, guid: fbe6d184b5238b14692cb6749ac50d99,
+        type: 2}
+      propertyPath: m_triggerInputEventGroup
+      value: 
+      objectReference: {fileID: 11400000, guid: 9233d6f978c2cad4a9151e196140e65a,
+        type: 2}
+    - target: {fileID: 114683963911610976, guid: fbe6d184b5238b14692cb6749ac50d99,
+        type: 2}
+      propertyPath: m_gripInputEventGroup
+      value: 
+      objectReference: {fileID: 11400000, guid: deec9e5174e3bdf43989e27720415b4f,
+        type: 2}
+    - target: {fileID: 114863932326400634, guid: fbe6d184b5238b14692cb6749ac50d99,
+        type: 2}
+      propertyPath: m_otherLaser
+      value: 
+      objectReference: {fileID: 1252940985}
+    - target: {fileID: 114863932326400634, guid: fbe6d184b5238b14692cb6749ac50d99,
+        type: 2}
+      propertyPath: m_triggerInputEventGroup
+      value: 
+      objectReference: {fileID: 11400000, guid: 5f61a87644644d448bfa9be613b1b975,
+        type: 2}
+    - target: {fileID: 114863932326400634, guid: fbe6d184b5238b14692cb6749ac50d99,
+        type: 2}
+      propertyPath: m_gripInputEventGroup
+      value: 
+      objectReference: {fileID: 11400000, guid: c386d188f7e7bb342a78b3d1e45b3fb7,
         type: 2}
     m_RemovedComponents:
     - {fileID: 114008369870331082, guid: fbe6d184b5238b14692cb6749ac50d99, type: 2}
@@ -954,46 +986,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b029bb4b269dfc04fb1707238a3c3bdd, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1869001873 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1269853764788876, guid: fbe6d184b5238b14692cb6749ac50d99,
-    type: 2}
-  m_PrefabInternal: {fileID: 1552582245}
---- !u!114 &1869001874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1869001873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bc957f07af6deb4dbebdb67f6acf5d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_LeftTrigger: LeftIndexTrigger
-  m_RightTrigger: RightIndexTrigger
-  m_LeftGrip: LeftGripTrigger
-  m_RightGrip: RightGripTrigger
-  m_RightStickVertical: RightStickVertical
-  m_RightStickHorizontal: RightStickHorizontal
-  m_RightJoystickPressed: RightStickPress
-  m_LeftStickVertical: LeftStickVertical
-  m_LeftStickHorizontal: LeftStickHorizontal
-  m_LeftJoystickPressed: LeftStickPress
-  m_LeftGripContainer: {fileID: 0}
-  m_LeftTriggerContainer: {fileID: 0}
-  m_LeftAxisDirection: {fileID: 0}
-  m_LeftJoystickDown: {fileID: 0}
-  m_RightGripContainer: {fileID: 0}
-  m_RightTriggerContainer: {fileID: 0}
-  m_RightAxisDirection: {fileID: 0}
-  m_RightJoystickDown: {fileID: 0}
-  m_OnLeftJoystickPressed: {fileID: 0}
-  m_OnLeftJoystickHeld: {fileID: 0}
-  m_OnLeftJoystickReleased: {fileID: 0}
-  m_OnRightJoystickPressed: {fileID: 0}
-  m_OnRightJoystickHeld: {fileID: 0}
-  m_OnRightJoystickReleased: {fileID: 0}
 --- !u!1 &1927617413 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1188617550551380, guid: fbe6d184b5238b14692cb6749ac50d99,

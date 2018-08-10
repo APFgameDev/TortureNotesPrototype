@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace Annotation.SO
 {
+    [CreateAssetMenu(fileName = "New InputEventGroupSO", menuName = "UnityEvent SO/InputEventGroup")]
     public class InputEventGroup : ScriptableObject
     {
         public UnityEvents.UnityEventVoidSO OnPressed;

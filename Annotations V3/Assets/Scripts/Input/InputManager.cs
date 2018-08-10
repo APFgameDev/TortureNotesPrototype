@@ -24,7 +24,7 @@ public class InputManager : MonoBehaviour
     [Tooltip("Make sure that the value of this string matches up with the value in the Unity InputManager.")]
     [SerializeField] private string m_LeftStickHorizontal = "LeftStickHorizontal";
     [Tooltip("Make sure that the value of this string matches up with the value in the Unity InputManager.")]
-    [SerializeField]private string m_LeftJoystickPressed = "LeftStickPress";
+    [SerializeField] private string m_LeftJoystickPressed = "LeftStickPress";
     #endregion
 
     #region Left Controller Values
@@ -51,14 +51,26 @@ public class InputManager : MonoBehaviour
     [SerializeField] private BoolVariable m_RightJoystickDown;
     #endregion
 
-    #region Events
+    #region Events 
     [Header("Input Events")]
     [SerializeField] private VoidEvent m_OnLeftTriggerPressed;
+    [SerializeField] private VoidEvent m_OnLeftTriggerHeld;
+    [SerializeField] private VoidEvent m_OnLeftTriggerReleased;
     [SerializeField] private VoidEvent m_OnRightTriggerPressed;
+    [SerializeField] private VoidEvent m_OnRightTriggerHeld;
+    [SerializeField] private VoidEvent m_OnRightTriggerReleased;
     [SerializeField] private VoidEvent m_OnLeftGripPressed;
+    [SerializeField] private VoidEvent m_OnLeftGripHeld;
+    [SerializeField] private VoidEvent m_OnLeftGripReleased;
     [SerializeField] private VoidEvent m_OnRightGripPressed;
+    [SerializeField] private VoidEvent m_OnRightGripHeld;
+    [SerializeField] private VoidEvent m_OnRightGripReleased;
     [SerializeField] private VoidEvent m_OnLeftJoystickPressed;
+    [SerializeField] private VoidEvent m_OnLeftJoystickHeld;
+    [SerializeField] private VoidEvent m_OnLeftJoystickReleased;
     [SerializeField] private VoidEvent m_OnRightJoystickPressed;
+    [SerializeField] private VoidEvent m_OnRightJoystickHeld;
+    [SerializeField] private VoidEvent m_OnRightJoystickReleased;
     #endregion
 
     /// <summary>
@@ -77,25 +89,53 @@ public class InputManager : MonoBehaviour
             return;
         }
 
-        //Store the grip held percent value and publish the event if the value pressed is greater then the dead zone value
-        m_LeftGripHeldPercent.Value = Input.GetAxis(m_LeftGrip);
-        if (m_LeftGripHeldPercent.Value >= m_LeftGripDeadZone.Value)
+        #region Left Grip Evaluation
+        float leftGripValue = Input.GetAxis(m_LeftGrip);
+
+        //Check to see if the previous grip value is less then the deadzone and if the current value is greater then the deadzone. If this statement is true then the grip is being grabbed for the first time this frame
+        if (m_LeftGripHeldPercent.Value < m_LeftGripDeadZone.Value && leftGripValue >= m_LeftGripDeadZone.Value)
         {
             m_LeftGripHeld.Value = true;
             m_OnLeftGripPressed.Publish();
         }
-        else
-            m_LeftGripHeld.Value = false;
 
-        //Store the grip held percent value and publish the event if the value pressed is greater then the dead zone value
-        m_RightGripHeldPercent.Value = Input.GetAxis(m_RightGrip);
-        if (m_RightGripHeldPercent.Value >= m_RightGripDeadZone.Value)
+        //if it wasn't first held on this frame then just check to see if the previous value was greater then the deadzone, but the current value isn't. If this statement is true then the grip is no longer being held
+        if (m_LeftGripHeldPercent.Value >= m_LeftGripDeadZone.Value && leftGripValue < m_LeftGripDeadZone.Value)
+        {
+            m_LeftGripHeld.Value = false;
+            m_OnLeftGripReleased.Publish();
+        }
+
+        //if the current input value
+        if (leftGripValue >= m_LeftGripDeadZone.Value)
+        {
+            m_OnLeftGripHeld.Publish();
+        }
+        #endregion
+
+        #region Right Grip Evaluation
+        float rightGripValue = Input.GetAxis(m_RightGrip);
+
+        //Check to see if the previous grip value is less then the deadzone and if the current value is greater then the deadzone. If this statement is true then the grip is being grabbed for the first time this frame
+        if (m_RightGripHeldPercent.Value < m_RightGripDeadZone.Value && rightGripValue >= m_RightGripDeadZone.Value)
         {
             m_RightGripHeld.Value = true;
             m_OnRightGripPressed.Publish();
         }
-        else
+
+        //if it wasn't first held on this frame then just check to see if the previous value was greater then the deadzone, but the current value isn't. If this statement is true then the grip is no longer being held
+        if (m_RightGripHeldPercent.Value >= m_RightGripDeadZone.Value && rightGripValue < m_RightGripDeadZone.Value)
+        {
             m_RightGripHeld.Value = false;
+            m_OnRightGripReleased.Publish();
+        }
+
+        //if the current input value
+        if (rightGripValue >= m_RightGripDeadZone.Value)
+        {
+            m_OnRightGripHeld.Publish();
+        }
+        #endregion
         #endregion
 
         #region Handle Triggers
@@ -105,26 +145,53 @@ public class InputManager : MonoBehaviour
             Debug.LogError("All of the trigger data is not set yet. Please set the trigger data in the InputManager and start again.\n Location == " + gameObject.name, this);
         }
 
-        //Store the trigger held percent value and publish the event if the value pressed is greater then the dead zone value
-        m_LeftTriggerHeldPercent.Value = Input.GetAxis(m_LeftTrigger);
-        if (m_LeftTriggerHeldPercent.Value >= m_LeftTriggerDeadZone.Value)
+        #region Left Trigger Evaluation
+        float leftTriggerValue = Input.GetAxis(m_LeftTrigger);
+
+        //Check to see if the previous Trigger value is less then the deadzone and if the current value is greater then the deadzone. If this statement is true then the Trigger is being grabbed for the first time this frame
+        if (m_LeftTriggerHeldPercent.Value < m_LeftTriggerDeadZone.Value && leftTriggerValue >= m_LeftTriggerDeadZone.Value)
         {
             m_LeftTriggerHeld.Value = true;
             m_OnLeftTriggerPressed.Publish();
         }
-        else
-            m_LeftTriggerHeld.Value = false;
 
-        //Store the trigger held percent value and publish the event if the value pressed is greater then the dead zone value
-        m_RightTriggerHeldPercent.Value = Input.GetAxis(m_RightTrigger);
-        if (m_RightTriggerHeldPercent.Value >= m_RightTriggerDeadZone.Value)
+        //if it wasn't first held on this frame then just check to see if the previous value was greater then the deadzone, but the current value isn't. If this statement is true then the Trigger is no longer being held
+        if (m_LeftTriggerHeldPercent.Value >= m_LeftTriggerDeadZone.Value && leftTriggerValue < m_LeftTriggerDeadZone.Value)
+        {
+            m_LeftTriggerHeld.Value = false;
+            m_OnLeftTriggerReleased.Publish();
+        }
+
+        //if the current input value
+        if (leftTriggerValue >= m_LeftTriggerDeadZone.Value)
+        {
+            m_OnLeftTriggerHeld.Publish();
+        }
+        #endregion
+
+        #region Right Trigger Evaluation
+        float rightTriggerValue = Input.GetAxis(m_RightTrigger);
+
+        //Check to see if the previous Trigger value is less then the deadzone and if the current value is greater then the deadzone. If this statement is true then the Trigger is being grabbed for the first time this frame
+        if (m_RightTriggerHeldPercent.Value < m_RightTriggerDeadZone.Value && rightTriggerValue >= m_RightTriggerDeadZone.Value)
         {
             m_RightTriggerHeld.Value = true;
             m_OnRightTriggerPressed.Publish();
         }
-        else
-            m_RightTriggerHeld.Value = false;
 
+        //if it wasn't first held on this frame then just check to see if the previous value was greater then the deadzone, but the current value isn't. If this statement is true then the Trigger is no longer being held
+        if (m_RightTriggerHeldPercent.Value >= m_RightTriggerDeadZone.Value && rightTriggerValue < m_RightTriggerDeadZone.Value)
+        {
+            m_RightTriggerHeld.Value = false;
+            m_OnRightTriggerReleased.Publish();
+        }
+
+        //if the current input value
+        if (rightTriggerValue >= m_RightTriggerDeadZone.Value)
+        {
+            m_OnRightTriggerHeld.Publish();
+        }
+        #endregion      
         #endregion
 
         #region Handle Axis Sticks
@@ -134,11 +201,55 @@ public class InputManager : MonoBehaviour
             Debug.LogError("All of the axis data is not set yet. Please set the axis data in the InputManager and start again.\n Location == " + gameObject.name, this);
         }
 
+        #region Left Joystick
+        bool leftJoystickValue = Input.GetButton(m_LeftJoystickPressed); 
+
+        //Check to see if the previous grip value is less then the deadzone and if the current value is greater then the deadzone. If this statement is true then the grip is being grabbed for the first time this frame
+        if (!m_LeftJoystickDown.Value && leftJoystickValue)
+        { 
+            m_OnRightGripPressed.Publish();
+        }
+
+        //if it wasn't first held on this frame then just check to see if the previous value was greater then the deadzone, but the current value isn't. If this statement is true then the grip is no longer being held
+        if (m_LeftJoystickDown.Value && !leftJoystickValue)
+        {
+            m_OnRightGripReleased.Publish();
+        }
+
+        //if the current input value
+        if (m_LeftJoystickDown.Value && leftJoystickValue)
+        {
+            m_OnRightGripHeld.Publish();
+        }
+
         m_LeftAxisDirection.Value = new Vector2(Input.GetAxis(m_LeftStickHorizontal), Input.GetAxis(m_LeftStickVertical));
-        m_LeftJoystickDown.Value = Input.GetButton(m_LeftJoystickPressed);
+        m_LeftJoystickDown.Value = leftJoystickValue;
+        #endregion  
+
+        #region Right Joystick
+        bool rightJoystickValue = Input.GetButton(m_RightJoystickPressed);
+
+        //Check to see if the previous grip value is less then the deadzone and if the current value is greater then the deadzone. If this statement is true then the grip is being grabbed for the first time this frame
+        if (!m_RightJoystickDown.Value && rightJoystickValue)
+        {
+            m_OnRightGripPressed.Publish();
+        }
+
+        //if it wasn't first held on this frame then just check to see if the previous value was greater then the deadzone, but the current value isn't. If this statement is true then the grip is no longer being held
+        if (m_RightJoystickDown.Value && !rightJoystickValue)
+        {
+            m_OnRightGripReleased.Publish();
+        }
+
+        //if the current input value
+        if (m_RightJoystickDown.Value && rightJoystickValue)
+        {
+            m_OnRightGripHeld.Publish();
+        }
 
         m_RightAxisDirection.Value = new Vector2(Input.GetAxis(m_RightStickHorizontal), Input.GetAxis(m_RightStickVertical));
         m_RightJoystickDown.Value = Input.GetButton(m_RightJoystickPressed);
+        #endregion
         #endregion
     }
 }

@@ -28,9 +28,9 @@ public abstract class KeyboardKey : MonoBehaviour
 
     [SerializeField]
     private IntVariable m_HitAngle;
-
+        
     private byte m_TriggerCount;
-    private Color m_OriginalColor;
+    private Color m_OriginalColor;    
     private Color m_PreviousColor;
     private Material m_Material;
 
@@ -45,12 +45,30 @@ public abstract class KeyboardKey : MonoBehaviour
         }
     }
 
+    protected virtual void OnDisable()
+    {
+        SetMaterialColor(m_PreviousColor);
+    }
+
     /// <summary>
     /// Called when the collider has been hit with the mallet
     /// </summary>
     protected abstract void OnHit();
 
     #region OnHover Functions
+    /// <summary>
+    /// Called when the mallet enters the trigger box of the key
+    /// </summary>
+    protected virtual void OnHoverEnter()
+    {
+        //Only call the hover enter code for the first object triggering it
+        if (m_TriggerCount < 1)
+        {
+            SetMaterialColor(m_HoverColor.m_Value);
+        }
+
+        m_TriggerCount++;
+    }
 
     /// <summary>
     /// Called when the mallet exits the trigger box of the key
@@ -68,21 +86,6 @@ public abstract class KeyboardKey : MonoBehaviour
             m_TriggerCount--;
         }
     }
-
-    /// <summary>
-    /// Called when the mallet enters the trigger box of the key
-    /// </summary>
-    protected virtual void OnHoverEnter()
-    {
-        //Only call the hover enter code for the first object triggering it
-        if (m_TriggerCount < 1)
-        {
-            SetMaterialColor(m_HoverColor.m_Value);
-        }
-
-        m_TriggerCount++;
-    }
-
     #endregion
 
     #region OnHit Functions
@@ -110,7 +113,15 @@ public abstract class KeyboardKey : MonoBehaviour
     /// </summary>
     public virtual void OnHitExit(Collider other)
     {
-        SetMaterialColor(m_PreviousColor);
+        if (m_TriggerCount < 1)
+        {
+            SetMaterialColor(m_PreviousColor);
+            Debug.Log("Color changed back to previous color.", this);
+        }
+        else
+        {
+            SetMaterialColor(m_HoverColor.m_Value);
+        }
     }
 
     #endregion
@@ -142,8 +153,7 @@ public abstract class KeyboardKey : MonoBehaviour
     /// </summary>
     /// <param name="newColor"></param>
     public void SetMaterialColor(Color newColor)
-    {
-        m_PreviousColor = m_Material.color;
+    {        
         m_Material.color = newColor;
     }
 

@@ -41,7 +41,7 @@ public class KeyboardKeySetup : MonoBehaviour
 
         prevPos = m_Keys[halfIndex].transform.localPosition;
         //Add offset to left side
-        for (int i = LeftList.Count - 1; i >= 0; i--)
+        for (int i = 0; i < LeftList.Count; i++)
         {
             Vector3 newPos = prevPos;
             newPos.x -= m_KeyHorizontalSpacing;
@@ -49,15 +49,5 @@ public class KeyboardKeySetup : MonoBehaviour
 
             prevPos = LeftList[i].transform.localPosition;
         }
-
-        ////Start at 1, dont want to space the first key
-        //for (int i = 1; i < m_Keys.Length; i++)
-        //{
-        //    Vector3 newPos = previousPosition;
-        //    newPos.x += m_KeyHorizontalSpacing;
-        //    m_Keys[i].transform.localPosition = newPos;
-        //
-        //    previousPosition = m_Keys[i].transform.localPosition;
-        //}
     }
 }

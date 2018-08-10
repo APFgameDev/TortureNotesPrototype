@@ -50,5 +50,21 @@ namespace Annotation.SO
 
             m_KeyboardInputSO.Value = value;
         }
+
+        public void InvokeTurnOn()
+        {
+            m_KeyboardInputSO.Value = string.Empty;
+            m_OnTurnOn.Invoke();
+        }
+
+        public void InvokeTurnOff()
+        {
+            m_OnTurnOff.Invoke();
+        }
+
+        public void PublishText()
+        {
+
+        }
     }
 }

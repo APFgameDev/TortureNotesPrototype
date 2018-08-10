@@ -29,6 +29,12 @@ public class InputKey : KeyboardKey
         m_IsCaps.ValueChanged += OnCapsChange;
     }
 
+    private void OnValidate()
+    {
+        TextMeshProUGUI tmp = GetComponentInChildren<TextMeshProUGUI>();
+        tmp.text = m_InputValue;
+    }
+
     protected override void OnHit()
     {
         m_KeyboardSO.AppendString(m_InputValue);

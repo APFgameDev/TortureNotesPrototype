@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e985665d002cfe0498b4243a4e1f395a, type: 3}
+  m_Name: Right Grip
+  m_EditorClassIdentifier: 
+  m_HeldPercentage: {fileID: 11400000, guid: 3580acdc3fb62fd4ab6418a6cbd091df, type: 2}
+  m_DeadZone:
+    UseVariable: 0
+    ConstantValue: 0.1
+    Variable: {fileID: 0}
+  m_IsBeingHeld: {fileID: 11400000, guid: 9720bbcf3f41fdf468804a0f3a7506fc, type: 2}
+  m_Pressed: {fileID: 11400000, guid: c3c5904b2e0dd204abc3464a38dfaccf, type: 2}
+  m_Held: {fileID: 11400000, guid: 1c95aa1ccba2d2f4e9e80cae4c1735a2, type: 2}
+  m_Released: {fileID: 11400000, guid: 57879b260cbf92947821e006ee57a1b2, type: 2}

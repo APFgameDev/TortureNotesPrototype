@@ -452,7 +452,14 @@ Prefab:
       propertyPath: m_Name
       value: VR Container
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114008369870331082, guid: fbe6d184b5238b14692cb6749ac50d99,
+        type: 2}
+      propertyPath: m_TestEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 1067aeeb95b1e6447821a7b59ef6af59,
+        type: 2}
+    m_RemovedComponents:
+    - {fileID: 114008369870331082, guid: fbe6d184b5238b14692cb6749ac50d99, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: fbe6d184b5238b14692cb6749ac50d99, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1661622931
@@ -947,6 +954,46 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b029bb4b269dfc04fb1707238a3c3bdd, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1869001873 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1269853764788876, guid: fbe6d184b5238b14692cb6749ac50d99,
+    type: 2}
+  m_PrefabInternal: {fileID: 1552582245}
+--- !u!114 &1869001874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1869001873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc957f07af6deb4dbebdb67f6acf5d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LeftTrigger: LeftIndexTrigger
+  m_RightTrigger: RightIndexTrigger
+  m_LeftGrip: LeftGripTrigger
+  m_RightGrip: RightGripTrigger
+  m_RightStickVertical: RightStickVertical
+  m_RightStickHorizontal: RightStickHorizontal
+  m_RightJoystickPressed: RightStickPress
+  m_LeftStickVertical: LeftStickVertical
+  m_LeftStickHorizontal: LeftStickHorizontal
+  m_LeftJoystickPressed: LeftStickPress
+  m_LeftGripContainer: {fileID: 0}
+  m_LeftTriggerContainer: {fileID: 0}
+  m_LeftAxisDirection: {fileID: 0}
+  m_LeftJoystickDown: {fileID: 0}
+  m_RightGripContainer: {fileID: 0}
+  m_RightTriggerContainer: {fileID: 0}
+  m_RightAxisDirection: {fileID: 0}
+  m_RightJoystickDown: {fileID: 0}
+  m_OnLeftJoystickPressed: {fileID: 0}
+  m_OnLeftJoystickHeld: {fileID: 0}
+  m_OnLeftJoystickReleased: {fileID: 0}
+  m_OnRightJoystickPressed: {fileID: 0}
+  m_OnRightJoystickHeld: {fileID: 0}
+  m_OnRightJoystickReleased: {fileID: 0}
 --- !u!1 &1927617413 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1188617550551380, guid: fbe6d184b5238b14692cb6749ac50d99,

@@ -1,0 +1,39 @@
+fileFormatVersion: 2
+guid: 0bc957f07af6deb4dbebdb67f6acf5d1
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_LeftGripContainer: {fileID: 11400000, guid: 43cb02eb63d03e54bb680c8de4dcc46a,
+      type: 2}
+  - m_LeftTriggerContainer: {fileID: 11400000, guid: bfd7f698b3a459544b841905d3177e53,
+      type: 2}
+  - m_LeftAxisDirection: {fileID: 11400000, guid: c8458dee0f1e1c941891aa334bc48da4,
+      type: 2}
+  - m_LeftJoystickDown: {fileID: 11400000, guid: 3d515de4b3f77994fab33c71ed5dbb61,
+      type: 2}
+  - m_RightGripContainer: {fileID: 11400000, guid: a415850c39c160f4685ef7adce0f3f14,
+      type: 2}
+  - m_RightTriggerContainer: {fileID: 11400000, guid: fdff757eadac7794fb9b3442bbf38065,
+      type: 2}
+  - m_RightAxisDirection: {fileID: 11400000, guid: cb034abcfdb04d04790ca98d9de7095f,
+      type: 2}
+  - m_RightJoystickDown: {fileID: 11400000, guid: d8c7575e198461a439d3d34ef00b98b9,
+      type: 2}
+  - m_OnLeftJoystickPressed: {fileID: 11400000, guid: eec1ff6cf06df1d40af110a0bf8210dc,
+      type: 2}
+  - m_OnLeftJoystickHeld: {fileID: 11400000, guid: 8063e473d1a274143b05a023ca50db9c,
+      type: 2}
+  - m_OnLeftJoystickReleased: {fileID: 11400000, guid: 1c897b1bfefafe1438cb7cba317b6d02,
+      type: 2}
+  - m_OnRightJoystickPressed: {fileID: 11400000, guid: c3c5904b2e0dd204abc3464a38dfaccf,
+      type: 2}
+  - m_OnRightJoystickHeld: {fileID: 11400000, guid: 02b9f52df0ffcfc4cacf8db0397b3a0a,
+      type: 2}
+  - m_OnRightJoystickReleased: {fileID: 11400000, guid: 36a0608d0d61061468f72c3ce9aa354c,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -72,7 +72,7 @@ public class InputManager : MonoBehaviour
     [SerializeField] private VoidEvent m_OnRightJoystickHeld;
     [SerializeField] private VoidEvent m_OnRightJoystickReleased;
     #endregion
-
+    
     /// <summary>
     /// Update will poll the Unity InputManager in order to see any controller changes. If there are any changes
     /// then the InputManager will post the changed values. The InputManager will also call any events that listen to 
@@ -111,6 +111,8 @@ public class InputManager : MonoBehaviour
         {
             m_OnLeftGripHeld.Publish();
         }
+
+        m_LeftGripHeldPercent.Value = leftGripValue;
         #endregion
 
         #region Right Grip Evaluation
@@ -135,6 +137,8 @@ public class InputManager : MonoBehaviour
         {
             m_OnRightGripHeld.Publish();
         }
+
+        m_RightGripHeldPercent.Value = rightGripValue;
         #endregion
         #endregion
 
@@ -167,6 +171,8 @@ public class InputManager : MonoBehaviour
         {
             m_OnLeftTriggerHeld.Publish();
         }
+
+        m_LeftTriggerHeldPercent.Value = leftTriggerValue;
         #endregion
 
         #region Right Trigger Evaluation
@@ -191,6 +197,8 @@ public class InputManager : MonoBehaviour
         {
             m_OnRightTriggerHeld.Publish();
         }
+
+        m_RightTriggerHeldPercent.Value = rightTriggerValue;
         #endregion      
         #endregion
 
@@ -206,20 +214,20 @@ public class InputManager : MonoBehaviour
 
         //Check to see if the previous grip value is less then the deadzone and if the current value is greater then the deadzone. If this statement is true then the grip is being grabbed for the first time this frame
         if (!m_LeftJoystickDown.Value && leftJoystickValue)
-        { 
-            m_OnRightGripPressed.Publish();
+        {
+            m_OnLeftJoystickPressed.Publish();
         }
 
         //if it wasn't first held on this frame then just check to see if the previous value was greater then the deadzone, but the current value isn't. If this statement is true then the grip is no longer being held
         if (m_LeftJoystickDown.Value && !leftJoystickValue)
         {
-            m_OnRightGripReleased.Publish();
+            m_OnLeftJoystickReleased.Publish();
         }
 
         //if the current input value
-        if (m_LeftJoystickDown.Value && leftJoystickValue)
+        if (leftJoystickValue)
         {
-            m_OnRightGripHeld.Publish();
+            m_OnLeftJoystickHeld.Publish();
         }
 
         m_LeftAxisDirection.Value = new Vector2(Input.GetAxis(m_LeftStickHorizontal), Input.GetAxis(m_LeftStickVertical));
@@ -232,19 +240,19 @@ public class InputManager : MonoBehaviour
         //Check to see if the previous grip value is less then the deadzone and if the current value is greater then the deadzone. If this statement is true then the grip is being grabbed for the first time this frame
         if (!m_RightJoystickDown.Value && rightJoystickValue)
         {
-            m_OnRightGripPressed.Publish();
+            m_OnRightJoystickPressed.Publish();
         }
 
         //if it wasn't first held on this frame then just check to see if the previous value was greater then the deadzone, but the current value isn't. If this statement is true then the grip is no longer being held
         if (m_RightJoystickDown.Value && !rightJoystickValue)
         {
-            m_OnRightGripReleased.Publish();
+            m_OnRightJoystickReleased.Publish();
         }
 
         //if the current input value
-        if (m_RightJoystickDown.Value && rightJoystickValue)
+        if (rightJoystickValue)
         {
-            m_OnRightGripHeld.Publish();
+            m_OnRightJoystickHeld.Publish();
         }
 
         m_RightAxisDirection.Value = new Vector2(Input.GetAxis(m_RightStickHorizontal), Input.GetAxis(m_RightStickVertical));

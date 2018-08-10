@@ -39,6 +39,17 @@ public class KeyboardKeySetup : MonoBehaviour
             prevPos = RightList[i].transform.localPosition;
         }
 
+        //prevPos = m_Keys[halfIndex].transform.localPosition;
+        ////Add offset to left side
+        //for (int i = LeftList.Count - 1; i >= 0; i--)
+        //{
+        //    Vector3 newPos = prevPos;
+        //    newPos.x -= m_KeyHorizontalSpacing;
+        //    LeftList[i].transform.localPosition = newPos;
+        //
+        //    prevPos = LeftList[i].transform.localPosition;
+        //}
+
         prevPos = m_Keys[halfIndex].transform.localPosition;
         //Add offset to left side
         for (int i = 0; i < LeftList.Count; i++)

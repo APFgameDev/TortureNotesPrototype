@@ -32,6 +32,22 @@ public class VRInteractable : MonoBehaviour
     {
         m_Events.OnClickRelease.Invoke(vrInteraction);
     }
+    public virtual void OnSecondaryClick(VRInteractionData vrInteraction)
+    {
+        m_Events.OnSecondaryClick.Invoke(vrInteraction);
+    }
+    public virtual void OnSecondaryClickHeld(VRInteractionData vrInteraction)
+    {
+        m_Events.OnSecondaryClickHeld.Invoke(vrInteraction);
+    }
+    public virtual void OnSecondaryClickRelease(VRInteractionData vrInteraction)
+    {
+        m_Events.OnSecondaryClickRelease.Invoke(vrInteraction);
+    }
+    public virtual WhatIsHold GetWhatIsHold()
+    {
+        return WhatIsHold.None;
+    }
 }
 
 [System.Serializable]
@@ -52,9 +68,19 @@ public class InteractEvents
     public VRInteractionEvent OnClick = new VRInteractionEvent();
     public VRInteractionEvent OnClickHeld = new VRInteractionEvent();
     public VRInteractionEvent OnClickRelease = new VRInteractionEvent();
+    public VRInteractionEvent OnSecondaryClick = new VRInteractionEvent();
+    public VRInteractionEvent OnSecondaryClickHeld = new VRInteractionEvent();
+    public VRInteractionEvent OnSecondaryClickRelease = new VRInteractionEvent();
 }
 
 [System.Serializable]
 public class VRInteractionEvent : UnityEvent<VRInteractionData>
 {
+}
+
+public enum WhatIsHold
+{
+    Primary,
+    Secondary,
+    None
 }

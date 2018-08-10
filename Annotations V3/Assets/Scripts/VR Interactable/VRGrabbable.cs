@@ -19,6 +19,7 @@ public class VRGrabbable : VRInteractable
     private MeshRenderer meshRenderer;
 
     short hoverCounts = 0;
+    float m_laserScaleStartDistance;
 
     private void Awake()
     {
@@ -30,17 +31,38 @@ public class VRGrabbable : VRInteractable
         originalParent = transform.parent;
     }
 
-    override public void OnClick(VRInteractionData vrInteractionData)
+    override public void OnSecondaryClick(VRInteractionData vrInteractionData)
     {
         base.OnClick(vrInteractionData);
 
         if (m_grabed == true)
             return;
 
+
+        vrInteractionData.m_laser.GetOtherLaser.GetGripEvents.OnPressed.UnityEvent.AddListener
+            (
+                delegate 
+                {
+                    SetLaserStartScaleDistance(
+                        vrInteractionData.m_handTrans.position,
+                        vrInteractionData.m_laser.GetOtherLaser.transform.position );
+                }
+            );
+
+        vrInteractionData.m_laser.GetOtherLaser.GetGripEvents.OnHeld.UnityEvent.AddListener
+            (
+                delegate 
+                {
+                    UpdateScale(
+                        vrInteractionData.m_handTrans.position,
+                        vrInteractionData.m_laser.GetOtherLaser.transform.position );
+                }
+            );
+
         GrabObject(vrInteractionData.m_handTrans);
     }
 
-    override public void OnClickRelease(VRInteractionData vrInteractionData)
+    override public void OnSecondaryClickRelease(VRInteractionData vrInteractionData)
     {
         base.OnClickRelease(vrInteractionData);
 
@@ -51,19 +73,17 @@ public class VRGrabbable : VRInteractable
         }
     }
 
-    public override void OnClickHeld(VRInteractionData vrInteraction)
+    public override void OnSecondaryClickHeld(VRInteractionData vrInteraction)
     {
         base.OnClickHeld(vrInteraction);
 
         Vector2 inputAxis = vrInteraction.m_laser.GetThumbAxisValue;
 
-        if (rotSpeed > 0 && vrInteraction.m_laser.GetIsSecondaryClickHeld == false)
+        if (vrInteraction.m_laser.GetTriggerEvents.inputPressed == false)
         {
             transform.position = transform.position - vrInteraction.m_handTrans.forward * reelInSpeed * -inputAxis.y;
-            transform.localScale = transform.localScale + Vector3.one * scaleSpeed * -inputAxis.x;
         }
-
-        else if (vrInteraction.m_laser.GetIsClickHeld)
+        else
         {
             transform.Rotate(vrInteraction.m_handTrans.right, rotSpeed * Time.deltaTime * inputAxis.y, Space.World);
             transform.Rotate(vrInteraction.m_handTrans.up, -rotSpeed * Time.deltaTime * inputAxis.x, Space.World);
@@ -88,6 +108,22 @@ public class VRGrabbable : VRInteractable
         {
             base.OnHoverExit(vrInteraction);
         }
+    }
+
+    public override WhatIsHold GetWhatIsHold()
+    {
+        return WhatIsHold.Secondary;
+    }
+
+    public void UpdateScale(Vector3 laserPos, Vector3 otherLaserPos)
+    {
+        float currentScaleDistance = Vector3.Distance(laserPos, otherLaserPos);
+        transform.localScale += Vector3.one * (currentScaleDistance - m_laserScaleStartDistance) * scaleSpeed;
+    }
+
+    public void SetLaserStartScaleDistance(Vector3 laserPos, Vector3 otherLaserPos)
+    {
+        m_laserScaleStartDistance = Vector3.Distance(laserPos, otherLaserPos);
     }
 
     public void SetSpeeds(float aRotSpeed, float aReelInSpeed, float aScaleSpeed)

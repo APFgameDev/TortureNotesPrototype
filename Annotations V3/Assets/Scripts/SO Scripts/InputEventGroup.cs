@@ -10,5 +10,6 @@ namespace Annotation.SO
         public UnityEvents.UnityEventVoidSO OnPressed;
         public UnityEvents.UnityEventVoidSO OnHeld;
         public UnityEvents.UnityEventVoidSO OnReleased;
+        public SO.BoolVariable inputPressed;
     }
 }

@@ -38,4 +38,9 @@ public class VR_UI_Interactable : VRInteractable
     {
         return BOX_COLLIDER_Z_THICKNESS / (transform.localScale.z > 0f ? transform.lossyScale.z : 0);
     }
+
+    public override WhatIsHold GetWhatIsHold()
+    {
+        return WhatIsHold.Primary;
+    }
 }

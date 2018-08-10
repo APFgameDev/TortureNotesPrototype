@@ -1,4 +1,5 @@
 ﻿
+using Annotation.SO.UnityEvents;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,15 +12,18 @@ namespace Annotation
 
         #region Laser Inputs
         [SerializeField]
-        private SO.BoolVariable m_clickVar;
-        [SerializeField]
-        private SO.BoolVariable m_secondaryClickVar;
-        [SerializeField]
         private SO.Vector2Variable m_thumbAxis;
+        [SerializeField]
+        private Laser m_otherLaser;
+        [SerializeField]
+        private SO.InputEventGroup m_triggerInputEventGroup;
+        [SerializeField]
+        private SO.InputEventGroup m_gripInputEventGroup;
 
-        public bool GetIsClickHeld { get { return m_clickVar.Value; } }
-        public bool GetIsSecondaryClickHeld { get { return m_clickVar.Value; } }
         public Vector2 GetThumbAxisValue { get { return m_thumbAxis.Value; } }
+        public Laser GetOtherLaser { get { return m_otherLaser; } }
+        public SO.InputEventGroup GetTriggerEvents { get { return m_triggerInputEventGroup; } }
+        public SO.InputEventGroup GetGripEvents { get { return m_gripInputEventGroup; } }
         #endregion
 
         [SerializeField]
@@ -30,13 +34,9 @@ namespace Annotation
 
         #region VR Interactable variables
         private VRInteractable m_heldInteractable;
+        private VRInteractable m_closestInteractable;
         private VRInteractionData m_vrInteractionData;
-
-        private List<VRInteractable> m_interactablesCollidedWithThisFrame = new List<VRInteractable>();
-        private List<VRInteractable> m_interactablesCollidedWithLastFrame = new List<VRInteractable>();
         #endregion
-
-        private bool m_isClicked = false;
 
         public static readonly Color DEFAULT_LASER_COLOR = new Color(1, 0, 0);
 
@@ -51,6 +51,17 @@ namespace Annotation
                 m_vrInteractionData.GetClosestLaserPoint = CalculateClosestPointOnLaserFromInteractable;
             }
 
+            //set up input event callbacks
+            {
+                m_triggerInputEventGroup.OnPressed.UnityEvent.AddListener(OnClickPressed);
+                m_triggerInputEventGroup.OnHeld.UnityEvent.AddListener(OnClickHeld);
+                m_triggerInputEventGroup.OnReleased.UnityEvent.AddListener(OnClickReleased);
+
+                m_gripInputEventGroup.OnPressed.UnityEvent.AddListener(OnSecondaryClickPressed);
+                m_gripInputEventGroup.OnHeld.UnityEvent.AddListener(OnSecondaryClickHeld);
+                m_gripInputEventGroup.OnReleased.UnityEvent.AddListener(OnSecondaryClickReleased);
+            }
+
             // set up line renderer
             {
                 if (m_lineRenderer == null)
@@ -58,35 +69,28 @@ namespace Annotation
                 m_lineRenderer.positionCount = 2;
             }
 
+            //set laser to default color
             ChangeLaseColor(DEFAULT_LASER_COLOR);
         }
         void Update()
         {
             Vector3 laserStartPointWorld = transform.position;
-            Vector3 maxLaserEndPointWorld = transform.position + transform.forward * m_maxLaserDistance;
 
-            //Check click and secondary click Inputs
-            bool isClickHeld = m_clickVar.Value;
-
-            m_interactablesCollidedWithThisFrame.Clear();
-
-            //used to find closest interactable
-            VRInteractable closestInteractable = null;
-            float closestInteractableDist = float.MaxValue;
-
-
-            //Check if we should Collect Vr Interactables collided with this frame
-            //Check For On Hover Enters
             {
-                // do raycast all if there is no interactable held
-                if (m_heldInteractable == null)
+                float closestInteractableDist = m_maxLaserDistance;
+
+                // call hover enter and exits 
+                // only if there is no interactable held or stick hover is false
+                if ( m_heldInteractable == null || 
+                    (m_closestInteractable != null && m_closestInteractable.StickyHover == false) )
                 {
+                    //used to find closest interactable
+                    VRInteractable closestInteractable = null;
+
                     //raycast
                     RaycastHit[] hit;
                     Ray ray = new Ray(transform.position, transform.forward);
                     hit = Physics.RaycastAll(ray, m_maxLaserDistance);
-
-                    m_interactablesCollidedWithThisFrame.Capacity = hit.Length;
 
                     //cycle through all hits
                     for (int i = 0; i < hit.Length; i++)
@@ -104,103 +108,22 @@ namespace Annotation
                                 closestInteractable = vrInteractable;
                                 closestInteractableDist = hit[i].distance;
                             }
-                            // add to interactable list collided with this frame
-                            m_interactablesCollidedWithThisFrame.Add(vrInteractable);
-
-                            //is the interactable a new collision we collected on this frame call on hover enter
-                            if (m_interactablesCollidedWithLastFrame.Contains(vrInteractable) == false)
-                                vrInteractable.OnHoverEnter(m_vrInteractionData);
                         }
                     }
-                }
-                //only add held interactable and set it as closest interactable
-                else
-                {
-                    if(m_heldInteractable.StickyHover)
-                        m_interactablesCollidedWithThisFrame.Add(m_heldInteractable);
-                    else
+
+                    if (closestInteractable != m_closestInteractable)
                     {
-                       Collider[] colliders = m_heldInteractable.GetComponents<Collider>();
-
-                        Ray ray = new Ray(transform.position, transform.forward);
-                        RaycastHit raycastHit;
-
-                        for (int i = 0; i < colliders.Length; i++)
-                        {
-                            if (colliders[i].Raycast(ray, out raycastHit, m_maxLaserDistance))
-                            {
-                                m_interactablesCollidedWithThisFrame.Add(m_heldInteractable);
-                                break;
-                            }
-                        }
+                        if (closestInteractable != null)
+                            closestInteractable.OnHoverEnter(m_vrInteractionData);
+                        if (m_closestInteractable != null)
+                            m_closestInteractable.OnHoverExit(m_vrInteractionData);
                     }
-
-                    closestInteractable = m_heldInteractable;
-                    closestInteractableDist = Vector3.Distance(transform.position, m_heldInteractable.transform.position);
                 }
-            }
 
-            //Set LineRenderer Positions
-            {
+
+                //Set LineRenderer Positions
                 m_lineRenderer.SetPosition(0, laserStartPointWorld);
-
-                // set lin end pos to closest interactalbe if there is on
-                if (closestInteractable != null)
-                    m_lineRenderer.SetPosition(1, transform.position + transform.forward * closestInteractableDist);
-                else
-                    m_lineRenderer.SetPosition(1, maxLaserEndPointWorld);
-            }
-
-            //Check For On Click
-            {
-                //Did we start holding click this frame?
-                if (isClickHeld == true && m_isClicked == false)
-                {
-                    m_isClicked = true;
-                    //call on click on our closest interactable
-                    if (closestInteractable != null)
-                    {
-                        m_heldInteractable = closestInteractable;
-                        closestInteractable.OnClick(m_vrInteractionData);
-                    }
-                }
-                // did we stop holding click this frame?
-                else if (isClickHeld == false && m_isClicked == true)
-                    m_isClicked = false;
-            }
-
-            //Check For On Click Released or held
-            {
-                //We are holding a Interactable
-                if (m_heldInteractable != null)
-                {
-                    // if click released release held interactable
-                    if (isClickHeld == false)
-                    {
-                        m_heldInteractable.OnClickRelease(m_vrInteractionData);
-                        m_heldInteractable = null;
-                    }
-                    // keep calling on click held
-                    else
-                        m_heldInteractable.OnClickHeld(m_vrInteractionData);
-                }
-            }
-
-            //Check For On Hover Exits
-            {
-                //loop through our last frame collisions 
-                for (int i = 0; i < m_interactablesCollidedWithLastFrame.Count; i++)
-                {
-                    //check if we are still colliding with them this frame call on hover exit if not
-                    if (m_interactablesCollidedWithThisFrame.Contains(m_interactablesCollidedWithLastFrame[i]) == false)
-                        m_interactablesCollidedWithLastFrame[i].OnHoverExit(m_vrInteractionData);
-                }
-            }
-
-            //Update m_interactablesCollidedWithLastFrame List
-            {
-                m_interactablesCollidedWithLastFrame.Clear();
-                m_interactablesCollidedWithLastFrame.AddRange(m_interactablesCollidedWithThisFrame);
+                m_lineRenderer.SetPosition(1, transform.position + transform.forward * closestInteractableDist);
             }
         }
 
@@ -216,6 +139,84 @@ namespace Annotation
                 m_heldInteractable.OnClick(m_vrInteractionData);
         }
 
+        #region InputCallBacks
+
+        void OnClickPressed()
+        {
+            WhenClicked((vrI) => vrI.OnClick(m_vrInteractionData), WhatIsHold.Primary);
+        }
+
+        void OnClickHeld()
+        {
+            WhenHeld((vrI) => vrI.OnClickHeld(m_vrInteractionData));
+        }
+
+        void OnClickReleased()
+        {
+            WhenReleased((vrI) => vrI.OnClickRelease(m_vrInteractionData), WhatIsHold.Primary);
+        }
+
+        void OnSecondaryClickPressed()
+        {
+            WhenClicked((vrI) => vrI.OnSecondaryClick(m_vrInteractionData), WhatIsHold.Secondary);
+        }
+
+        void OnSecondaryClickHeld()
+        {
+            WhenHeld((vrI) => vrI.OnSecondaryClickHeld(m_vrInteractionData));
+        }
+
+        void OnSecondaryClickReleased()
+        {
+            WhenReleased((vrI) => vrI.OnSecondaryClickRelease(m_vrInteractionData), WhatIsHold.Secondary);
+        }
+
+        #region WhenFunctions
+
+        void WhenClicked(System.Action<VRInteractable> callBack, WhatIsHold whatIsHold)
+        {
+            if (m_heldInteractable == null)
+            {
+                if (m_closestInteractable != null)
+                {
+                    callBack(m_closestInteractable);
+
+                    if (m_closestInteractable.GetWhatIsHold() == whatIsHold)
+                        m_heldInteractable = m_closestInteractable;
+                }
+            }
+            else
+                m_heldInteractable.OnSecondaryClick(m_vrInteractionData);
+        }
+
+        void WhenHeld(System.Action<VRInteractable> callBack)
+        {
+            if (m_heldInteractable == null)
+            {
+                if (m_closestInteractable != null)
+                    callBack(m_closestInteractable);
+            }
+            else
+                callBack(m_heldInteractable);
+        }
+
+        void WhenReleased(System.Action<VRInteractable> callBack, WhatIsHold whatIsHold)
+        {
+            if (m_heldInteractable == null)
+            {
+                if (m_closestInteractable != null)
+                    callBack(m_closestInteractable);
+            }
+            else
+            {
+                callBack(m_heldInteractable);
+
+                if (m_heldInteractable.GetWhatIsHold() == whatIsHold)
+                    m_heldInteractable = null;
+            }
+        }
+        #endregion
+        #endregion
 
         #region VRInteractionDataCallBacks
 

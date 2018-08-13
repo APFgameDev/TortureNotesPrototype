@@ -9,15 +9,29 @@ public class Whiteboard : MonoBehaviour
     private GameObject m_StickyNotePrefab;
 
     [SerializeField]
-    private List<ColumnManager> m_Columns;
+    private Transform m_Workbar;
 
     [SerializeField]
-    private Transform m_Workbar;
+    private Transform m_WhiteboardStickyArea;
+
     [SerializeField]
     private int m_MaxWorkbarChildCount = 5;
 
     [SerializeField]
     private KeyboardSO m_KeyboardSO;
+
+    [SerializeField]
+    private Collider m_SurfaceCollider;
+
+    [Header("Sticky Note Color")]
+    [SerializeField] private Color m_RedColor;
+    [SerializeField] private Color m_BlueColor;
+    [SerializeField] private Color m_GreenColor;
+    [SerializeField] private Color m_PurpleColor;
+
+    [Header("Are we editing a sticky note?")]
+    [SerializeField]
+    private BoolVariable m_DoneEditingStickyNote;
 
     private void OnEnable()
     {
@@ -30,48 +44,73 @@ public class Whiteboard : MonoBehaviour
     }
 
     /// <summary>
-    /// Will find the closest column to the sticky, set its parent, set its color and scale.
+    /// Will find the closest column to the sticky, set its parent and set its scale.
     /// </summary>
     /// <param name="note"></param>
     public void AddStickyNote(StickyNote note)
     {
-        //Find closest column
-        //Place sticky (Set Parent)
-        //Set color
-        //Set scale
-
-
-        //Testing for now
-        if(!m_Columns[0].AddStickyToColumn(note))
-        {
-            Debug.Log("Not enough room in this column!");
-            //Send the sticky to its previous position
-            //If it doesnt have a previous position, send it to the workbar
-        }
+        note.gameObject.transform.parent.SetParent(m_WhiteboardStickyArea);
+        note.SetBackToParent();
     }
 
-    /// <summary>
-    /// Will instantiate a sticky note and call edit sticky on the sticky note
-    /// </summary>
-    public void CreateStickyNote()
+    private void CreateStickyNote(Color stickycolor)
     {
-        if(m_Workbar.childCount < m_MaxWorkbarChildCount)
+        if (m_Workbar.childCount < m_MaxWorkbarChildCount && m_DoneEditingStickyNote.Value == true)
         {
             GameObject sticky = Instantiate(m_StickyNotePrefab, m_Workbar);
 
             StickyNote stickyNote = sticky.GetComponentInChildren<StickyNote>();
+            stickyNote.SetColor(stickycolor);
 
             stickyNote.SetWhiteboard(this);
             stickyNote.EditSticky();
+
+            m_DoneEditingStickyNote.Value = false;
 
             //Testing for now
             sticky.GetComponentInChildren<VRText>().StartListening();
         }
         else
         {
-            Debug.Log("Too many sticky notes on work bar");
+            Debug.Log("Too many sticky notes on work bar OR still editing a sticky note!");
         }
     }
+
+    #region Create Colored Sticky Functions
+
+    /// <summary>
+    /// Will instantiate a sticky note and call edit sticky on the sticky note
+    /// </summary>
+    public void CreateRedSticky()
+    {
+        CreateStickyNote(m_RedColor);
+    }
+
+    /// <summary>
+    /// Will instantiate a sticky note and call edit sticky on the sticky note
+    /// </summary>
+    public void CreateBlueSticky()
+    {
+        CreateStickyNote(m_BlueColor);
+    }
+
+    /// <summary>
+    /// Will instantiate a sticky note and call edit sticky on the sticky note
+    /// </summary>
+    public void CreateGreenSticky()
+    {
+        CreateStickyNote(m_GreenColor);
+    }
+
+    /// <summary>
+    /// Will instantiate a sticky note and call edit sticky on the sticky note
+    /// </summary>
+    public void CreatePurpleSticky()
+    {
+        CreateStickyNote(m_PurpleColor);
+    }
+
+    #endregion
 
     /// <summary>
     /// Will delete the whiteboard object
@@ -79,5 +118,10 @@ public class Whiteboard : MonoBehaviour
     public void DeleteWhiteboard()
     {
         Destroy(gameObject);
+    }
+
+    public void DoneEditingSticky()
+    {
+        m_DoneEditingStickyNote.Value = true;
     }
 }

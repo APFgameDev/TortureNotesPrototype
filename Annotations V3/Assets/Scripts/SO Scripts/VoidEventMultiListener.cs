@@ -7,7 +7,7 @@ namespace Annotation.SO
     {
         public VoidEvent[] m_Events;
         public UnityEngine.Events.UnityEvent m_Respones;
-        
+
         private void OnEnable()
         {
             if (m_Events != null)

@@ -16,12 +16,6 @@ public class StickyNote : MonoBehaviour
     [SerializeField]
     private Follower m_Follower;
 
-    [Header("Comment Variables")]
-    [SerializeField]
-    private TextMeshProUGUI m_NumberOfReplies;
-    [SerializeField]
-    private GameObject m_NotificationCircle;
-
     [Header("StickyNote Text")]
     [SerializeField]
     private TextMeshProUGUI m_Text;
@@ -81,7 +75,6 @@ public class StickyNote : MonoBehaviour
         //Overlap box check for whiteboard
         //Call place sticky on whiteboard
 
-        //Testing
         //m_Whiteboard.AddStickyNote(this);
     }
 
@@ -101,11 +94,6 @@ public class StickyNote : MonoBehaviour
     }
 
     public void OnGrabUnfoldComments()
-    {
-
-    }
-
-    public void SetPreviousPosition(Transform position)
     {
 
     }

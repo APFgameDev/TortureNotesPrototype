@@ -32,7 +32,7 @@ namespace Annotation.SO
 
         public void OnEventPublished()
         {
-
+            m_Respones.Invoke();
         }
     }
 }

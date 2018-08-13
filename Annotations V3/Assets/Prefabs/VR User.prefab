@@ -36,13 +36,15 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4133433881234988}
+  - component: {fileID: 114626128741379750}
+  - component: {fileID: 114427504694577324}
   m_Layer: 0
   m_Name: Mallet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1201793972873322
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,7 +97,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1331776759173478
 GameObject:
   m_ObjectHideFlags: 1
@@ -167,7 +169,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1650456296042940
 GameObject:
   m_ObjectHideFlags: 1
@@ -193,13 +195,15 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4837220472195326}
+  - component: {fileID: 114637343361669108}
+  - component: {fileID: 114439132783756314}
   m_Layer: 0
   m_Name: Mallet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1947099585860418
 GameObject:
   m_ObjectHideFlags: 1
@@ -768,9 +772,121 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbc6dcaa5f8d8ff40a584b6ed3d2af4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_KeyboardSO: {fileID: 0}
+  m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
   m_LeftHand: {fileID: 4847201708125568}
   m_RightHand: {fileID: 4377149200829478}
+--- !u!114 &114427504694577324
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1188617550551380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 854402cd30b94224f8c902bc95ae4c0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Event: {fileID: 11400000, guid: 268259f5f4a06d04aa1df03d8fbf4767, type: 2}
+  m_Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1312897362376806}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &114439132783756314
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1741486637264070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 854402cd30b94224f8c902bc95ae4c0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Event: {fileID: 11400000, guid: 5e4601451aceb0b459bfc3b2d87510c7, type: 2}
+  m_Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1532403195611508}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &114626128741379750
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1188617550551380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 854402cd30b94224f8c902bc95ae4c0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Event: {fileID: 11400000, guid: 5e4601451aceb0b459bfc3b2d87510c7, type: 2}
+  m_Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1312897362376806}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &114637343361669108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1741486637264070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 854402cd30b94224f8c902bc95ae4c0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Event: {fileID: 11400000, guid: 268259f5f4a06d04aa1df03d8fbf4767, type: 2}
+  m_Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1532403195611508}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114683963911610976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -782,10 +898,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 044ff88a1ee177a48bd493eff2ab0325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_clickVar: {fileID: 11400000, guid: 81343db9ede4f2a4fb300303db7ed4ed, type: 2}
-  m_secondaryClickVar: {fileID: 11400000, guid: 88df5642eac45854cac64b78a42b2be6,
-    type: 2}
   m_thumbAxis: {fileID: 11400000, guid: c8458dee0f1e1c941891aa334bc48da4, type: 2}
+  m_otherLaser: {fileID: 0}
+  m_triggerInputEventGroup: {fileID: 0}
+  m_gripInputEventGroup: {fileID: 0}
   m_maxLaserDistance: 20
 --- !u!114 &114863932326400634
 MonoBehaviour:
@@ -798,10 +914,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 044ff88a1ee177a48bd493eff2ab0325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_clickVar: {fileID: 11400000, guid: 17ec5b4b806fb024c84c2ce8a41a0982, type: 2}
-  m_secondaryClickVar: {fileID: 11400000, guid: 9720bbcf3f41fdf468804a0f3a7506fc,
-    type: 2}
   m_thumbAxis: {fileID: 11400000, guid: cb034abcfdb04d04790ca98d9de7095f, type: 2}
+  m_otherLaser: {fileID: 0}
+  m_triggerInputEventGroup: {fileID: 0}
+  m_gripInputEventGroup: {fileID: 0}
   m_maxLaserDistance: 20
 --- !u!114 &114896320534395960
 MonoBehaviour:

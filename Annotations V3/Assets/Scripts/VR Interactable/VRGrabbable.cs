@@ -87,7 +87,7 @@ public class VRGrabbable : VRInteractable
 
         if (vrInteraction.m_laser.GetTriggerEvents.inputPressed.Value == false)
         {
-            if(Vector3.Distance( vrInteraction.m_handTrans.position, transform.position) < vrInteraction.m_laser.GetMaxLaserDistance )
+            if(Vector3.Distance( vrInteraction.m_handTrans.position, transform.position) < vrInteraction.m_laser.GetMaxLaserDistance || inputAxis.y < 0 )
             transform.position = transform.position + vrInteraction.m_handTrans.forward * reelInSpeed * inputAxis.y;
         }
         else

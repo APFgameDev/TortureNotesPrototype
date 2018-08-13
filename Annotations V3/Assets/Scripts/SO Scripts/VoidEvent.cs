@@ -12,13 +12,13 @@ namespace Annotation.SO
 
         public void Publish()
         {
-            for (int i = m_Listeners.Count - 1; i > 0; i--)
+            for (int i = m_Listeners.Count - 1; i >= 0; i--)
             {
                 m_Listeners[i].OnEventPublished();
                 
             }
 
-            for (int i = m_MultiListeners.Count - 1; i > 0; i++)
+            for (int i = m_MultiListeners.Count - 1; i >= 0; i++)
             {
                 m_MultiListeners[i].OnEventPublished();
             }

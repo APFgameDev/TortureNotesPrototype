@@ -5556,6 +5556,7 @@ GameObject:
   - component: {fileID: 4124393675969858}
   - component: {fileID: 114206656281271276}
   - component: {fileID: 114182205836335642}
+  - component: {fileID: 114068307013485950}
   m_Layer: 0
   m_Name: VR Keyboard
   m_TagString: Untagged
@@ -13801,9 +13802,26 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: VRInteractionEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
+    OnSecondaryClick:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: VRInteractionEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+    OnSecondaryClickHeld:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: VRInteractionEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+    OnSecondaryClickRelease:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: VRInteractionEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
   rotSpeed: 0
   reelInSpeed: 0
   scaleSpeed: 0
+  m_minScale: 0.1
+  m_maxScale: 100
 --- !u!114 &114028589020406614
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14491,6 +14509,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ParentKey: {fileID: 114942450301187068}
+--- !u!114 &114068307013485950
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1846852745568642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 854402cd30b94224f8c902bc95ae4c0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Event: {fileID: 11400000, guid: 4df4e032b686d824b93e7334e3049077, type: 2}
+  m_Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114063944520418224}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114072461752229700
 MonoBehaviour:
   m_ObjectHideFlags: 1

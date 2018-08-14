@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 
 public class VRGrabbable : VRInteractable
-{
+{  
     [SerializeField]
     float rotSpeed = 60;
     [SerializeField]
@@ -29,6 +29,8 @@ public class VRGrabbable : VRInteractable
     UnityEngine.Events.UnityAction ScaleUpdate;
     UnityEngine.Events.UnityAction SetStartScaleDistance;
 
+    public bool m_CanObjectScale = true;
+
     private Vector3 m_StartScale = Vector3.zero;
     private float m_OriginalControllerDistance = 0;
 
@@ -43,7 +45,7 @@ public class VRGrabbable : VRInteractable
         base.OnClick(vrInteractionData);
 
         if (m_grabed == true)
-            return;
+            return;        
 
         SetStartScaleDistance = delegate
         {
@@ -126,12 +128,16 @@ public class VRGrabbable : VRInteractable
 
     public void UpdateScale(Transform laser, Transform otherLaser)
     {
+        //Get the distance between the controllers and then take the newly calculated distance and divid it by the original distance. Finally multiply by the scale to get the newly scaled transform.
         float distance = Vector3.Distance(laser.position, otherLaser.position);
+        
         transform.localScale = m_StartScale * (distance / m_OriginalControllerDistance);
     }
 
     public void SetLaserStartScaleDistance(Transform laser, Transform otherLaser)
     {
+        if (!m_CanObjectScale) return;
+
         m_StartScale = transform.localScale;
         m_OriginalControllerDistance = Vector3.Distance(laser.position, otherLaser.position);
     }

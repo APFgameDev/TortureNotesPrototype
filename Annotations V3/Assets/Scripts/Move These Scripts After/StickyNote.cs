@@ -73,9 +73,13 @@ public class StickyNote : MonoBehaviour
     public void OnHeldCallBack()
     {
         //Overlap box check for whiteboard
+        //RaycastHit[] rays = Physics.RaycastAll(transform.position, -transform.forward, float.MaxValue);
+
+        //foreach(RaycastHit hit in )
+
         //Call place sticky on whiteboard
 
-        //m_Whiteboard.AddStickyNote(this);
+        m_Whiteboard.AddStickyNote(this);
     }
 
     public void OnGrabReleasedCallBack()

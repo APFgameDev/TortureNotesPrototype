@@ -29,6 +29,10 @@ public class VRGrabbable : VRInteractable
     UnityEngine.Events.UnityAction ScaleUpdate;
     UnityEngine.Events.UnityAction SetStartScaleDistance;
 
+    private Vector3 m_StartScale = Vector3.zero;
+    private float m_OriginalControllerDistance = 0;
+
+
     private void OnEnable()
     {
         originalParent = transform.parent;
@@ -55,7 +59,7 @@ public class VRGrabbable : VRInteractable
                 vrInteractionData.m_laser.GetOtherLaser.transform);
         };
 
-        vrInteractionData.m_laser.GetOtherLaser.GetGripEvents.OnPressed.UnityEvent.AddListener (SetStartScaleDistance);
+        vrInteractionData.m_laser.GetOtherLaser.GetGripEvents.OnPressed.UnityEvent.AddListener(SetStartScaleDistance);
 
         vrInteractionData.m_laser.GetOtherLaser.GetGripEvents.OnHeld.UnityEvent.AddListener(ScaleUpdate);
 
@@ -71,11 +75,9 @@ public class VRGrabbable : VRInteractable
             transform.SetParent(originalParent);
             m_grabed = false;
 
+            vrInteractionData.m_laser.GetOtherLaser.GetGripEvents.OnPressed.UnityEvent.RemoveListener(SetStartScaleDistance);
 
-            vrInteractionData.m_laser.GetOtherLaser.GetGripEvents.OnPressed.UnityEvent.RemoveListener (SetStartScaleDistance);
-
-            vrInteractionData.m_laser.GetOtherLaser.GetGripEvents.OnHeld.UnityEvent.RemoveListener (ScaleUpdate);
-
+            vrInteractionData.m_laser.GetOtherLaser.GetGripEvents.OnHeld.UnityEvent.RemoveListener(ScaleUpdate);
         }
     }
 
@@ -87,8 +89,8 @@ public class VRGrabbable : VRInteractable
 
         if (vrInteraction.m_laser.GetTriggerEvents.inputPressed.Value == false)
         {
-            if(Vector3.Distance( vrInteraction.m_handTrans.position, transform.position) < vrInteraction.m_laser.GetMaxLaserDistance || inputAxis.y < 0 )
-            transform.position = transform.position + vrInteraction.m_handTrans.forward * reelInSpeed * inputAxis.y;
+            if (Vector3.Distance(vrInteraction.m_handTrans.position, transform.position) < vrInteraction.m_laser.GetMaxLaserDistance || inputAxis.y < 0)
+                transform.position = transform.position + vrInteraction.m_handTrans.forward * reelInSpeed * inputAxis.y;
         }
         else
         {
@@ -124,16 +126,14 @@ public class VRGrabbable : VRInteractable
 
     public void UpdateScale(Transform laser, Transform otherLaser)
     {
-        float currentScaleDistance = Vector3.Distance(laser.position, otherLaser.position);
-        transform.localScale = Vector3.ClampMagnitude(Vector3.Max(transform.localScale + Vector3.one * (currentScaleDistance - m_laserScaleStartDistance) * scaleSpeed, Vector3.one * m_minScale), m_maxScale);
-        m_laserScaleStartDistance = currentScaleDistance;
-        transform.rotation = Quaternion.Slerp(transform.rotation, GetControllerOrientation(laser,otherLaser) * m_laserRotStartOffset, Time.deltaTime * 20.0f);
+        float distance = Vector3.Distance(laser.position, otherLaser.position);
+        transform.localScale = m_StartScale * (distance / m_OriginalControllerDistance);
     }
 
     public void SetLaserStartScaleDistance(Transform laser, Transform otherLaser)
     {
-        m_laserScaleStartDistance = Vector3.Distance(laser.position, otherLaser.position);
-        m_laserRotStartOffset = Quaternion.Inverse(GetControllerOrientation(laser,otherLaser)) * transform.rotation;
+        m_StartScale = transform.localScale;
+        m_OriginalControllerDistance = Vector3.Distance(laser.position, otherLaser.position);
     }
 
     Quaternion GetControllerOrientation(Transform laser, Transform otherLaser)

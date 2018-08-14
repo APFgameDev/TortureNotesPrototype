@@ -110,6 +110,7 @@ public class StickyNote : MonoBehaviour
     {
         transform.localPosition = Vector3.zero;
         transform.localScale = Vector3.one;
+        transform.localRotation = Quaternion.identity;
         m_Follower.enabled = false;
     }
 }

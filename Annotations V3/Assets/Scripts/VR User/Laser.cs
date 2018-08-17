@@ -83,8 +83,7 @@ namespace Annotation
 
                 // call hover enter and exits 
                 // only if there is no interactable held or stick hover is false
-                if ( m_heldInteractable == null || 
-                    (m_closestInteractable != null && m_closestInteractable.StickyHover == false) )
+                if ( m_heldInteractable == null || m_heldInteractable.StickyHover == false)
                 {
                     //used to find closest interactable
                     VRInteractable closestInteractable = null;
@@ -100,7 +99,7 @@ namespace Annotation
                         VRInteractable vrInteractable = hit[i].transform.GetComponent<VRInteractable>();
 
                         // validation for interactable
-                        if (vrInteractable != null && vrInteractable.enabled)
+                        if (vrInteractable != null && vrInteractable.m_interactable)
                         {
                             vrInteractable.m_hitPoint = hit[i].point;
 
@@ -135,12 +134,23 @@ namespace Annotation
         {
             //We are holding a Interactable
             if (m_heldInteractable != null && callReleaseOnAlreadyHeld == true)
+            {
                 m_heldInteractable.OnClickRelease(m_vrInteractionData);
+                m_heldInteractable.OnSecondaryClickRelease(m_vrInteractionData);
+            }
 
             m_heldInteractable = vRInteractable;
 
             if (m_heldInteractable != null)
+            {
                 m_heldInteractable.OnClick(m_vrInteractionData);
+                m_heldInteractable.OnSecondaryClick(m_vrInteractionData);
+            }
+        }
+
+        public void ForceRelease()
+        {
+            m_heldInteractable = null;
         }
 
         #region InputCallBacks
@@ -215,7 +225,7 @@ namespace Annotation
             {
                 callBack(m_heldInteractable);
 
-                if (m_heldInteractable.GetWhatIsHold() == whatIsHold)
+                if (m_heldInteractable != null && m_heldInteractable.GetWhatIsHold() == whatIsHold)
                     m_heldInteractable = null;
             }
         }

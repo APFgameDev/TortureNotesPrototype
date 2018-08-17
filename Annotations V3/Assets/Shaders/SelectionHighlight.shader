@@ -3,8 +3,7 @@
 Shader "Custom/SelectionHighlight" {
 	Properties {
         _MainTex("Albedo (RGB)", 2D) = "white" {}
-		    _Color("Tint", Color) = (1.0,1.0,1.0,1.0)
-		_MainTexSmoothness("MainTex Smoothness", Range(0,1)) = 0.94
+		_Color("Tint", Color) = (1.0,1.0,1.0,1.0)
         _MetallicGlossMap("_MetallicTex", 2D) = "white" {}
 		_BumpMap("NormalMap", 2D) = "bump" {}
 		_OcclusionMap("Occlusion", 2D) = "black" {}
@@ -18,10 +17,7 @@ Shader "Custom/SelectionHighlight" {
 	SubShader {
 
 
-		Tags {"Queue" = "Transparent" "RenderType"="Transparent" }
-		Blend SrcAlpha OneMinusSrcAlpha
-        ZWrite Off
-		Cull Back 
+		Tags {"Queue" = "Geometry" "RenderType"="Opaque" }
 		Pass
 		{
 			CGPROGRAM
@@ -48,8 +44,10 @@ Shader "Custom/SelectionHighlight" {
 				   v2f o;
 
 			   		v.vertex.xyz *= 1 + _HighLightSize;
-					o.vertex = UnityObjectToClipPos(v.vertex);
+					float3 forward = mul((float3x3)unity_CameraToWorld, float3(0,0,1));
 
+					o.vertex = UnityObjectToClipPos(v.vertex);
+					o.vertex.z -= 0.001;
 					return o;
 				}
 
@@ -61,10 +59,8 @@ Shader "Custom/SelectionHighlight" {
 			ENDCG
 		}
 
-		Tags { "RenderType"="Opaque" }
+		Tags { "Queue" = "Geometry" "RenderType"="Opaque" }
 		LOD 200
-		     ZWrite On
-		Cull Back 
 
 		CGPROGRAM
 		// Physically based Standard lighting model, and enable shadows on all light types
@@ -87,6 +83,9 @@ Shader "Custom/SelectionHighlight" {
 
 		struct Input {
 			float2 uv_MainTex;
+			float2 uv_BumpMap;
+			float2 uv_OcclusionMap;
+			float2 uv_MetallicGlossMap;
             INTERNAL_DATA
 		};
 		// Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
@@ -101,11 +100,11 @@ Shader "Custom/SelectionHighlight" {
             fixed4 texCol = tex2D(_MainTex,IN.uv_MainTex);
 
 			o.Albedo = texCol * _Color;
-			o.Normal = UnpackNormal(tex2D(_BumpMap, IN.uv_MainTex)) * _BumpScale;
-			o.Metallic = tex2D(_MetallicGlossMap, IN.uv_MainTex) * _Metallic;
+			o.Normal = UnpackNormal(tex2D(_BumpMap, IN.uv_BumpMap)) * _BumpScale;
+			o.Metallic = tex2D(_MetallicGlossMap, IN.uv_MetallicGlossMap) * _Metallic;
             o.Smoothness = _Glossiness;
-            o.Occlusion = lerp(1.0, tex2D(_OcclusionMap, IN.uv_MainTex), _OcclusionStrength);
-			o.Alpha = 1;
+            o.Occlusion = lerp(1.0, tex2D(_OcclusionMap, IN.uv_OcclusionMap), _OcclusionStrength);
+			o.Alpha = _Color.a;
 		}
 
 		ENDCG

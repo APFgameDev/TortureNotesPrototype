@@ -2,21 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VRAnnotatable : VRInteractable
+public class VRAnnotatable : VRGrabbable
 {
     [SerializeField]
     private GameObject m_annotationPrefab;
     [SerializeField]
     private float m_PlacementOffset;
     private bool m_isDrawing;
-
     [SerializeField]
-    private Annotation.SO.BoolReference m_IsTriggerHeld;
+    Annotation.SO.BoolVariable m_isEditing;
+
 
     private Transform m_CurrentInteractionHand = null;
 
     private float m_CalculatedPlacementOffset;
     private Vector3 m_highlightPlacePoint;
+    private Mesh mesh;
 
     private void Start()
     {
@@ -25,46 +26,58 @@ public class VRAnnotatable : VRInteractable
 
         if(meshFilter != null)
         {
-            Mesh mesh = meshFilter.mesh;
+            mesh = meshFilter.mesh;
             m_CalculatedPlacementOffset = mesh.bounds.extents.magnitude + m_PlacementOffset;
         }
 
         StickyHover = false;
     }
 
-    public void StartDrawing(VRInteractionData vrInteraction)
-    {           
-        if(m_isDrawing == false)
-        {
-            m_isDrawing = true;
-            m_CurrentInteractionHand = vrInteraction.m_handTrans;
-            m_highlightPlacePoint = m_hitPoint;
-        }
-    }
-
-    public void PlaceAnnotation(VRInteractionData vrInteraction)
+    public override void OnHoverExit(VRInteractionData vrInteraction)
     {
-        Vector3 randomPosition = Random.insideUnitCircle * m_CalculatedPlacementOffset;
-        randomPosition.y = Mathf.Abs(randomPosition.y);
-        randomPosition = Camera.main.transform.rotation * randomPosition + transform.position;
-        
-        VRAnnotation annotation = Instantiate(m_annotationPrefab, randomPosition, Quaternion.identity, transform).GetComponentInChildren<VRAnnotation>();
-        annotation.StartUp(m_highlightPlacePoint);
+        base.OnHoverExit(vrInteraction);
 
-        OnFinish();
-    }
-
-    public void StartDrag(VRInteractionData vrInteraction)
-    {     
         if (vrInteraction.m_handTrans == m_CurrentInteractionHand && m_isDrawing)
         {
             //get VRAnnotation componet call setup
             VRAnnotation vRAnnotation = Instantiate(m_annotationPrefab).GetComponentInChildren<VRAnnotation>();
             vrInteraction.m_laser.ForceHoldObject(vRAnnotation, false);
             vRAnnotation.transform.position = vrInteraction.GetClosestLaserPoint(m_highlightPlacePoint);
-            vRAnnotation.StartUp(m_highlightPlacePoint);
+            vRAnnotation.StartUp(m_highlightPlacePoint, transform, true);
             OnFinish();
         }
+    }
+
+    public override void OnClick(VRInteractionData vrInteraction)
+    {
+        base.OnClickRelease(vrInteraction);
+
+        if (m_isDrawing == false && m_isEditing.Value == false && m_grabed == false)
+        {
+            m_isDrawing = true;
+            m_CurrentInteractionHand = vrInteraction.m_handTrans;
+            m_highlightPlacePoint = m_hitPoint;
+        }
+
+    
+    }
+
+    public override void OnClickRelease(VRInteractionData vrInteraction)
+    {
+        base.OnClickRelease(vrInteraction);
+
+        if (m_isEditing.Value == true || m_grabed == true)
+            return;
+
+        Vector3 randomPosition = Vector3.zero;
+        randomPosition.x = Random.Range(-1f,1f) * m_CalculatedPlacementOffset * transform.lossyScale.magnitude;
+        randomPosition.y = Random.Range(1f, 3f) + mesh.bounds.extents.y * transform.lossyScale.magnitude;
+        randomPosition = Camera.main.transform.rotation * randomPosition + transform.position;
+
+        VRAnnotation annotation = Instantiate(m_annotationPrefab, randomPosition, Quaternion.identity, null).GetComponentInChildren<VRAnnotation>();
+        annotation.StartUp(m_highlightPlacePoint, transform, false);
+        //   annotation.UpdateLineRendererPosition();'
+        OnFinish();
     }
 
     public void RemoveAll()

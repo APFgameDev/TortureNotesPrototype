@@ -11,6 +11,9 @@ public class VR_UI_Interactable : VRInteractable
     [SerializeField]
     protected Vector3 m_boxColliderOffset = Vector3.zero;
 
+    [SerializeField]
+    bool m_useBoxCollider = true;
+
     private BoxCollider m_boxCollider;
 
     private const float BOX_COLLIDER_Z_THICKNESS = 0.01f;
@@ -24,13 +27,13 @@ public class VR_UI_Interactable : VRInteractable
     {
         if (selectableRect == null)
             selectableRect = GetComponent<RectTransform>();
-        if (GetComponent<BoxCollider>() == null)
+        if (GetComponent<BoxCollider>() == null && m_useBoxCollider == true)
             m_boxCollider = RectTransformMathUtility.AddTriggerBoxToRectTransform(selectableRect, m_boxColliderOffset, GetRelativeZThickness());
     }
 
     private void OnRectTransformDimensionsChange()
     {
-        if (selectableRect != null)
+        if (selectableRect != null && m_boxCollider != null)
             RectTransformMathUtility.SetBoxCollidersizeToRect(selectableRect.rect, m_boxColliderOffset, m_boxCollider, GetRelativeZThickness());
     }
 

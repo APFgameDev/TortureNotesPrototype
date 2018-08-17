@@ -28,6 +28,11 @@ namespace Annotation.SO
         /// <param name="a_ToSubscribe">Listener to invoke</param>
         public void SubscribeListener(VoidEventListener a_ToSubscribe)
         {
+            if(a_ToSubscribe == null)
+            {
+                return;
+            }
+
             if (!m_Listeners.Contains(a_ToSubscribe))
             {
                 m_Listeners.Add(a_ToSubscribe);
@@ -40,7 +45,12 @@ namespace Annotation.SO
         /// <param name="a_ToSubscribe"></param>
         public void SubscribeListener(VoidEventMultiListener a_ToSubscribe)
         {
-            if(!m_MultiListeners.Contains(a_ToSubscribe))
+            if (a_ToSubscribe == null)
+            {
+                return;
+            }
+
+            if (!m_MultiListeners.Contains(a_ToSubscribe))
             {
                 m_MultiListeners.Add(a_ToSubscribe);
             }
@@ -62,6 +72,12 @@ namespace Annotation.SO
             {
                 m_MultiListeners.Remove(a_ToUnsubscribe);
             }
+        }
+
+        private void OnEnable()
+        {
+            m_Listeners.Clear();
+            m_MultiListeners.Clear();
         }
 
     }

@@ -32,9 +32,12 @@ public class VRSelectableHandler : VR_UI_Interactable
             selectable.OnPointerEnter(new PointerEventData(EventSystem.current));
         }
 
-        numSelecting++;
+   
 
-        base.OnHoverEnter(vrInteraction);
+        if (selectable.interactable && numSelecting <= 0)
+            base.OnHoverEnter(vrInteraction);
+
+        numSelecting++;
     }
 
     override public void OnHoverExit(VRInteractionData vrInteraction)
@@ -42,11 +45,10 @@ public class VRSelectableHandler : VR_UI_Interactable
         numSelecting--;
 
         if (numSelecting == 0 && selectable != null)
-        {
             selectable.OnPointerExit(new PointerEventData(EventSystem.current));
-        }
 
-        base.OnHoverExit(vrInteraction);
+        if (selectable.interactable && numSelecting <= 0)
+            base.OnHoverExit(vrInteraction);
     }
 
     override public void OnClick(VRInteractionData vrInteraction)
@@ -59,6 +61,7 @@ public class VRSelectableHandler : VR_UI_Interactable
         if (clickHandler != null)
             clickHandler.OnPointerClick(pointerEventData);
 
-        base.OnClick(vrInteraction);
+        if (selectable.interactable)
+            base.OnClick(vrInteraction);
     }
 }

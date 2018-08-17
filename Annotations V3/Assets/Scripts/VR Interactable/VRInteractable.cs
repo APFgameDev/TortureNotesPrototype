@@ -4,6 +4,11 @@ using Annotation;
 
 public class VRInteractable : MonoBehaviour
 {
+    [SerializeField]
+    bool isInteractable = true;
+
+    public bool m_interactable { get { return isInteractable; } set { isInteractable = value; } }
+
     public Vector3 m_hitPoint;
 
     protected bool m_stickyHover = true;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Annotation.SO;
+using TMPro;
 
 public abstract class KeyboardKey : MonoBehaviour
 {
@@ -12,33 +13,57 @@ public abstract class KeyboardKey : MonoBehaviour
     [SerializeField]
     private ColorSO m_HitColor;
 
-    [Header("Timing for color lerping")]
-    [SerializeField]
-    private FloatRangeSO m_ColorHoverEnterLerpTime;
-
-    [SerializeField]
-    private FloatRangeSO m_ColorHoverExitLerpTime;
-
-    [SerializeField]
-    private FloatRangeSO m_ColorHitLerpTime;
-
     [Header("Main Keyboard")]
     [SerializeField]
     protected KeyboardSO m_KeyboardSO;
 
-    [SerializeField]
-    private IntVariable m_HitAngle;
-        
+    [Header("Key Geometry to be animated")]
+    [SerializeField] protected GameObject m_KeyGeometry;
+
     private byte m_TriggerCount;
-    private Color m_OriginalColor;    
+    private Color m_OriginalColor;
     private Color m_PreviousColor;
     private Material m_Material;
 
+    [Header("Animation variables")]
+    [SerializeField] protected Vector3 m_NormalPos;
+    [SerializeField] protected float m_AnimationSpeed = 5.0f;
+    [SerializeField] protected bool m_AnimateKey;
+    [SerializeField] MeshRenderer m_KeyButtonMesh;
+    protected bool m_IsAnimating = false;
+
+    [Header("Can you hold the key down for continous input?")]
+    [SerializeField] private bool m_SpamKey = true;
+
+    [Header("Audio Manager SO")]
+    [SerializeField] private AudioManagerSO m_AudioManagerSO;
+
+    [Header("Text Object Associated with this Key")]
+    [SerializeField] protected TextMeshProUGUI m_TextObject;
+
+    //Spam key input variables
+    private bool m_StartKeyDowntimer = false;
+    private float m_HeldKeyDownTimer;
+    private float m_HeldKeyDownTimerAmount = 0.6f;
+
+    private float m_SpamKeyTimer;
+    private float m_SpamKeyTimerAmount = 0.1f;
+
     protected virtual void Awake()
     {
-        m_Material = GetComponent<MeshRenderer>().material;
+        m_HeldKeyDownTimer = m_HeldKeyDownTimerAmount;
+        m_SpamKeyTimer = m_SpamKeyTimerAmount;
 
-        if (m_Material != null)
+        if (m_KeyButtonMesh != null)
+        {
+            m_Material = m_KeyButtonMesh.material;
+        }
+        else
+        {
+            Debug.Log("Key Button Mesh has not been set in " + this);
+        }
+
+        if (m_KeyButtonMesh != null)
         {
             m_OriginalColor = m_Material.color;
             m_PreviousColor = m_OriginalColor;
@@ -55,11 +80,52 @@ public abstract class KeyboardKey : MonoBehaviour
     /// </summary>
     protected abstract void OnHit();
 
+    protected virtual void Update()
+    {
+        //Check if the key is being held down
+        //If so and they have it held for more than 1 second, spam that key's input
+        if (m_SpamKey == true)
+        {
+            if (m_StartKeyDowntimer == true)
+            {
+                m_HeldKeyDownTimer -= Time.deltaTime;
+
+                if (m_HeldKeyDownTimer <= 0.0f)
+                {
+                    m_SpamKeyTimer -= Time.deltaTime;
+
+                    //Spam the keys at a giving time
+                    if (m_SpamKeyTimer <= 0.0f)
+                    {
+                        OnHit();
+                        m_SpamKeyTimer = m_SpamKeyTimerAmount;
+                    }
+                }
+            }
+        }
+
+        //If we want the key to animate
+        if (m_AnimateKey == true)
+        {
+            if (m_IsAnimating)
+            {
+                m_KeyGeometry.transform.localPosition = Vector3.Lerp(m_KeyGeometry.transform.localPosition, m_NormalPos, Time.deltaTime * m_AnimationSpeed);
+
+                //Check if we have arrived at our target destination
+                float distanceBetweenPoints = Vector3.Distance(m_KeyGeometry.transform.localPosition, m_NormalPos);
+                if (distanceBetweenPoints <= 0.01f)
+                {
+                    m_IsAnimating = false;
+                }
+            }
+        }
+    }
+
     #region OnHover Functions
     /// <summary>
     /// Called when the mallet enters the trigger box of the key
     /// </summary>
-    protected virtual void OnHoverEnter()
+    public virtual void OnHoverEnter()
     {
         //Only call the hover enter code for the first object triggering it
         if (m_TriggerCount < 1)
@@ -73,7 +139,7 @@ public abstract class KeyboardKey : MonoBehaviour
     /// <summary>
     /// Called when the mallet exits the trigger box of the key
     /// </summary>
-    protected virtual void OnHoverExit()
+    public virtual void OnHoverExit()
     {
         //Only call the hover exit code for the last object triggering it
         if (m_TriggerCount <= 1)
@@ -95,16 +161,22 @@ public abstract class KeyboardKey : MonoBehaviour
     /// </summary>
     public virtual void OnHitEnter(Collider other)
     {
-        Vector3 direction = other.gameObject.transform.position - transform.position;
+        Vector3 direction = other.transform.position - transform.position;
+        float dot = Vector3.Dot(direction.normalized, transform.up);
 
-        float angleBetween = Vector3.Angle(transform.up.normalized, direction.normalized);
-
-        if (angleBetween < m_HitAngle.Value)
+        //Are we above the key?
+        if (dot >= 0.5f)
         {
             SetMaterialColor(m_HitColor.m_Value);
 
             //Call the on hit
             OnHit();
+
+            //Play the clip
+            m_AudioManagerSO.m_AudioManager.PlaySound();
+
+            //Start the timer
+            m_StartKeyDowntimer = true;
         }
     }
 
@@ -116,32 +188,18 @@ public abstract class KeyboardKey : MonoBehaviour
         if (m_TriggerCount < 1)
         {
             SetMaterialColor(m_PreviousColor);
-            Debug.Log("Color changed back to previous color.", this);
         }
         else
         {
             SetMaterialColor(m_HoverColor.m_Value);
         }
-    }
 
-    #endregion
+        //Start the animation
+        m_IsAnimating = true;
 
-    #region OnPhysics Functions
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Keyboard Mallet")
-        {
-            OnHoverEnter();
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Keyboard Mallet")
-        {
-            OnHoverExit();
-        }
+        //Reset the timer
+        m_StartKeyDowntimer = false;
+        m_HeldKeyDownTimer = m_HeldKeyDownTimerAmount;
     }
 
     #endregion
@@ -153,10 +211,9 @@ public abstract class KeyboardKey : MonoBehaviour
     /// </summary>
     /// <param name="newColor"></param>
     public void SetMaterialColor(Color newColor)
-    {        
+    {
         m_Material.color = newColor;
     }
-
     #endregion
 }
 

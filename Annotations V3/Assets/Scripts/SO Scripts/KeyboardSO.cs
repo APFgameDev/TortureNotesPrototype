@@ -15,9 +15,9 @@ namespace Annotation.SO
         public VoidEvent m_DoneTypingEvent;
         public VoidEvent m_TurnOffEvent;
         public VoidEvent m_TurnOnEvent;
-
-        [SerializeField]
-        private StringVariable m_KeyboardInputSO;
+        
+        public StringVariable m_KeyboardInputSO;
+        public BoolVariable m_IsKeyboardActive;
 
         /// <summary>
         /// Will add the passed in character string to the KeyboardInputSO
@@ -44,11 +44,13 @@ namespace Annotation.SO
         {
             m_KeyboardInputSO.Value = string.Empty;
             m_TurnOnEvent.Publish();
+            m_IsKeyboardActive.Value = true;
         }
 
         public void InvokeTurnOff()
         {
             m_TurnOffEvent.Publish();
+            m_IsKeyboardActive.Value = false;
         }
     }
 }

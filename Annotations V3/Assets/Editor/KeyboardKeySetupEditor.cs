@@ -13,7 +13,7 @@ public class KeyboardKeySetupEditor : Editor
 
         if (GUILayout.Button("Place Keys"))
         {
-            myScript.SetKeys();
+            myScript.SetHorzontalSpacingForKeysWithSlider();
         }
     }
 }

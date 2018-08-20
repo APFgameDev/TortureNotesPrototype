@@ -4,61 +4,267 @@ using UnityEngine;
 
 public class KeyboardKeySetup : MonoBehaviour
 {
-    public GameObject[] m_Keys;
+    [Header("The object that is the middle of the left and right keys")]
+    [SerializeField] private GameObject m_CenterObject;
+    [Header("Is center object a key?")]
+    [SerializeField] private bool m_IsCenterObjectAKey;
 
-    [Range(0.0f, 1.0f)]
-    public float m_KeyHorizontalSpacing;
+    [Header("Keys")]
+    [SerializeField] private GameObject[] m_LeftSideKeys;
+    [SerializeField] private GameObject[] m_RightSideKeys;
 
-    public void SetKeys()
+    [Header("Offset that is added to the keys for spacing")]
+    public float m_HozirontalOffset = 0.22f;
+
+    [Header("Value added to the offset based on the sliders value")]
+    public float m_HozirontalOffsetAddPerSliderValue = 0.02f;
+
+    [Header("Use this to see what the spacing is going to look like")]
+    [Range(0.0f, 1.0f)] public float m_InspectorKeyHorizontalSpacing = 0.22f;
+
+
+    public void SetHorzontalSpacingForKeysWithValue(int sliderValue)
     {
-        Vector3 previousPosition = m_Keys[0].transform.localPosition;
-
-        int halfIndex = (m_Keys.Length / 2);
-
-        List<GameObject> LeftList = new List<GameObject>();
-        List<GameObject> RightList = new List<GameObject>();
-
-        for (int i = halfIndex + 1; i < m_Keys.Length; i++)
+        if (m_IsCenterObjectAKey)
         {
-            RightList.Add(m_Keys[i]);
+            UpdateHorizontalSpacingWithKeyCenterObject(sliderValue);
         }
-
-        for (int i = halfIndex - 1; i >= 0; i--)
+        else
         {
-            LeftList.Add(m_Keys[i]);
-        }
-
-        Vector3 prevPos = m_Keys[halfIndex].transform.localPosition;
-        //Add offset to right side
-        for (int i = 0; i < RightList.Count; i++)
-        {
-            Vector3 newPos = prevPos;
-            newPos.x += m_KeyHorizontalSpacing;
-            RightList[i].transform.localPosition = newPos;
-
-            prevPos = RightList[i].transform.localPosition;
-        }
-
-        //prevPos = m_Keys[halfIndex].transform.localPosition;
-        ////Add offset to left side
-        //for (int i = LeftList.Count - 1; i >= 0; i--)
-        //{
-        //    Vector3 newPos = prevPos;
-        //    newPos.x -= m_KeyHorizontalSpacing;
-        //    LeftList[i].transform.localPosition = newPos;
-        //
-        //    prevPos = LeftList[i].transform.localPosition;
-        //}
-
-        prevPos = m_Keys[halfIndex].transform.localPosition;
-        //Add offset to left side
-        for (int i = 0; i < LeftList.Count; i++)
-        {
-            Vector3 newPos = prevPos;
-            newPos.x -= m_KeyHorizontalSpacing;
-            LeftList[i].transform.localPosition = newPos;
-
-            prevPos = LeftList[i].transform.localPosition;
+            UpdateHorizontalSpacingWithCenterObject(sliderValue);
         }
     }
+
+    private void UpdateHorizontalSpacingWithCenterObject(float sliderValue)
+    {
+        float offset = m_HozirontalOffset;
+
+        for (int i = 0; i < sliderValue; i++)
+        {
+            offset += m_HozirontalOffsetAddPerSliderValue;
+        }
+
+        Vector3 rightPreviousPosition = m_CenterObject.transform.localPosition;
+        Vector3 leftPreviousPosition = m_CenterObject.transform.localPosition;
+
+        //Add offset to right side
+        for (int i = 0; i < m_RightSideKeys.Length; i++)
+        {
+            Vector3 newPos = rightPreviousPosition;
+
+            //First key
+            if (i == 0)
+            {
+                newPos.x += offset / 2;
+            }
+            else
+            {
+                newPos.x += offset;
+            }
+
+            m_RightSideKeys[i].transform.localPosition = newPos;
+
+            rightPreviousPosition = m_RightSideKeys[i].transform.localPosition;
+        }
+
+        //Add offset to left side
+        for (int i = m_LeftSideKeys.Length - 1; i >= 0; i--)
+        {
+            Vector3 newPos = leftPreviousPosition;
+
+            //Only add half the offset for the first set of keys
+            if (i == m_LeftSideKeys.Length - 1)
+            {
+                newPos.x -= offset / 2;
+            }
+            else
+            {
+                newPos.x -= offset;
+            }
+
+
+            m_LeftSideKeys[i].transform.localPosition = newPos;
+
+            leftPreviousPosition = m_LeftSideKeys[i].transform.localPosition;
+        }
+    }
+
+    private void UpdateHorizontalSpacingWithKeyCenterObject(float sliderValue)
+    {
+        float offset = m_HozirontalOffset;
+
+        for (int i = 0; i < sliderValue; i++)
+        {
+            offset += m_HozirontalOffsetAddPerSliderValue;
+        }
+
+        Vector3 rightPreviousPosition = m_CenterObject.transform.localPosition;
+        Vector3 leftPreviousPosition = m_CenterObject.transform.localPosition;
+
+        //This offset is to account for the fact we are starting on a key as the center position,
+        //So we need to add half the offset to account for the starting position
+        rightPreviousPosition.x += m_HozirontalOffset / 2;
+        leftPreviousPosition.x -= m_HozirontalOffset / 2;
+
+
+        //Add offset to right side
+        for (int i = 0; i < m_RightSideKeys.Length; i++)
+        {
+            Vector3 newPos = rightPreviousPosition;
+
+            //First key
+            if (i == 0)
+            {
+                newPos.x += offset / 2;
+            }
+            else
+            {
+                newPos.x += offset;
+            }
+
+            m_RightSideKeys[i].transform.localPosition = newPos;
+
+            rightPreviousPosition = m_RightSideKeys[i].transform.localPosition;
+        }
+
+        //Add offset to left side
+        for (int i = m_LeftSideKeys.Length - 1; i >= 0; i--)
+        {
+            Vector3 newPos = leftPreviousPosition;
+
+            //Only add half the offset for the first set of keys
+            if (i == m_LeftSideKeys.Length - 1)
+            {
+                newPos.x -= offset / 2;
+            }
+            else
+            {
+                newPos.x -= offset;
+            }
+
+
+            m_LeftSideKeys[i].transform.localPosition = newPos;
+
+            leftPreviousPosition = m_LeftSideKeys[i].transform.localPosition;
+        }
+    }
+
+    #region Inspector Functions
+
+    /// <summary>
+    /// Used by the button in the inspector to show the spacing for the keys
+    /// </summary>
+    public void SetHorzontalSpacingForKeysWithSlider()
+    {
+        if (m_IsCenterObjectAKey)
+        {
+            UpdateHorizontalSpacingWithKeyCenterObjectWithSlider();
+        }
+        else
+        {
+            UpdateHorizontalSpacingWithCenterObjectWithSlider();
+        }
+    }
+
+    private void UpdateHorizontalSpacingWithCenterObjectWithSlider()
+    {
+        Vector3 rightPreviousPosition = m_CenterObject.transform.localPosition;
+        Vector3 leftPreviousPosition = m_CenterObject.transform.localPosition;
+
+        //Add offset to right side
+        for (int i = 0; i < m_RightSideKeys.Length; i++)
+        {
+            Vector3 newPos = rightPreviousPosition;
+
+            //First key
+            if (i == 0)
+            {
+                newPos.x += m_InspectorKeyHorizontalSpacing / 2;
+            }
+            else
+            {
+                newPos.x += m_InspectorKeyHorizontalSpacing;
+            }
+
+            m_RightSideKeys[i].transform.localPosition = newPos;
+
+            rightPreviousPosition = m_RightSideKeys[i].transform.localPosition;
+        }
+
+        //Add offset to left side
+        for (int i = m_LeftSideKeys.Length - 1; i >= 0; i--)
+        {
+            Vector3 newPos = leftPreviousPosition;
+
+            //Only add half the offset for the first set of keys
+            if (i == m_LeftSideKeys.Length - 1)
+            {
+                newPos.x -= m_InspectorKeyHorizontalSpacing / 2;
+            }
+            else
+            {
+                newPos.x -= m_InspectorKeyHorizontalSpacing;
+            }
+
+
+            m_LeftSideKeys[i].transform.localPosition = newPos;
+
+            leftPreviousPosition = m_LeftSideKeys[i].transform.localPosition;
+        }
+    }
+
+    private void UpdateHorizontalSpacingWithKeyCenterObjectWithSlider()
+    {
+        Vector3 rightPreviousPosition = m_CenterObject.transform.localPosition;
+        Vector3 leftPreviousPosition = m_CenterObject.transform.localPosition;
+
+        //This offset is to account for the fact we are starting on a key as the center position,
+        //So we need to add half the offset to account for the starting position
+        rightPreviousPosition.x += m_InspectorKeyHorizontalSpacing / 2;
+        leftPreviousPosition.x -= m_InspectorKeyHorizontalSpacing / 2;
+
+        //Add offset to right side
+        for (int i = 0; i < m_RightSideKeys.Length; i++)
+        {
+            Vector3 newPos = rightPreviousPosition;
+
+            //First key
+            if (i == 0)
+            {
+                newPos.x += m_InspectorKeyHorizontalSpacing / 2;
+            }
+            else
+            {
+                newPos.x += m_InspectorKeyHorizontalSpacing;
+            }
+
+            m_RightSideKeys[i].transform.localPosition = newPos;
+
+            rightPreviousPosition = m_RightSideKeys[i].transform.localPosition;
+        }
+
+        //Add offset to left side
+        for (int i = m_LeftSideKeys.Length - 1; i >= 0; i--)
+        {
+            Vector3 newPos = leftPreviousPosition;
+
+            //Only add half the offset for the first set of keys
+            if (i == m_LeftSideKeys.Length - 1)
+            {
+                newPos.x -= m_InspectorKeyHorizontalSpacing / 2;
+            }
+            else
+            {
+                newPos.x -= m_InspectorKeyHorizontalSpacing;
+            }
+
+
+            m_LeftSideKeys[i].transform.localPosition = newPos;
+
+            leftPreviousPosition = m_LeftSideKeys[i].transform.localPosition;
+        }
+    }
+
+
+    #endregion
 }

@@ -10,12 +10,20 @@ public class VRKeyboard : Keyboard
     private KeyboardSO m_KeyboardSO;
 
     [Header("Keys for switching state")]
-    public GameObject m_AlphabetKeys;
-    public GameObject m_PunctuationKeys;
+    public GameObject[] m_AlphabetKeyParentObjects;
+    public GameObject[] m_PunctuationKeyParentObjects;
+
+    [Header("Panels for keyboard display")]
+    [SerializeField] private GameObject m_TextPanel;
+    [SerializeField] private GameObject m_OptionsPanel;
+
+    [Header("Publish these events when when you Open/Close the options menu")]
+    [SerializeField] private VoidEvent m_OptionsMenuOpenEvent;
+    [SerializeField] private VoidEvent m_OptionsMenuCloseEvent;
 
     private void Awake()
     {
-        SetActive(false);
+        m_KeyboardSO.InvokeTurnOn();
     }
 
     public void ToggleCaps()
@@ -31,11 +39,47 @@ public class VRKeyboard : Keyboard
     public void DoneTyping()
     {
         m_KeyboardSO.m_DoneTypingEvent.Publish();
+
+        InvokeTurnOffInKeyboardSO();
     }
 
     public void SwitchKeys()
     {
-        m_AlphabetKeys.SetActive(!m_AlphabetKeys.activeInHierarchy);
-        m_PunctuationKeys.SetActive(!m_PunctuationKeys.activeInHierarchy);
+        foreach (GameObject obj in m_AlphabetKeyParentObjects)
+        {
+            obj.SetActive(!obj.activeInHierarchy);
+        }
+
+        foreach (GameObject obj in m_PunctuationKeyParentObjects)
+        {
+            obj.SetActive(!obj.activeInHierarchy);
+        }
+    }
+
+    public void CancelTyping()
+    {
+        m_KeyboardSO.InvokeTurnOff();
+    }
+
+    public void ClearString()
+    {
+        m_KeyboardSO.m_KeyboardInputSO.Value = string.Empty;
+    }
+
+    public void InvokeTurnOnInKeyboardSO()
+    {
+        m_KeyboardSO.InvokeTurnOn();
+    }
+
+    public void InvokeTurnOffInKeyboardSO()
+    {
+        m_KeyboardSO.InvokeTurnOff();
+    }
+
+    public void ToggleKeyboardCanvas()
+    {
+        m_TextPanel.SetActive(!m_TextPanel.activeInHierarchy);
+
+        m_OptionsPanel.SetActive(!m_TextPanel.activeInHierarchy);
     }
 }

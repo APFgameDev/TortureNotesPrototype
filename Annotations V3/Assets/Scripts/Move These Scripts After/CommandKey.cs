@@ -13,6 +13,12 @@ public class CommandKey : KeyboardKey
         if(m_Command != null)
         {
             m_Command.Invoke();
+
+            if (m_AnimateKey == true)
+            {
+                Vector3 newPos = new Vector3(m_KeyGeometry.transform.localPosition.x, 1.5f, m_KeyGeometry.transform.localPosition.z);
+                m_KeyGeometry.transform.localPosition = newPos;
+            }
         }
         else
         {

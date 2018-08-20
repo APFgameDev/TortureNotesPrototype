@@ -3,7 +3,18 @@ guid: 3a06e4742e03e9e468b7ea2b8861549b
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
+  - m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
+  - m_ColorHoverEnterLerpTime: {fileID: 11400000, guid: b228e369b922c2944a56ae48d6ab8b33,
+      type: 2}
+  - m_ColorHoverExitLerpTime: {fileID: 11400000, guid: 7de8a103bfff410418060586525a7c25,
+      type: 2}
+  - m_ColorHitLerpTime: {fileID: 11400000, guid: dc84edacce545cb409abbac4eb8282be,
+      type: 2}
+  - m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
+  - m_HitAngle: {instanceID: 0}
+  - m_AudioManagerSO: {fileID: 11400000, guid: 9e821391d87dc0c4e86869d233d0a052, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

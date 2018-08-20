@@ -19,6 +19,4 @@ public class VRUser : MonoBehaviour
         m_RightHand.localPosition = InputTracking.GetLocalPosition(XRNode.RightHand);
         m_RightHand.localRotation = InputTracking.GetLocalRotation(XRNode.RightHand);
     }
-
-    
 }

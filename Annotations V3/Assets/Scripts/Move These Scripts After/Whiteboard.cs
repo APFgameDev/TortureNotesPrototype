@@ -49,7 +49,7 @@ public class Whiteboard : MonoBehaviour
     /// <param name="note"></param>
     public void AddStickyNote(StickyNote note)
     {
-        note.gameObject.transform.parent.SetParent(m_WhiteboardStickyArea);
+        note.transform.parent.SetParent(m_WhiteboardStickyArea);
         note.SetBackToParent();
     }
 

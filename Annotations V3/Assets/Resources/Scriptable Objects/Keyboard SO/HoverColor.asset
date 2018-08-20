@@ -11,4 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 016bb7709548ee64e8c36d88db79a46b, type: 3}
   m_Name: HoverColor
   m_EditorClassIdentifier: 
-  m_Value: {r: 0, g: 1, b: 0.04240513, a: 0}
+  m_Value: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 244dbc12375a7c443b072d7dd0f30eca, type: 3}
+  m_Name: RightGrip
+  m_EditorClassIdentifier: 
+  OnPressed: {fileID: 11400000, guid: 24e1094e6a7272e41bdfb4b5f7eb0c16, type: 2}
+  OnHeld: {fileID: 11400000, guid: 1c95aa1ccba2d2f4e9e80cae4c1735a2, type: 2}
+  OnReleased: {fileID: 11400000, guid: 57879b260cbf92947821e006ee57a1b2, type: 2}
+  inputPressed: {fileID: 11400000, guid: 9720bbcf3f41fdf468804a0f3a7506fc, type: 2}

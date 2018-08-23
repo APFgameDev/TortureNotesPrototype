@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 244dbc12375a7c443b072d7dd0f30eca, type: 3}
+  m_Name: LeftGrip
+  m_EditorClassIdentifier: 
+  OnPressed: {fileID: 11400000, guid: 18ef91cab0186fe4fbefd8c952b5a301, type: 2}
+  OnHeld: {fileID: 11400000, guid: 1c1f45744eb3dd346a8e81a7957ca3a1, type: 2}
+  OnReleased: {fileID: 11400000, guid: bd963a91efc11854387527e74eb11f7c, type: 2}
+  inputPressed: {fileID: 11400000, guid: 88df5642eac45854cac64b78a42b2be6, type: 2}

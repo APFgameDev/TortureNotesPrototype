@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: 8909fe5b6021e564d845294dc2e94c81
+  - enabled: 1
+    path: Assets/Scenes/Art Studio.unity
+    guid: 2b28c300bf0b22341bcf29d6d66c9d8e
+  - enabled: 1
+    path: Assets/Scenes/Forest.unity
+    guid: 3968a21f23951b942811bf09fca9e1a0
+  - enabled: 1
+    path: Assets/Scenes/Teeth.unity
+    guid: 10bb3620774e9ad40ab000baa3820758
+  m_configObjects: {}

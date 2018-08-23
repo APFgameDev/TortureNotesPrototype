@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: c12977beeca136345951c9d51d416b3f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
+  - m_InputString: {fileID: 11400000, guid: 710f2553354bf3844be9d8d954f87321, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

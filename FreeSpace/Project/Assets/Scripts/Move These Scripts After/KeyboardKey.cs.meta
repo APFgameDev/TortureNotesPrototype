@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 3a06e4742e03e9e468b7ea2b8861549b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_HoverColor: {fileID: 11400000, guid: 5d818e5810b522644b2f2faa5d5a3eb1, type: 2}
+  - m_HitColor: {fileID: 11400000, guid: 2d0c1a60e2726cf4e9acbde28de56284, type: 2}
+  - m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
+  - m_KeyGeometry: {instanceID: 0}
+  - m_KeyButtonMesh: {instanceID: 0}
+  - m_AudioManagerSO: {fileID: 11400000, guid: 9e821391d87dc0c4e86869d233d0a052, type: 2}
+  - m_TextObject: {instanceID: 0}
+  - m_IsInKeyboardOptions: {instanceID: 0}
+  - onOptionsOpened: {fileID: 11400000, guid: 480e08fe0ae970942b266e929f0549da, type: 2}
+  - onOptionsClosed: {fileID: 11400000, guid: 7bd7e7df6aafe5b43b968b5a2e33fb97, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ef92e31a1bd03a14e9c61fd32c4776d4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - selectionMesh: {instanceID: 0}
+  - m_annotationPrefab: {fileID: 1242483389641454, guid: b0fa6129514339646b307e827bccc3b3,
+      type: 2}
+  - m_isEditing: {fileID: 11400000, guid: ff5da405f75a3bd47b5591e4343d2199, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

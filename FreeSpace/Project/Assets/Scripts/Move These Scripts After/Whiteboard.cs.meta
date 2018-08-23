@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 38e6e084d53026a4797593d97bf47285
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_StickyNotePrefab: {instanceID: 0}
+  - m_Workbar: {instanceID: 0}
+  - m_WhiteboardStickyArea: {instanceID: 0}
+  - m_KeyboardSO: {fileID: 11400000, guid: 93f221d0a77adf54192986ef730dcace, type: 2}
+  - m_DoneEditingStickyNote: {fileID: 11400000, guid: fc2f3fa44b862544fb8dfe3c61c5ecb7,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
